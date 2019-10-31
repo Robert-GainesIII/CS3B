@@ -106,7 +106,7 @@ _start:
 	LDR R1, =cCR
 	bl putch
 	
-	b end 
+	b end
 
 @INPUT CREATES TWO DYNAMICALLY ALLOCATED STRINGS
 @USES BUFFER OF 512 BYTES 
@@ -196,6 +196,7 @@ toUpper:
 	push {lr}
 	LDR r3, [r1]
 	LDR r4, [r2]
+	MOV r1, r3
 	bl String_length
 	mov r8, r0
 	MOV r1, r4
