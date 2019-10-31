@@ -68,6 +68,10 @@ _start:
 	LDR R1, =strMsg3
 	bl putstring
 
+	LDR R1, =strVal1
+	LDR R2, =strVal2
+	bl toUpper
+
 	LDR R1, =strMsg4
 	bl putstring
 
@@ -187,8 +191,66 @@ endloop2:
 	BX LR
 	
 @===============================@
+@===============================@
+toUpper:
+	push {lr}
+	LDR r3, [r1]
+	LDR r4, [r2]
+	bl String_length
+	mov r8, r0
+	MOV r1, r4
+	bl String_length
+	mov r9, r0
+firstLoop:
+	cmp r8, #0
+	beq secondLoop
+	ldrb r7, [r3]
+	cmp r7, #97
+	blt nextChar
+	cmp r7, #122
+	bgt nextChar
+	sub r7, #32
+	strb r7, [r3],#1
+	sub r8, #1
+	b firstLoop
+nextChar:
+	add r3, #1
+	sub r8, #1
+	b firstLoop
+secondLoop:
+	cmp r9, #0
+	beq endUpper
+	ldrb r7, [r4]
+	cmp r7, #97
+	blt nextChar2
+	cmp r7, #122
+	bgt nextChar2
+	sub r7, #32
+	strb r7, [r4], #1
+	sub r9, #1
+	b secondLoop
 
+nextChar2:
+	add r4, #1
+	sub r9, #1
+	b secondLoop
+
+endUpper:
+	pop {lr}
+	bx lr
+@===============================@
 end: 
+	
+	LDR R0, =strVal1
+	LDR r0, [r0]
+	BL free 
+	LDR R0, =strVal2
+	LDR r0, [r0]
+	BL free
+
+	LDR r1, =strEnd
+	bl putstring
+
 	mov r7, #1
 	svc 0
 
