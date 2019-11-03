@@ -15,6 +15,7 @@ String_indexOf_1:
 
 	mov r4, r1
 	mov r5, r2
+	LDR R1, [R1]
 	bl String_length
 	mov r6, r0
 
