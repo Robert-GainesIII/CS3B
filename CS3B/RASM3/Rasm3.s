@@ -75,7 +75,8 @@ _start:
 	BL putstring
 	
 	BL _input 
-
+	
+	//==================================
 	LDR R1, =strMsg3
 	BL putstring
 	
@@ -87,7 +88,7 @@ _start:
 	
 	LDR R1, =newline
 	bl putstring
-
+	//==================================
 	LDR R1, =strMsg4
 	BL putstring
 	
@@ -96,8 +97,10 @@ _start:
 	LDR R1, =temp
 	bl intasc32
 	bl putstring
-	
-	
+
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg5
 	BL putstring
 	
@@ -107,7 +110,9 @@ _start:
 	bl intasc32
 	bl putstring
 	
-	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	/*
 	LDR R1, =strMsg6
 	BL putstring
@@ -140,33 +145,71 @@ _start:
 	BL putstring
 	*/
 	
+	//=================================
 	LDR R1, =strMsg16
 	BL putstring
 	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg17
 	BL putstring
 	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg18
 	BL putstring
 	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg19
 	BL putstring
 	
+	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg20
 	BL putstring
 	
+	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg21
 	BL putstring
 	
+	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg22
 	BL putstring
 	
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg23
 	BL putstring
 	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	LDR R1, =strMsg24
 	BL putstring
 	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	
 	
 	
