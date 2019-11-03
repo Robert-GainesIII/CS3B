@@ -1,6 +1,6 @@
 @*****************************************************************************
 @AUTHOR:		Robert Gaines
-@PROGRAM:   	+String_indexOf_2(string1:String,ch:char,fromIndex:int):int     
+@PROGRAM:   	+String_lastIndexOf_2(string1:String,ch:char,fromIndex:int):int     
 @[R1]:			points to address of string being searched
 @[R2]:			contains the char to search for
 @[R3]:			contains index to start at
@@ -9,9 +9,9 @@
 @
 @*****************************************************************************
 
-.global String_indexOf_2
+.global String_lastIndexOf_2
 
-String_indexOf_2:
+String_lastIndexOf_2:
 	push {r1-r2, lr}
 
 	mov r5, r2
@@ -20,20 +20,20 @@ String_indexOf_2:
 	mov r4, r1
 	
 
-indexOf_2Loop:
+lastIndexOf_2Loop:
 	cmp r6, #0
-	beq indexNotFound2
+	beq lastIndexNotFound2
 	ldrb r7, [r4,r6]
 	cmp r7, r5
-	beq indexFound2
+	beq lastIndexFound2
 	sub r6,#1
-	b indexOf_2Loop
-indexFound2:
+	b lastIndexOf_2Loop
+lastIndexFound2:
 	mov r0, r6
-	b end_indexof_2
-indexNotFound2:
+	b end_lastIndexof_2
+lastIndexNotFound2:
 	mov r0, #-1
-end_indexof_2: 
+end_lastIndexof_2: 
 	pop {r1-r2, lr}
 	
 	bx lr
