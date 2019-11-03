@@ -15,9 +15,8 @@ String_indexOf_2:
 	push {r1-r2, lr}
 
 	mov r5, r2
-	LDR R4, [r1,r3]
 	LDR R1, [R1]
-	LDR R4, [R4]
+	mov r4, r1
 	bl String_length
 	sub r6, r0, r3
 	mov r10, r3
@@ -25,7 +24,7 @@ String_indexOf_2:
 indexOf_2Loop:
 	cmp r6, #0
 	beq indexNotFound2
-	ldrb r7, [r4], #1
+	ldrb r7, [r4,r10]
 	cmp r7, r5
 	beq indexFound2
 	sub r6,#1
