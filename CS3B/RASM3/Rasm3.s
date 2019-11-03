@@ -153,7 +153,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal2
-	LDR R2, =0x67
+	MOV R2, #103
 	bl String_indexOf_1
 	
 	LDR R1, =temp
