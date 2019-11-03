@@ -37,7 +37,7 @@ strMsg21:		  .asciz    "String_lastIndexOf_3(s2,'egg') = "
 strMsg22:		  .asciz    "String_replace(s1,'a','o') = "
 strMsg23:		  .asciz    "String_toLowerCase(s1) = "
 strMsg24:		  .asciz    "String_toUpperCase(s1) = "
-
+newline:		  .asciz    "\n"
 
 /*
 6. s4 = String_copy(s1)
@@ -59,6 +59,7 @@ cCR:              .byte     10
 endl:			  .byte	    10
 
 buffSize:		  .skip     512
+temp:			  .skip     12
 
 	.text
 
@@ -80,17 +81,19 @@ _start:
 	
 	LDR R1, =strVal1
 	bl String_length
-	mov r1, r0
+	LDR R1, =temp
 	bl intasc32
 	bl putstring
 	
-	
+	LDR R1, =newline
+	bl putstring
+
 	LDR R1, =strMsg4
 	BL putstring
 	
 	LDR R1, =strVal2
 	bl String_length
-	mov r1, r0
+	LDR R1, =temp
 	bl intasc32
 	bl putstring
 	
@@ -100,7 +103,7 @@ _start:
 	
 	LDR R1, =strVal3
 	bl String_length
-	mov r1, r0
+	LDR R1, =temp
 	bl intasc32
 	bl putstring
 	
