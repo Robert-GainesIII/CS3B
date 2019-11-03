@@ -105,7 +105,6 @@ bl putstring
 ldr r1, =str1
 bl String_copy
 mov r1, r0
-ldr r1, [r1]
 bl putstring
 
 

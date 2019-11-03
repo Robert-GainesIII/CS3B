@@ -13,22 +13,24 @@
 String_indexOf_1:
 	push {r1-r2, lr}
 
-	mov r4, r1
 	mov r5, r2
 	LDR R1, [R1]
+	mov r4, r1
 	bl String_length
 	mov r6, r0
+	mov r10, #0
 
 indexOf_1Loop:
-	cmp r6, r0
+	cmp r6, #0
 	beq indexNotFound1
 	ldrb r7, [r4], #1
 	cmp r7, r5
 	beq indexFound1
-	sub r6,#0
+	sub r6,#1
+	add r10, #1
 	b indexOf_1Loop
 indexFound1:
-	mov r0, r6
+	mov r0, r10
 	b end_indexof_1
 indexNotFound1:
 	mov r0, #-1
