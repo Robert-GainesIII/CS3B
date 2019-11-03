@@ -9,7 +9,7 @@
 	.global String_toUpperCase
 @===============================@
 String_toUpperCase:
-	push {r1, lr}
+	push {lr}
 	LDR R1, [R1]
 	mov r3, r1
 	bl String_length
