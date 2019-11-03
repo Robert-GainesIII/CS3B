@@ -29,7 +29,7 @@ lastIndexOf_1Loop:
 	b lastIndexOf_1Loop
 lastIndexFound1:
 	mov r0, r6
-	b end_indexof_1
+	b end_lastIndexof_1
 lastIndexNotFound1:
 	mov r0, #-1
 end_lastIndexof_1: 
