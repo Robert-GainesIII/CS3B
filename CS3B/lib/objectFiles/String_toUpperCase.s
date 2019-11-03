@@ -6,8 +6,9 @@
 @RETURNS: 		R1 contains converted toupper string
 @
 @*****************************************************************************
+	.global String_toUpperCase
 @===============================@
-toUpper:
+String_toUpperCase:
 	push {r1, lr}
 	LDR R1, [R1]
 	mov r3, r1
