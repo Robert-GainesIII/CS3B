@@ -166,6 +166,15 @@ _start:
 	LDR R1, =strMsg17
 	BL putstring
 	
+	LDR R1, =strVal2
+	MOV R2, #103
+	MOV R3, #9
+	bl String_indexOf_2
+	
+	LDR R1, =temp
+	bl intasc32
+	bl putstring
+	
 	
 	LDR R1, =newline
 	bl putstring
