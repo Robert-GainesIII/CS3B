@@ -152,7 +152,14 @@ _start:
 	LDR R1, =strMsg16
 	BL putstring
 	
+	LDR R1, =strVal2
+	LDR R2, =0x67
+	bl String_indexOf_1
 	
+	LDR R1, =temp
+	bl intasc32
+	bl putstring
+		
 	LDR R1, =newline
 	bl putstring
 	//==================================
