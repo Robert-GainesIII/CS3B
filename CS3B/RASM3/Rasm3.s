@@ -81,6 +81,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal1
+	LDR R1, [R1]
 	bl String_length
 	LDR R1, =temp
 	bl intasc32
@@ -93,6 +94,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal2
+	LDR R1, [R1]
 	bl String_length
 	LDR R1, =temp
 	bl intasc32
@@ -105,6 +107,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal3
+	LDR R1, [R1]
 	bl String_length
 	LDR R1, =temp
 	bl intasc32
