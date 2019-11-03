@@ -205,7 +205,7 @@ _start:
 	
 	LDR R1, =strVal2
 	MOV R2, #103
-	MOV R3, #9
+	MOV R3, #6
 	bl String_lastIndexOf_2
 	
 	LDR R1, =temp
