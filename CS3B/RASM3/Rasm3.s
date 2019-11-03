@@ -189,14 +189,19 @@ _start:
 	LDR R1, =strMsg19
 	BL putstring
 	
+	LDR R1, =strVal2
+	MOV R2, #103
+	bl String_lastIndexOf_1
 	
+	LDR R1, =temp
+	bl intasc32
+	bl putstring
 	
 	LDR R1, =newline
 	bl putstring
 	//==================================
 	LDR R1, =strMsg20
 	BL putstring
-	
 	
 	
 	LDR R1, =newline
