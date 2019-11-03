@@ -240,6 +240,10 @@ _start:
 	LDR R1, =strMsg24
 	BL putstring
 	
+	LDR R1, =strVal1
+	bl String_toUpperCase
+	bl putstring
+	
 	LDR R1, =newline
 	bl putstring
 	//==================================
