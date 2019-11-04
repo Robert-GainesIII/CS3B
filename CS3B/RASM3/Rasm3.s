@@ -70,6 +70,7 @@ temp:			  .skip     12
 		.global _start
 		.extern malloc
 		.extern free 
+		.equ BUFFSIZE, 512
 
 _start:
 
@@ -332,7 +333,7 @@ getStringLoop:
 	push {lr}
 	
 	LDR R1, =buffSize
-	MOV R2, #512
+	MOV R2, #BUFFSIZE
 	BL getstring
 	
 	BL String_length
