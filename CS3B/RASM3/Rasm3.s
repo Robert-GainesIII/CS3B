@@ -174,7 +174,11 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal1
+	LDR R1, [R1]
 	BL putstring
+	
+	LDR R1, =newline
+	bl putstring
 	
 	LDR R1, =strVal1
 	LDR R1, [R1]
@@ -186,6 +190,7 @@ _start:
 	
 	MOV R1, R7
 	BL putstring
+
 	
 	LDR R1, =newline
 	bl putstring
@@ -450,7 +455,9 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal1
+	LDR R1, [R1]
 	LDR R2, =strVal2
+	LDR R2, [R2]
 	bl strConcat
 	bl putstring
 	
