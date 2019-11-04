@@ -235,7 +235,7 @@ _start:
 	
 	LDR R1, =strVal1
 	MOV R2, #4
-	bl String_charAt
+	bl charAt
 	MOV R1, R0
 	bl putch
 	
