@@ -306,25 +306,28 @@ _input:
 	
 	LDR R1, =strMsg0
 	BL putstring
-	bl getString
+	
+	bl getStringLoop
 	LDR R1, =strVal1
 	str r0, [r1]
 	
 	LDR R1, =strMsg1
 	BL putstring
-	bl getString
+	
+	bl getStringLoop
 	LDR R1, =strVal2
 	str r0, [r1]
 	
 	LDR R1, =strMsg2
 	BL putstring
-	bl getString
+	
+	bl getStringLoop
 	LDR R1, =strVal3
 	str r0, [r1]
 	
 	bx lr
 	
-getString:
+getStringLoop:
 	
 	LDR R1, =buffSize
 	MOV R2, #512
@@ -333,7 +336,7 @@ getString:
 	BL String_length
 	
 	mov r8, r0
-	add r0, #1
+	add r9, #1
 
 	bl malloc 
 	
