@@ -33,7 +33,7 @@ String_lastIndexOf_3:
 	cmp r0, #-1
 	beq lastIndexOf_3NotFound
 	
-substringSearch:
+substringSearch2:
 
 	cmp r6, r10				@compare index to string one length-length of substring
 	beq end_lastIndexOf_3
@@ -57,20 +57,20 @@ substringSearch:
 	mov r3, r0 
 	bl String_equals
 	cmp r0, #1				@check to see if current substring is equal to target substring
-	beq indexOf_3Found
+	beq lastIndexOf_3Found
 	
 	add r6, #1				@increment index for next search
-	b substringSearch
+	b substringSearch2
 	
 	
-indexOf_3NotFound:
+lastIndexOf_3NotFound:
 	mov r0, #-1
 	b end_lastIndexOf_3
 	
-indexOf_3Found:
+lastIndexOf_3Found:
 	mov r11, r6				@store index when substring is found
 	add r6, #1
-	b substringSearch
+	b substringSearch2
 	
 	
 end_lastIndexOf_3: 
