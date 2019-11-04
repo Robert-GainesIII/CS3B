@@ -37,6 +37,12 @@ strMsg21:		  .asciz    "String_lastIndexOf_3(s2,'egg') = "
 strMsg22:		  .asciz    "String_replace(s1,'a','o') = "
 strMsg23:		  .asciz    "String_toLowerCase(s1) = "
 strMsg24:		  .asciz    "String_toUpperCase(s1) = "
+strMsg25:		  .asciz    "String_concat(s1, s2) = "
+strMsg26:		  .asciz    "s4 = String_copy(s1)"
+strMsg27:		  .asciz    "s1 = "
+strMsg28:		  .asciz    "s2 = "
+strMsg29:		  .asciz    "s3 = "
+strMsg30:		  .asciz    "s4 = "
 newline:		  .asciz    "\n"
 strVar: 		  .asciz	"eggs"
 strVar2:          .asciz    "egg"
@@ -159,6 +165,32 @@ _start:
 	
 	
 	//==================================
+	
+	
+	LDR R1, =strMsg26
+	Bl putstring 
+	
+	LDR R1, =strMsg27
+	BL putstring
+	
+	LDR R1, =strVal1
+	BL putstring
+	
+	LDR R1, =strVal1
+	LDR R1, [R1]
+	bl String_copy
+	mov r7, r0
+	
+	LDR R1, =strMsg30
+	BL putstring
+	
+	MOV R1, R7
+	BL putstring
+	
+	LDR R1, =newline
+	bl putstring
+	
+	//=====================================
 	
 	LDR R1, =strMsg8
 	BL putstring
@@ -414,7 +446,17 @@ _start:
 	LDR R1, =newline
 	bl putstring
 	//==================================
+	LDR R1, =strMsg25
+	BL putstring
 	
+	LDR R1, =strVal1
+	LDR R2, =strVal2
+	bl String_concat
+	bl putstring
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
 	
 	
 	b end
