@@ -451,7 +451,7 @@ _start:
 	
 	LDR R1, =strVal1
 	LDR R2, =strVal2
-	bl String_concat
+	bl strConcat
 	bl putstring
 	
 	LDR R1, =newline
