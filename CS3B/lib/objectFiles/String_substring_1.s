@@ -14,7 +14,7 @@
 
 String_substring_1: 
 	
-	push {r1-r5, lr}
+	push {r1-r6, lr}
 	
 	LDR R1, [R1] 
 	mov r4, r1
@@ -38,7 +38,7 @@ substring_1Loop:
 	
 end_substring_1Loop:
 	
-	pop {r1-r5, lr}
+	pop {r1-r6, lr}
 	
 	bx lr 
 

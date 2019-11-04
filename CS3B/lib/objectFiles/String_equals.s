@@ -16,7 +16,7 @@ r0: returned value, acts as bool for t or f
 .global String_equals
 
 String_equals:
-	push {lr}
+	push {r1-r6,lr}
 	mov r1, r2
 	bl String_length
 	mov r4, r0
@@ -52,6 +52,6 @@ _equal:
 	b _end
 
 _end:
-	pop {lr}
+	pop {r1-r6,lr}
 	bx lr
 
