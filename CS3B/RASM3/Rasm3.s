@@ -264,6 +264,11 @@ _start:
 	LDR R1, =strMsg22
 	BL putstring
 	
+	LDR R1, =strVal1
+	MOV R2, #97
+	MOV R3, #111
+	bl String_replace 
+	bl putstring
 	
 	LDR R1, =newline
 	bl putstring
