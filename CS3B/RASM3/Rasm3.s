@@ -252,7 +252,7 @@ _start:
 	LDR R1, =strMsg13
 	BL putstring
 	
-	LDR R2, =strVal1
+	LDR R2, =strVal2
 	LDR R2, [R2]
 	LDR R3, =substring1	
 	mov r4, #11
