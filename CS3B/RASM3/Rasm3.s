@@ -438,6 +438,10 @@ _start:
 	LDR R1, =strMsg23
 	BL putstring
 	
+	LDR R1, =strVal1
+	bl String_toLowerCase
+	bl putstring
+	
 	LDR R1, =newline
 	bl putstring
 	//==================================
