@@ -137,6 +137,8 @@ _start:
 	bl String_equals
 	bl boolOutput
 	
+	LDR R1, =newline
+	bl putstring
 	
 	//==================================
 	LDR R1, =strMsg7
@@ -158,6 +160,13 @@ _start:
 	LDR R1, =strMsg8
 	BL putstring
 	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	LDR R3, =strVal3
+	LDR R3, [R3]
+	bl String_equalsIgnoreCase
+	bl boolOutput
+	
 	LDR R1, =newline
 	bl putstring
 	
@@ -166,6 +175,13 @@ _start:
 	
 	LDR R1, =strMsg9
 	BL putstring
+	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	LDR R3, =strVal2
+	LDR R3, [R3]
+	bl String_equalsIgnoreCase
+	bl boolOutput
 	
 	LDR R1, =newline
 	bl putstring
@@ -192,7 +208,7 @@ _start:
 	LDR R1, =newline
 	bl putstring
 	
-	/*====================
+	//====================
 	LDR R1, =strMsg11
 	BL putstring
 	
@@ -207,7 +223,6 @@ _start:
 	
 	LDR R1, =strMsg15
 	BL putstring
-	*/
 	
 	//=================================
 	LDR R1, =strMsg16
