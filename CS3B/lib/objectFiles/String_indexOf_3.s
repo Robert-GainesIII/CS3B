@@ -45,7 +45,7 @@ substringSearch:
 	sub r3, #1				@account for off balance in algorithm
 	bl String_substring_1
 	
-	mov r2, r4
+	mov r2, r5
 	mov r3, r0 
 	bl String_equals
 	cmp r0, #1				@check to see if current substring is equal to target substring
