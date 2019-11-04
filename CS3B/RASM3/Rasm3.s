@@ -233,7 +233,7 @@ _start:
 	LDR R1, =strMsg12
 	BL putstring
 	
-	LDR R1, =strVal1
+	LDR R1, =strVal2
 	MOV R2, #4
 	bl charAt
 	LDR R1, =strResult
