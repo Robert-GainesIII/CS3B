@@ -336,8 +336,10 @@ getStringLoop:
 	
 	BL String_length
 	
+	LDR R5, =buffSize
+	
 	mov r8, r0
-	add r9, #1
+	add r0, #1
 
 	bl malloc 
 	
