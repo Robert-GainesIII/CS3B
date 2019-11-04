@@ -19,7 +19,7 @@ String_substring_1:
 	LDR R1, [R1] 
 	mov r4, r1
 	mov r6, r2
-	mov r7, r3
+	add r7, r3, #1
 	
 	add r0, r2, r3
 	add r0, #1
