@@ -41,7 +41,8 @@ substringSearch:
 	
 	MOV R1, R4				@LOAD string one for substring
 	MOV R2, R6				@LOAD first index	
-	add R3, R2, R9			@LOAD second index = indexOf(firstIndex + length of substring)
+	add R3, R6, R9			@LOAD second index = indexOf(firstIndex + length of substring)
+	sub r3, #1				@account for off balance in algorithm
 	bl String_substring_1
 	
 	mov r2, r4
