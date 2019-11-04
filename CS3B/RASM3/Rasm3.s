@@ -38,6 +38,8 @@ strMsg22:		  .asciz    "String_replace(s1,'a','o') = "
 strMsg23:		  .asciz    "String_toLowerCase(s1) = "
 strMsg24:		  .asciz    "String_toUpperCase(s1) = "
 newline:		  .asciz    "\n"
+strVar: 		  .asciz	"eggs"
+strVar2:          .asciz    "egg"
 
 /*
 6. s4 = String_copy(s1)
@@ -197,6 +199,14 @@ _start:
 	//==================================
 	LDR R1, =strMsg18
 	BL putstring
+	
+	LDR R1, =strVal2
+	LDR R2, =strVar
+	bl String_indexOf_3
+	
+	LDR R1, =temp
+	bl intasc32
+	bl putstring
 	
 	
 	LDR R1, =newline
