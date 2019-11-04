@@ -459,6 +459,7 @@ _start:
 	LDR R2, =strVal2
 	LDR R2, [R2]
 	bl strConcat
+	LDR R1, [R1]
 	bl putstring
 	
 	LDR R1, =newline
