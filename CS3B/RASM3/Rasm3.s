@@ -138,6 +138,9 @@ _start:
 	mov r3, #13
 	bl String_substring_1
 	
+	LDR R1, [R0]
+	bl putstring
+	
 	LDR R1, =newline
 	bl putstring
 	
