@@ -340,8 +340,8 @@ endloop1:
 	LDR R1, =buffSize
 	MOV R2, #512
 	BL getstring
-
-	mov r5, r1
+	
+	ldr r5, =buffSize
 
 	bl String_length
 	
@@ -376,8 +376,8 @@ endloop2:
 	LDR R1, =buffSize
 	MOV R2, #512
 	BL getstring
-
-	mov r5, r1
+	
+	ldr r5, =buffSize
 
 	bl String_length
 	
