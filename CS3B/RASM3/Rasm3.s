@@ -54,6 +54,7 @@ strVal1:          .word     0
 strVal2:          .word     0
 strVal3:		  .word		0
 strVal4: 		  .word		0
+strTemp:	      .word     0
 
 cCR:              .byte     10
 endl:			  .byte	    10
@@ -138,7 +139,8 @@ _start:
 	mov r3, #13
 	bl String_substring_1
 	
-	LDR R1, [R0]
+	LDR R1, =strTemp
+	str R0, [R1]
 	bl putstring
 	
 	LDR R1, =newline
