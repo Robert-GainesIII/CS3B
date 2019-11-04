@@ -311,6 +311,7 @@ _inputNonDynamic:
 	LDR R1, =s1
 	MOV R2, #50
 	bl getstring
+	str r0, [r1]
 	
 	LDR R1, =strMsg1
 	BL putstring
@@ -318,6 +319,7 @@ _inputNonDynamic:
 	LDR R1, =s2
 	MOV R2, #50
 	bl getstring
+	str r0, [r1]
 	
 	LDR R1, =strMsg2
 	BL putstring
@@ -325,6 +327,7 @@ _inputNonDynamic:
 	LDR R1, =s3
 	MOV R2, #50
 	bl getstring
+	str r0, [r1]
 	
 	pop {r4-r11, lr}
 	
