@@ -245,6 +245,13 @@ _start:
 	LDR R1, =strMsg21
 	BL putstring
 	
+	LDR R1, =strVal2
+	LDR R1, =strVar2 
+	bl String_lastIndexOf_3
+	
+	LDR R1, =temp
+	bl intasc32
+	bl putstring
 	
 	
 	LDR R1, =newline
