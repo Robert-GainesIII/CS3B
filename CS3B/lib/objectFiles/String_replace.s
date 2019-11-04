@@ -14,12 +14,12 @@
 String_replace:
 	
 	push {r1-r2, lr}
-	mov r9, r1
+	mov r4, #0
+	LDR R9, [R1]
 	LDR R1, [R1]
 	bl String_length
 	
 	mov r10, r0			@length of string
-	mov r4, #0
 	
 replaceLoop:
 
