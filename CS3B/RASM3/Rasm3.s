@@ -40,6 +40,9 @@ strMsg24:		  .asciz    "String_toUpperCase(s1) = "
 newline:		  .asciz    "\n"
 strVar: 		  .asciz	"eggs"
 strVar2:          .asciz    "egg"
+trueOutput:		  .asciz    "TRUE"
+falseOutput		  .asciz    "FALSE"
+
 
 /*
 6. s4 = String_copy(s1)
@@ -82,7 +85,7 @@ _start:
 	LDR R1, =strTitle1
 	BL putstring
 	
-	BL _inputNonDynamic
+	BL _input
 	
 	//==================================
 	LDR R1, =strMsg3
@@ -124,19 +127,50 @@ _start:
 	LDR R1, =newline
 	bl putstring
 	//==================================
-	/*
 	LDR R1, =strMsg6
 	BL putstring
 	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	LDR R3, =strVal3
+	LDR R3, [R3]
+	bl String_equals
+	bl boolOutput
+	
+	
+	//==================================
 	LDR R1, =strMsg7
 	BL putstring
+	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	LDR R3, =strVal1
+	LDR R3, [R3]
+	bl String_equals
+	bl boolOutput
+	
+	LDR R1, =newline
+	bl putstring
+	
+	
+	//==================================
 	
 	LDR R1, =strMsg8
 	BL putstring
 	
+	LDR R1, =newline
+	bl putstring
+	
+	
+	//==================================
+	
 	LDR R1, =strMsg9
 	BL putstring
-	*/
+	
+	LDR R1, =newline
+	bl putstring
+	
+
 	//===================================
 	LDR R1, =strMsg10
 	BL putstring
@@ -311,7 +345,7 @@ _inputNonDynamic:
 	LDR R1, =s1
 	MOV R2, #50
 	bl getstring
-	str r0, [r1]
+	 str r0, [r1]
 	
 	LDR R1, =strMsg1
 	BL putstring
@@ -464,6 +498,23 @@ endloop3:
 	str r0, [r1] 
 */	
 @=========================================================
+
+boolOutput:
+	push {r4-r11, lr}
+	cmp r0, #0
+	beq false 
+	LDR R1, =trueOutput
+	bl putstring
+	b end
+false:
+	LDR R1, =falseOutput
+	bl putstring
+	
+end: 
+	push {r4-r11, lr}
+	bx lr
+	
+//=========================================
 
 end: 
 	
