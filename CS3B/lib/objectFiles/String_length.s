@@ -11,7 +11,7 @@
 .global String_length
 
 String_length:
-	push {r1-r2,r4-r8,r10,r11}
+	push {r1-r8,r10,r11}
 
 	mov r0, #0
 
@@ -24,5 +24,5 @@ nextChar:
 	B nextChar
 
 return: 
-	pop {r1-r2, r4-r8, r10,r11}
+	pop {r1-r8, r10,r11}
 	bx lr

@@ -12,7 +12,7 @@
 .global String_indexOf_2
 
 String_indexOf_2:
-	push {r1-r2, lr}
+	push {r1-r5, lr}
 
 	mov r5, r2
 	LDR R1, [R1]
@@ -36,6 +36,6 @@ indexFound2:
 indexNotFound2:
 	mov r0, #-1
 end_indexof_2: 
-	pop {r1-r2, lr}
+	pop {r1-r5, lr}
 	
 	bx lr
