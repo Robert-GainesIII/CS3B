@@ -334,39 +334,7 @@ _start:
 	
 	b end
 	
-	
-_inputNonDynamic:
 
-	push {r4-r11, lr}
-	
-	LDR R1, =strMsg0 
-	BL putstring
-	
-	LDR R1, =s1
-	MOV R2, #50
-	bl getstring
-	 str r0, [r1]
-	
-	LDR R1, =strMsg1
-	BL putstring
-	
-	LDR R1, =s2
-	MOV R2, #50
-	bl getstring
-	str r0, [r1]
-	
-	LDR R1, =strMsg2
-	BL putstring
-	
-	LDR R1, =s3
-	MOV R2, #50
-	bl getstring
-	str r0, [r1]
-	
-	pop {r4-r11, lr}
-	
-	bx lr
-	
 
 @INPUT CREATES TWO DYNAMICALLY ALLOCATED STRINGS
 @USES BUFFER OF 512 BYTES 
@@ -439,64 +407,7 @@ endinputLoop:
 	pop {lr}
 	bx lr
 	
-/*	
-loop2:
 
-	cmp r8, #0
-	beq endloop2
-	ldrb r7, [r5], #1
-	strb r7, [r6], #1
-	sub r8, #1
-	b loop2
-		
-	
-endloop2:
-	
-	MOV r1, #0
-	str r1, [r6]
-	LDR R1, =strVal2
-	str r0, [r1]
-	
-	MOV R0, #0
-	LDR R1, =buffSize			@CLEAR BUFFER
-	str r0, [r1]
-	
-	//START INPUT FOR STRING 3
-	LDR R1, =strMsg2
-	BL putstring
-	
-	LDR R1, =buffSize
-	MOV R2, #512
-	BL getstring
-	
-	ldr r5, =buffSize
-
-	bl String_length
-	
-	mov r8, r0
-	add r0, #1
-	
-	bl malloc 
-	
-	mov r6, r0
-	
-loop3:
-
-	cmp r8, #0
-	beq endloop3
-	ldrb r7, [r5], #1
-	strb r7, [r6], #1
-	sub r8, #1
-	b loop3
-		
-	
-endloop3:
-	
-	MOV r1, #0
-	str r1, [r6]
-	LDR R1, =strVal3
-	str r0, [r1] 
-*/	
 @=========================================================
 
 boolOutput:
@@ -511,7 +422,7 @@ false:
 	bl putstring
 	
 endBoolOutput: 
-	push {r4-r11, lr}
+	pop {r4-r11, lr}
 	bx lr
 	
 //=========================================
