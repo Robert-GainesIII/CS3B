@@ -329,6 +329,7 @@ _input:
 	bx lr
 	
 getStringLoop:
+	push {lr}
 	
 	LDR R1, =buffSize
 	MOV R2, #512
@@ -358,6 +359,7 @@ inputLoop:
 endinputLoop:
 	mov R1, #0
 	str r1, [r6]
+	pop {lr}
 	bx lr
 /*	
 loop2:
