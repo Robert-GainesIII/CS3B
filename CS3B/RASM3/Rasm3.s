@@ -246,7 +246,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal2
-	LDR R1, =strVar2 
+	LDR R2, =strVar2 
 	bl String_lastIndexOf_3
 	
 	LDR R1, =temp
