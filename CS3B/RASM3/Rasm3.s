@@ -82,7 +82,7 @@ _start:
 	LDR R1, =strTitle1
 	BL putstring
 	
-	BL _input 
+	BL _inputNonDynamic
 	
 	//==================================
 	LDR R1, =strMsg3
@@ -299,6 +299,37 @@ _start:
 	
 	
 	b end
+	
+	
+_inputNonDynamic:
+
+	push {r4-r11, lr}
+	
+	LDR R1, =strMsg0 
+	BL putstring
+	
+	LDR R1, =s1
+	MOV R2, #50
+	bl getstring
+	
+	LDR R1, =strMsg1
+	BL putstring
+	
+	LDR R1, =s2
+	MOV R2, #50
+	bl getstring
+	
+	LDR R1, =strMsg2
+	BL putstring
+	
+	LDR R1, =s3
+	MOV R2, #50
+	bl getstring
+	
+	pop {r4-r11, lr}
+	
+	bx lr
+	
 
 @INPUT CREATES TWO DYNAMICALLY ALLOCATED STRINGS
 @USES BUFFER OF 512 BYTES 
