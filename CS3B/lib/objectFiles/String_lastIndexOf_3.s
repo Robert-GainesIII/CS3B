@@ -30,8 +30,8 @@ String_lastIndexOf_3:
 	MOV R2, R7				@LOAD char to search for 
 	MOV R3, R6				@start searching from beginning
 	bl String_indexOf_2
-	cmp r0, #-1
-	beq lastIndexOf_3NotFound
+	cmp r0, #0
+	blt lastIndexOf_3NotFound
 	
 substringSearch2:
 
