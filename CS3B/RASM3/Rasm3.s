@@ -505,12 +505,12 @@ boolOutput:
 	beq false 
 	LDR R1, =trueOutput
 	bl putstring
-	b end
+	b endBoolOutput
 false:
 	LDR R1, =falseOutput
 	bl putstring
 	
-end: 
+endBoolOutput: 
 	push {r4-r11, lr}
 	bx lr
 	
