@@ -6,7 +6,7 @@
 @
 @Description:
 @				Passing in two strings, using malloc, allocates enough memory for 
-@				a new concatitnation of the two strings. Returns new string in R1
+@				a new concatitnation of the two strings. Returns new string in R0
 @     
 @*****************************************************************************
 
