@@ -235,6 +235,7 @@ _start:
 	BL putstring
 	
 	LDR R1, =strVal2
+	LDR R1, [R1]
 	MOV R2, #4
 	bl charAt
 	LDR R1, =char
