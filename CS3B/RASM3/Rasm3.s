@@ -14,7 +14,7 @@ strEnd:           .asciz    "Thanks for using my program!! Good Day!\n\n"
 
 strMsg0:          .asciz    "Enter the first string : "
 strMsg1:          .asciz    "Enter the second string: "
-strMsg2:          .asciz    "Enter the third string: "
+strMsg2:          .asciz    "Enter the third string : "
 strMsg3:		  .asciz    "s1.length() = "
 strMsg4:		  .asciz    "s2.length() = "
 strMsg5:		  .asciz    "s3.length() = "
