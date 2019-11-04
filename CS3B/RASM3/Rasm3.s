@@ -41,7 +41,7 @@ newline:		  .asciz    "\n"
 strVar: 		  .asciz	"eggs"
 strVar2:          .asciz    "egg"
 trueOutput:		  .asciz    "TRUE"
-falseOutput		  .asciz    "FALSE"
+falseOutput:	  .asciz    "FALSE"
 
 
 /*
