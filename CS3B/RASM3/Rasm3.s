@@ -234,6 +234,9 @@ _start:
 	LDR R1, =strMsg12
 	BL putstring
 	
+	LDR R6, =strVal1
+	push {r6}
+	
 	LDR R1, =strVal2
 	LDR R1, [R1]
 	MOV R2, #4
@@ -241,6 +244,10 @@ _start:
 	LDR R1, =char
 	str r0, [R1]
 	bl putch
+	
+	pop {r6}
+	LDR R1, =strVal1
+	str r6, [R1]
 	
 	
 	LDR R1, =newline
@@ -252,7 +259,7 @@ _start:
 	LDR R1, =strMsg13
 	BL putstring
 	
-	LDR R2, =strVal2
+	LDR R2, =strVal1
 	LDR R2, [R2]
 	LDR R3, =substring1	
 	mov r4, #11
