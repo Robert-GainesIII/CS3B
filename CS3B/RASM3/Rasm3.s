@@ -58,7 +58,9 @@ strVal3:		  .word		0
 strVal4: 		  .word		0
 strTemp:	      .word     0
 
-s1:				  .
+s1:				  .skip 	50
+s2:				  .skip		50
+s3:				  .skip		50
 
 cCR:              .byte     10
 endl:			  .byte	    10
