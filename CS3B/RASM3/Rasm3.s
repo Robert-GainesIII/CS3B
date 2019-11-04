@@ -128,7 +128,8 @@ _start:
 	
 	LDR R1, =strMsg9
 	BL putstring
-	*/====================
+	*/
+	//===================================
 	LDR R1, =strMsg10
 	BL putstring
 
