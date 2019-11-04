@@ -268,6 +268,7 @@ _start:
 	MOV R2, #97
 	MOV R3, #111
 	bl String_replace 
+	LDR R1, [R1]
 	bl putstring
 	
 	LDR R1, =newline
