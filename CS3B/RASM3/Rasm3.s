@@ -141,6 +141,7 @@ _start:
 	
 	LDR R1, =strTemp
 	str R0, [R1]
+	LDR R1, [R1]
 	bl putstring
 	
 	LDR R1, =newline
