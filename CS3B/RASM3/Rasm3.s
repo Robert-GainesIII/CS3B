@@ -306,12 +306,29 @@ _input:
 	
 	LDR R1, =strMsg0
 	BL putstring
+	bl getString
+	LDR R1, =strVal1
+	str r0, [r1]
+	
+	LDR R1, =strMsg1
+	BL putstring
+	bl getString
+	LDR R1, =strVal2
+	str r0, [r1]
+	
+	LDR R1, =strMsg2
+	BL putstring
+	bl getString
+	LDR R1, =strVal3
+	str r0, [r1]
+	
+	bx lr
+	
+getString:
 	
 	LDR R1, =buffSize
 	MOV R2, #512
 	BL getstring
-	
-	ldr r5, =buffSize
 	
 	BL String_length
 	
@@ -322,45 +339,21 @@ _input:
 	
 	mov r6, r0
 	
-loop:
+inputLoop:
 
 	cmp r8, #0
-	beq endloop1
+	beq endinputLoop
 	ldrb r7, [r5], #1
 	strb r7, [r6], #1
 	sub r8, #1
-	b loop
+	b inputLoop
 		
 	
-endloop1:
+endinputLoop:
 	mov R1, #0
 	str r1, [r6]
-	LDR R1, =strVal1
-	str r0, [r1]
-
-	MOV R0, #0
-	LDR R1, =buffSize			@CLEAR BUFFER
-	str r0, [r1]
-	
-	//START INPUT FOR STRING 2
-	LDR R1, =strMsg1
-	BL putstring
-	
-	LDR R1, =buffSize
-	MOV R2, #512
-	BL getstring
-	
-	ldr r5, =buffSize
-
-	bl String_length
-	
-	mov r8, r0
-	add r0, #1
-	
-	bl malloc 
-	
-	mov r6, r0
-	
+	bx lr
+/*	
 loop2:
 
 	cmp r8, #0
@@ -419,8 +412,7 @@ endloop3:
 	str r0, [r1]
 
 	pop {r4-r11, lr} 
-	
-	BX LR
+*/	
 @=========================================================
 
 end: 
@@ -430,6 +422,9 @@ end:
 	BL free 
 	LDR R0, =strVal2
 	LDR r0, [r0]
+	BL free
+	LDR R0, =strVal3
+	LDR R0, [R0]
 	BL free
 
 	LDR r1, =strEnd
