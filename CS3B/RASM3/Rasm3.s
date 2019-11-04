@@ -237,7 +237,7 @@ _start:
 	MOV R2, #4
 	bl charAt
 	LDR R1, =strResult
-	str r0, R1
+	str r0, [R1]
 	bl putstring
 	
 	
