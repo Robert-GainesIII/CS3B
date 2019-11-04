@@ -24,7 +24,7 @@ String_lastIndexOf_3:
 	sub r10, r8, r9			@create this to check in loop
 	ldrb r7, [r5]			@first char of substring to search for 
 	mov r6, #0				@initliize a counter
-	mov r0, #-1				@default not found
+	mov r11, #-1			@default not found
 	
 substringSearch2:
 
@@ -66,7 +66,9 @@ lastIndexOf_3Found:
 	b substringSearch2
 	
 	
-end_lastIndexOf_3: 
+end_lastIndexOf_3:
+
+	mov r0, r11
 	pop {r1-r2, lr}
 	
 	bx lr
