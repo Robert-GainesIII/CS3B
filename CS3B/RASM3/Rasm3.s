@@ -236,8 +236,9 @@ _start:
 	LDR R1, =strVal1
 	MOV R2, #4
 	bl charAt
-	MOV R1, R0
-	bl putch
+	LDR R1, =strResult
+	str r0, R1
+	bl putstring
 	
 	
 	LDR R1, =newline
