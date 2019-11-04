@@ -212,17 +212,80 @@ _start:
 	LDR R1, =strMsg11
 	BL putstring
 	
+
+	LDR R1, =strVal3
+	LDR R1, [R1]
+	mov r2, #7
+	bl String_substring_2
+	mov r1, r0
+	bl putstring
+	
+	
+	LDR R1, =newline
+	bl putstring
+	
+
+	//===================================
+	
 	LDR R1, =strMsg12
 	BL putstring
+	
+	LDR R1, =strVal1
+	MOV R2, #4
+	bl String_charAt
+	MOV R1, R0
+	bl putch
+	
+	
+	LDR R1, =newline
+	bl putstring
+	
+
+	//===================================
 	
 	LDR R1, =strMsg13
 	BL putstring
 	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	LDR R3, =substring1	
+	mov r4, #11
+	bl String_startsWith_1	
+	bl boolOutput
+	
+	
+	LDR R1, =newline
+	bl putstring
+	
+
+	//===================================
+	
 	LDR R1, =strMsg14
 	BL putstring
 	
+	LDR R2, =strVal1
+	LDR R2, [R2]
+	ldr r3, =substring2	
+	bl String_startsWith_2	
+	bl boolOutput
+	
+	LDR R1, =newline
+	bl putstring
+	
+
+	//===================================
+	
 	LDR R1, =strMsg15
 	BL putstring
+	
+	LDR R2, =strVal1
+	LDR R2, [R2]		
+	LDR R3, =substring3	
+	bl String_endsWith
+	bl boolOutput
+	
+	LDR R1, =newline
+	bl putstring
 	
 	//=================================
 	LDR R1, =strMsg16
