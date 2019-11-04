@@ -247,7 +247,8 @@ _start:
 	
 	pop {r6}
 	LDR R1, =strVal1
-	str r6, [R1]
+	LDR R6, [R6]
+	STR R6, [R1]
 	
 	
 	LDR R1, =newline
