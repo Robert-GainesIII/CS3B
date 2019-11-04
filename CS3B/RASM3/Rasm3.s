@@ -146,6 +146,10 @@ _start:
 	LDR R1, [R1]
 	bl putstring
 	
+	LDR R1, =strTemp
+	LDR R0, [R1]
+	bl free
+	
 	LDR R1, =newline
 	bl putstring
 	
