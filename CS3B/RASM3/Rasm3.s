@@ -57,6 +57,7 @@ substring3:	      .asciz	"in the hat."
 */
 
 strResult:		  .word 	0
+char: 			  .byte     0
 
 strVal1:          .word     0
 strVal2:          .word     0
@@ -236,7 +237,7 @@ _start:
 	LDR R1, =strVal2
 	MOV R2, #4
 	bl charAt
-	LDR R1, =strResult
+	LDR R1, =char
 	str r0, [R1]
 	bl putch
 	
