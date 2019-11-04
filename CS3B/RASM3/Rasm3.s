@@ -128,10 +128,19 @@ _start:
 	
 	LDR R1, =strMsg9
 	BL putstring
-	
+	*/====================
 	LDR R1, =strMsg10
 	BL putstring
+
+	LDR R1, =strVal3
+	mov r2, #4
+	mov r3, #13
+	bl String_substring_1
 	
+	LDR R1, =newline
+	bl putstring
+	
+	/*====================
 	LDR R1, =strMsg11
 	BL putstring
 	
