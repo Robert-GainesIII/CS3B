@@ -42,6 +42,9 @@ strVar: 		  .asciz	"eggs"
 strVar2:          .asciz    "egg"
 trueOutput:		  .asciz    "TRUE"
 falseOutput:	  .asciz    "FALSE"
+substring1:		  .asciz	"hat."
+substring2:	      .asciz	"Cat"
+substring3:	      .asciz	"in the hat."
 
 
 /*
