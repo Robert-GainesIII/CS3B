@@ -238,7 +238,7 @@ _start:
 	bl charAt
 	LDR R1, =strResult
 	str r0, [R1]
-	bl putstring
+	bl putch
 	
 	
 	LDR R1, =newline
