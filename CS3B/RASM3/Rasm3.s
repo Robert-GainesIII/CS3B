@@ -58,6 +58,8 @@ strVal3:		  .word		0
 strVal4: 		  .word		0
 strTemp:	      .word     0
 
+s1:				  .
+
 cCR:              .byte     10
 endl:			  .byte	    10
 
@@ -305,7 +307,7 @@ _input:
 	
 	//START INPUT FOR STRING 1
 	
-	LDR R1, =strMsg0
+	LDR R1, =strMsg0 
 	BL putstring
 	
 	bl getStringLoop
@@ -342,8 +344,12 @@ getStringLoop:
 	
 	mov r8, r0
 	add r0, #1
+	
+	push {r1-r5}
 
 	bl malloc 
+	
+	pop {r1-r5}
 	
 	mov r6, r0
 	
