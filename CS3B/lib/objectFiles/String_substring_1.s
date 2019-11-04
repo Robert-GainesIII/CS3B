@@ -19,12 +19,12 @@ String_substring_1:
 	LDR R1, [R1] 
 	mov r4, r1
 	mov r6, r2
-	add r7, r3, #1
+	mov r7, r3
 	
 	add r0, r2, r3
 	add r0, #1
 	bl malloc 
-	
+	add r7, #1
 	mov r5, r0
 	
 substring_1Loop:
