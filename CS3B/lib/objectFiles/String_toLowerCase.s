@@ -1,14 +1,14 @@
 @*****************************************************************************
 @AUTHOR:		Robert Gaines
-@PROGRAM:   	+String_toUpper(string)     
+@PROGRAM:   	+String_toLowerCase(string)     
 @[R1]:			points to address of string being converted
 @
 @RETURNS: 		R1 contains converted toupper string
 @
 @*****************************************************************************
-	.global String_toUpperCase
+	.global String_toLowerCase
 @===============================@
-String_toUpperCase:
+String_toLowerCase:
 	push {lr}
 	LDR R1, [R1]
 	mov r3, r1
