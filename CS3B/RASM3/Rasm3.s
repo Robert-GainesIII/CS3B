@@ -338,6 +338,9 @@ endloop1:
 	LDR R1, =strVal1
 	str r0, [r1]
 
+	MOV R0, #0
+	LDR R1, =buffSize			@CLEAR BUFFER
+	str r0, [r1]
 	
 	//START INPUT FOR STRING 2
 	LDR R1, =strMsg1
@@ -373,6 +376,10 @@ endloop2:
 	MOV r1, #0
 	str r1, [r6]
 	LDR R1, =strVal2
+	str r0, [r1]
+	
+	MOV R0, #0
+	LDR R1, =buffSize			@CLEAR BUFFER
 	str r0, [r1]
 	
 	//START INPUT FOR STRING 3
