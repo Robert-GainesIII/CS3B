@@ -413,7 +413,7 @@ getStringLoop:
 	LDR R5, =buffSize
 	
 	mov r8, r0
-	add r0, #1
+	add r0, #5
 	
 	push {r1-r5}
 
