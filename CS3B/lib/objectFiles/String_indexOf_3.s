@@ -22,7 +22,7 @@ String_indexOf_3:
 	bl String_length		@call string length for string two
 	mov r9, r0				@Length of String two
 	sub r10, r8, r9			@create this to check in loop
-	ldrb r7, r5				@first char of substring to search for 
+	ldrb r7, [r5]			@first char of substring to search for 
 	mov r6, #0				@initliize a counter
 	
 substringSearch:
