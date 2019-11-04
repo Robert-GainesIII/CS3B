@@ -31,7 +31,7 @@ substring_1Loop:
 	
 	cmp r6, r7
 	beq end_substring_1Loop
-	ldrb r8, [r4, r2]
+	ldrb r8, [r4, r6]
 	strb r8, [r5], #1
 	add r6, #1
 	b substring_1Loop
