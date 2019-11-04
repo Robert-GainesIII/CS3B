@@ -57,7 +57,6 @@ substring3:	      .asciz	"in the hat."
 */
 
 strResult:		  .word 	0
-char: 			  .byte     0
 
 strVal1:          .word     0
 strVal2:          .word     0
@@ -230,30 +229,24 @@ _start:
 	
 
 	//===================================
-	/*
+	
 	LDR R1, =strMsg12
 	BL putstring
 	
-	LDR R6, =strVal1
-	push {r6}
 	
 	LDR R1, =strVal2
 	LDR R1, [R1]
 	MOV R2, #4
 	bl charAt
-	LDR R1, =char
+	LDR R1, =strResult
 	str r0, [R1]
 	bl putch
 	
-	pop {r6}
-	LDR R1, =strVal1
-	LDR R6, [R6]
-	STR R6, [R1]
 	
 	
 	LDR R1, =newline
 	bl putstring
-	*/
+
 
 	//===================================
 	
