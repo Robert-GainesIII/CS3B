@@ -163,38 +163,6 @@ _start:
 	LDR R1, =newline
 	bl putstring
 	
-	
-	//==================================
-	
-	
-	LDR R1, =strMsg26
-	Bl putstring 
-	
-	LDR R1, =strMsg27
-	BL putstring
-	
-	LDR R1, =strVal1
-	LDR R1, [R1]
-	BL putstring
-	
-	LDR R1, =newline
-	bl putstring
-	
-	LDR R1, =strVal1
-	LDR R1, [R1]
-	bl String_copy
-	mov r7, r0
-	
-	LDR R1, =strMsg30
-	BL putstring
-	
-	MOV R1, R7
-	BL putstring
-
-	
-	LDR R1, =newline
-	bl putstring
-	
 	//=====================================
 	
 	LDR R1, =strMsg8
@@ -228,6 +196,41 @@ _start:
 	
 
 	//===================================
+	
+	
+	
+	LDR R1, =strMsg26
+	Bl putstring 
+	LDR R1, =newline
+	bl putstring
+	
+	LDR R1, =strMsg27
+	BL putstring
+	
+	LDR R1, =strVal1
+	LDR R1, [R1]
+	BL putstring
+	
+	LDR R1, =newline
+	bl putstring
+	
+	LDR R1, =strVal1
+	LDR R1, [R1]
+	bl String_copy
+	mov r7, r0
+	
+	LDR R1, =strMsg30
+	BL putstring
+	
+	MOV R1, R7
+	BL putstring
+
+	
+	LDR R1, =newline
+	bl putstring
+	
+	//==================================
+	
 	LDR R1, =strMsg10
 	BL putstring
 
