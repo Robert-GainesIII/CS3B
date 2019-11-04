@@ -14,8 +14,8 @@
 String_replace:
 	
 	push {r1-r2, lr}
-	//LDR R1, [R1]
 	mov r9, r1
+	LDR R1, [R1]
 	bl String_length
 	
 	mov r10, r0			@length of string
