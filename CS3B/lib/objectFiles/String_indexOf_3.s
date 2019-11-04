@@ -16,6 +16,7 @@ String_indexOf_3:
 	mov r4, r1				@copy string one to register four
 	mov r5, r2				@copy string two to register five
 	//LDR R1, [R1]			@Dereference pointer to string one
+	mov r1, r4
 	bl String_length		@call string length for string one	
 	mov r8, r0				@Length of String one
 	MOV R1, R2			@Dereference pointer to string two
