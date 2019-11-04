@@ -18,11 +18,11 @@ String_indexOf_3:
 	LDR R1, [R4]			@Dereference pointer to string one
 	bl String_length		@call string length for string one	
 	mov r8, r0				@Length of String one
-	MOV R1, [R5]			@move string two into r1
+	MOV R1, R5				@move string two into r1
 	bl String_length		@call string length for string two
 	mov r9, r0				@Length of String two
 	sub r10, r8, r9			@create this to check in loop
-	ldrb r7, [r5]			@first char of substring to search for 
+	ldrb r7, r5				@first char of substring to search for 
 	mov r6, #0				@initliize a counter
 	
 substringSearch:
