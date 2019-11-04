@@ -16,7 +16,6 @@ charAt:
 		bl String_length
 		cmp r0, r2
 		blt end1
-		ldr r1, [r1]
 		ldrb r0, [r1, r2]
 		b end2
 end1:
