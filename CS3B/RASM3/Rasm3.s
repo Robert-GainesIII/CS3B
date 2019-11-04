@@ -325,6 +325,7 @@ _input:
 	LDR R1, =strVal3
 	str r0, [r1]
 	
+	pop {r4-r11, lr}
 	bx lr
 	
 getStringLoop:
@@ -412,9 +413,7 @@ endloop3:
 	MOV r1, #0
 	str r1, [r6]
 	LDR R1, =strVal3
-	str r0, [r1]
-
-	pop {r4-r11, lr} 
+	str r0, [r1] 
 */	
 @=========================================================
 
