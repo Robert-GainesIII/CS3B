@@ -339,8 +339,7 @@ getStringLoop:
 	
 	LDR R5, =buffSize
 	
-	mov r8, r0
-	add r0, #1
+	add r0, r8 ,#1
 
 	bl malloc 
 	
@@ -361,6 +360,7 @@ endinputLoop:
 	str r1, [r6]
 	pop {lr}
 	bx lr
+	
 /*	
 loop2:
 
