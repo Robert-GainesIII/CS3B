@@ -469,7 +469,7 @@ _start:
 	LDR R1, [R1]
 	LDR R2, =space
 	bl strConcat
-	LDR R1, =strVal
+	LDR R1, =strVal1
 	STR R0, [R1]
 	bl putstring
 	
