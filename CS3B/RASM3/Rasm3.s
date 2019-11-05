@@ -469,8 +469,10 @@ _start:
 	LDR R1, [R1]
 	LDR R2, =space
 	bl strConcat
-	MOV R1, R0
+	LDR R1, =strVal
+	STR R0, [R1]
 	bl putstring
+	
 	
 	LDR R1, =newline
 	bl putstring
