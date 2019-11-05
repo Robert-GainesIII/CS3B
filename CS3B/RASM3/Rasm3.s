@@ -10,7 +10,7 @@
 
 	.data
 strTitle1:        .asciz    "Name: Robert Gaines\nProgram: RASM3.s\nClass: CS3B\nDate: October 31, 2019\n\n"
-strEnd:           .asciz    "Thanks for using my program!! Good Day!\n\n"
+strEnd:           .asciz    "Thanks for using my program!! Good Day!"
 
 strMsg0:          .asciz    "Enter the first string : "
 strMsg1:          .asciz    "Enter the second string: "
@@ -469,8 +469,10 @@ _start:
 	LDR R1, [R1]
 	LDR R2, =space
 	bl strConcat
+	MOV R2, R0
 	LDR R1, =strVal1
 	STR R0, [R1]
+	MOV R1, R2
 	bl putstring
 	
 	
@@ -602,6 +604,9 @@ end:
 	BL free
 
 	LDR r1, =strEnd
+	bl putstring
+	
+	LDR R1, =newline
 	bl putstring
 
 	mov r7, #1
