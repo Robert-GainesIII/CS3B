@@ -43,6 +43,7 @@ strMsg27:		  .asciz    "s1 = "
 strMsg28:		  .asciz    "s2 = "
 strMsg29:		  .asciz    "s3 = "
 strMsg30:		  .asciz    "s4 = "
+strMsg31:		  .asciz    "String_concat(s1, ' ') = "
 newline:		  .asciz    "\n"
 strVar: 		  .asciz	"eggs"
 strVar2:          .asciz    "egg"
@@ -51,6 +52,7 @@ falseOutput:	  .asciz    "FALSE"
 substring1:		  .asciz	"hat."
 substring2:	      .asciz	"Cat"
 substring3:	      .asciz	"in the hat."
+space: 			  .asciz    " " 
 
 
 /*
@@ -457,7 +459,23 @@ _start:
 	
 	LDR R1, =newline
 	bl putstring
+	
+	
 	//==================================
+	LDR R1, =strMsg31
+	BL putstring
+	
+	LDR R1, =strVal1
+	LDR R1, [R1]
+	LDR R2, =space
+	bl strConcat
+	MOV R1, R0
+	bl putstring
+	
+	LDR R1, =newline
+	bl putstring
+	//==================================
+
 	LDR R1, =strMsg25
 	BL putstring
 	
