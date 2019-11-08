@@ -72,7 +72,7 @@ createNode:
 		
 		push {lr}
 		LDR R1, =buffer
-		LDR R2, #buff_size
+		LDR R2, #buffer_size
 		BL getstring
 		BL String_copy			
 		
