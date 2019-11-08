@@ -28,7 +28,7 @@ String_copy:
 
 string_copy_loop:
 	cmp r10, #0
-	bed end_copy
+	b end_copy
 	ldrb r5, [r1], #1
 	strb r5, [r4], #1
 	sub r10, #1
@@ -37,7 +37,7 @@ string_copy_loop:
 end_copy:
 	mov r1, #0
 	str r1, [r4]
-	pop{r1}
+	pop {r1}
 	pop {r4-r11, lr}
 	bx lr
 
