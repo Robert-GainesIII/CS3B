@@ -27,7 +27,7 @@ String_copy:
 
 string_copy_loop:
 	cmp r10, #0
-	b end_copy
+	beq end_copy
 	ldrb r5, [r1], #1
 	strb r5, [r4], #1
 	sub r10, #1
