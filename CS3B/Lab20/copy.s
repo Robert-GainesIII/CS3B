@@ -18,7 +18,8 @@ r0: address of new string
 .extern free
 
 String_copy: 	        
-    push {r1, r4-r11, lr}                   	
+    push {r1, r4-r11, lr}  
+	mov r8, r1
 	bl String_length
 	mov r10, r0
 	add r0, #1
@@ -28,14 +29,14 @@ String_copy:
 string_copy_loop:
 	cmp r10, #0
 	beq end_copy
-	ldrb r5, [r1], #1
+	ldrb r5, [r8], #1
 	strb r5, [r4], #1
 	sub r10, #1
 	b string_copy_loop	
 
 end_copy:
 	mov r1, #0
-	str r1, [r4]
+	strb r1, [r4]
 	pop {r1, r4-r11, lr}
 	bx lr
 
