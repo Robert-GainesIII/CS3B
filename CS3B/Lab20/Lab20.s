@@ -24,10 +24,10 @@ szOne : .asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: Nov
 szTwo : .asciz    "Thanks for using my program!! Good Day!\n"
 
 .text		
-		.global Lab20
+		.global _start
 		.equ	buffer_size,1024
 		
-Lab20:
+_start:
 		LDR R1, =szOne
 		BL putstring
 		
