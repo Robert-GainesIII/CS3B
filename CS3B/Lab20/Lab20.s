@@ -23,7 +23,7 @@ temp:	.word 	0
 szOne : .asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : .asciz    "Thanks for using my program!! Good Day!\n"
 
-		.equ	buffer_size,	1024
+		.equ	buffer_size,1024
 		.global Lab20
 		
 Lab20:
@@ -72,7 +72,7 @@ createNode:
 		
 		push {lr}
 		LDR R1, =buffer
-		LDR R2, #buffer_size
+		MOV R2, #buffer_size
 		BL getstring
 		BL String_copy			
 		
