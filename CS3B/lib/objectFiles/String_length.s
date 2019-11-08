@@ -18,11 +18,11 @@ String_length:
 nextChar: 
 	ldrb r2, [r1], #1
 	subs r2,#0
-	beq return 
+	beq returnChar 
 
 	add r0, #1
 	B nextChar
 
-return: 
+returnChar: 
 	pop {r1-r11, lr}
 	bx lr

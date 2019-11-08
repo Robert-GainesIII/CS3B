@@ -1,8 +1,8 @@
 @*****************************************************************************
-@Name:      Robert Gaines
+@Name:      Robert Gaines, Sophia Jordan
 @Program:   Rasm3
 @Class:     CS 3B
-@Date:      October 31, 2019 at 11:59 PM
+@Date:      November 5, 2019 at 11:59 PM
 @Purpose:
 @     		String function library 
 @*****************************************************************************
@@ -10,7 +10,7 @@
 
 	.data
 strTitle1:        .asciz    "Name: Robert Gaines\nProgram: RASM3.s\nClass: CS3B\nDate: October 31, 2019\n\n"
-strEnd:           .asciz    "Thanks for using my program!! Good Day!"
+strEnd:           .asciz    "Thanks for using my program!! Good Day!\n"
 
 strMsg0:          .asciz    "Enter the first string : "
 strMsg1:          .asciz    "Enter the second string: "
