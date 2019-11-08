@@ -15,10 +15,6 @@ NODE = [4 bytes][4 bytes]
 ************************************************/
 .data
 
-buffer:	.skip	1024
-first:	.word	0
-last:	.word	0
-temp:	.word 	0
 
 szOne : 	.asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : 	.asciz    "Thanks for using my program!! Good Day!\n"
@@ -27,6 +23,12 @@ szFour : 	.asciz    "Creating New Node.. \n"
 szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
+
+buffer:	.skip	1024
+first:	.word	0
+last:	.word	0
+temp:	.word 	0
+
 .text		
 		.global _start
 		.equ	buffer_size,1024
@@ -86,6 +88,8 @@ createNode:
 		LDR R1, =buffer
 		MOV R2, #buffer_size
 		BL getstring
+		
+		LDR R1, =buffer
 		BL String_copy			
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
@@ -118,7 +122,7 @@ nextNode:
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endTraverse
-		MOV R1, R2
+		LDR R1, [R2]
 		BL putstring			// PRINT TEMP
 		LDR R3, [R2, #4]		// LOAD R3 with temp->link
 		STR R3, [R2]			// temp = temp->link
