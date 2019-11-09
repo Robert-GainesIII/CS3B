@@ -39,7 +39,7 @@ _start:
 		MOV R6, #5
 forLoop:
 		CMP R6, #0
-		BEQ endLab20
+		BEQ endForLoop
 		LDR R1, =szFour
 		BL putstring
 		BL createNode
@@ -48,10 +48,14 @@ forLoop:
 		BL putstring
 		LDR R1, =szSeven
 		BL putstring
-		BL traverseList
 		
 		SUB R6, #1
 		
+endForLoop: 
+
+		BL traverseList
+		b endLab20
+//~============================================~//		
 insertNode:
 		
 		push {r4-r11, lr}
