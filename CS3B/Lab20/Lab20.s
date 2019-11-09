@@ -36,8 +36,10 @@ temp:	.word 	0
 _start:
 		LDR R1, =szOne
 		BL putstring
-		
-		
+		MOV R6, #5
+forLoop:
+		CMP R6, #0
+		BEQ endLab20
 		LDR R1, =szFour
 		BL putstring
 		BL createNode
@@ -48,7 +50,7 @@ _start:
 		BL putstring
 		BL traverseList
 		
-		b endLab20
+		SUB R6, #1
 		
 insertNode:
 		
