@@ -45,7 +45,7 @@ forLoop:
 		BL createNode
 		
 		SUB R6, #1
-		
+		b forLoop
 endForLoop: 
 		LDR R1, =szSix
 		BL putstring
