@@ -123,7 +123,8 @@ nextNode:
 		LDR R3, [R3]
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endTraverse
-		LDR R1, [R2]
+		LDR R1, [R3]
+		LDR R1, [R1]
 		BL putstring			// PRINT TEMP
 		LDR R3, [R3, #4]		// LOAD R3 with temp->link
 		STR R3, [R2]			// temp = temp->link
