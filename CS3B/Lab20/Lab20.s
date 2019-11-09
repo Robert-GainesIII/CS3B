@@ -124,6 +124,7 @@ traverseList:
 		LDR R1, =first
 		LDR R1, [R1]
 		LDR R2, =temp
+		LDR R2, [R2]
 		STR R1, [R2]			//temp = first
 nextNode:
 		
@@ -132,8 +133,6 @@ nextNode:
 		BEQ endTraverse
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
-		LDR R2, =temp
-		LD
 		LDR R3, [R2, #4]		// LOAD R3 with temp->link
 		STR R3, [R2]			// temp = temp->link
 		B nextNode
