@@ -44,15 +44,13 @@ forLoop:
 		BL putstring
 		BL createNode
 		
+		SUB R6, #1
+		
+endForLoop: 
 		LDR R1, =szSix
 		BL putstring
 		LDR R1, =szSeven
 		BL putstring
-		
-		SUB R6, #1
-		
-endForLoop: 
-
 		BL traverseList
 		b endLab20
 //~============================================~//		
