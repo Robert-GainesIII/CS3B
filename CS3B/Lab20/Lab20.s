@@ -133,7 +133,7 @@ nextNode:
 		BL putstring		// PRINT TEMP
 		LDR R7, [R4, #4]
 		//LDR R3, [R2, #4]		// LOAD R3 with temp->link
-		STR R3, [R4]			// temp = temp->link
+		STR R7, [R4]			// temp = temp->link
 		B nextNode
 		
 		
