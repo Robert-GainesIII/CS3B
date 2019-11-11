@@ -79,8 +79,8 @@ insert_first:
 insert_last:
 		
 		push {lr}	
-		LDR R4, [R2, #4]
-		STR R0, [R4]			//last->link = newNode
+		STR R0, [R2, #4]			//last->link = newNode
+		LDR R7, [R2, #4]
 		STR R0, [R2]				//last = newNode
 		pop {lr}
 		BX lr
