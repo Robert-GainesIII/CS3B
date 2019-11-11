@@ -105,7 +105,7 @@ createNode:
 		MOV R3, R0
 		STR R10, [R3]		    // Data = address of string
 		
-		MOV R1, #0
+		MOV R1, #1
 		STR R1, [R3, #4]			// Link -> NULL
 		
 		LDR R1, =szFive
