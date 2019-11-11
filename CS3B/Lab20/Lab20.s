@@ -121,18 +121,19 @@ traverseList:
 
 		push {r4-r11, lr}
 		LDR R1, =first
+		MOV R4, R1
 		LDR R2, =temp
 		STR R1, [R2]			//temp = first
 nextNode:
 		
-		LDR R3, [R2]			// Dereference Address stored in temp
+		LDR R3, [R4]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endTraverse
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
-		LDR R7, [R1, #4]
-		LDR R3, [R2, #4]		// LOAD R3 with temp->link
-		STR R3, [R2]			// temp = temp->link
+		LDR R7, [R4, #4]
+		//LDR R3, [R2, #4]		// LOAD R3 with temp->link
+		STR R3, [R4]			// temp = temp->link
 		B nextNode
 		
 		
