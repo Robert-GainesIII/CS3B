@@ -123,7 +123,6 @@ traverseList:
 		LDR R1, =first
 		LDR R1, [R1]
 		LDR R2, =temp
-		LDR R2, [R2]
 		STR R1, [R2]			//temp = first
 nextNode:
 		
