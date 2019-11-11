@@ -59,9 +59,7 @@ insertNode:
 		push {r4-r11, lr}
 		
 		LDR R1, =first
-		LDR R1, [R1]
 		LDR R2, =last
-		LDR R2, [R2]
 		
 		LDR R3, [R1]
 		CMP R3, #0
