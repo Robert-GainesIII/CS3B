@@ -78,8 +78,9 @@ insert_first:
 		
 insert_last:
 		
-		push {lr}					
-		STR R0, [R2, #4]			//last->link = newNode
+		push {lr}	
+		LDR R4, [R2, #4]
+		LDR R0, [R4]			//last->link = newNode
 		STR R0, [R2]				//last = newNode
 		pop {lr}
 		BX lr
@@ -105,7 +106,7 @@ createNode:
 		MOV R3, R0
 		STR R10, [R3]		    // Data = address of string
 		
-		MOV R1, #1
+		MOV R1, #0
 		STR R1, [R3, #4]			// Link -> NULL
 		
 		LDR R1, =szFive
