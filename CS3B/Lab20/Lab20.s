@@ -23,6 +23,8 @@ szFour : 	.asciz    "Creating New Node.. \n"
 szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
+newline:    .asciz    "\n"
+
 
 buffer:	.skip	1024
 first:	.word	0
@@ -63,14 +65,10 @@ insertNode:
 		
 		LDR R3, [R1]
 		CMP R3, #0
-		ITE EQ
+		
 		BLEQ insert_first		//if(first == null){first-> Node; last-> Node;}
 		BLNE insert_last
 		
-		LDR R1, [R1]
-		LDR R2, [R2]
-		LDR R7, [R1, #4]
-		LDR R8, [R2, #4]
 		pop {r4-r11, lr}
 		BX LR					//return to 'main'
 		
@@ -138,6 +136,10 @@ nextNode:
 		BEQ endTraverse
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
+		
+		LDR R1, =newline
+		BL putstring
+		
 		LDR R7, [R3, #4]
 		//LDR R3, [R2, #4]		// LOAD R3 with temp->link
 		LDR R2, =temp
@@ -151,10 +153,13 @@ endTraverse:
 		BX lr
 		
 endLab20:
-
+		
+		LDR R1, =newline
+		BL putstring 
 		LDR R1, =szTwo
 		BL putstring
-
+		LDR R1, =newline
+		BL putstring
 		MOV R7, #1
 		SVC 0
 		
