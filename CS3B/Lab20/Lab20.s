@@ -64,8 +64,8 @@ insertNode:
 		LDR R3, [R1]
 		CMP R3, #0
 		ITE EQ
-		BL insert_first		//if(first == null){first-> Node; last-> Node;}
-		BL insert_last
+		BLEQ insert_first		//if(first == null){first-> Node; last-> Node;}
+		BLNE insert_last
 		
 		LDR R7, [R1, #4]
 		LDR R8, [R2, #4]
