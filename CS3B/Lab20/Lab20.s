@@ -65,6 +65,9 @@ insertNode:
 		CMP R3, #0
 		BEQ insert_first		//if(first == null){first-> Node; last-> Node;}
 		BL insert_last
+		
+		LDR R7, [R1, #4]
+		LDR R8, [R2, #4]
 		pop {r4-r11, lr}
 		BX LR					//return to 'main'
 		
