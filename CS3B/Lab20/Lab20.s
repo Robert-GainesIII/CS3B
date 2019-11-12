@@ -121,6 +121,7 @@ traverseList:
 
 		push {r4-r11, lr}
 		LDR R1, =first
+		LDR R1, [R1]
 		LDR R7, [R1, #4]
 		MOV R4, R1
 		LDR R2, =temp
