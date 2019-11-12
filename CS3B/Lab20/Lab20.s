@@ -67,6 +67,8 @@ insertNode:
 		BLEQ insert_first		//if(first == null){first-> Node; last-> Node;}
 		BLNE insert_last
 		
+		LDR R1, [R1]
+		LDR R2, [R2]
 		LDR R7, [R1, #4]
 		LDR R8, [R2, #4]
 		pop {r4-r11, lr}
