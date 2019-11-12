@@ -22,7 +22,7 @@ String_copy:
 	mov r8, r1
 	bl String_length
 	mov r10, r0
-	add r0, #1
+	add r0, #5
 	bl malloc
 	mov r4, r0
 

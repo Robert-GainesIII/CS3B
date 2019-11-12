@@ -82,9 +82,9 @@ insert_first:
 		
 insert_last:
 		
-		push {lr}	
+		push {lr}
+		LDR R2, [R2]
 		STR R0, [R2, #4]			//last->link = newNode
-		LDR R7, [R2, #4]
 		STR R0, [R2]				//last = newNode
 		pop {lr}
 		BX lr
@@ -105,7 +105,7 @@ createNode:
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
 		
-		MOV R0, #8				// each Node is 8 bytes
+		MOV R0, #10				// each Node is 8 bytes
 		BL malloc 			    // Node * N = new Node
 		MOV R3, R0
 		STR R10, [R3]		    // Data = address of string
