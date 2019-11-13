@@ -59,9 +59,6 @@ _start:
 		STR R2, [R1]
 		
 		BL printMenu
-		LDR R1, =temp
-		MOV R2, #12
-		BL getstring
 		
 		
 		
@@ -247,6 +244,11 @@ printMenu:
 		
 		LDR R1, =sz10
 		BL putstring
+		
+		
+		LDR R1, =temp
+		MOV R2, #12
+		BL getstring
 		
 		pop  {r4-r11, lr}
 		
