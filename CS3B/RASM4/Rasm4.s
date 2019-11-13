@@ -174,8 +174,8 @@ printMenu:
 		BL putstring
 		
 		LDR R2, =memAlloc
-		LDR R1, [R2]
-		MOV R2, #12
+		LDR R0, [R2]
+		MOV R1, #12
 		BL intasc32
 		BL putstring
 		
@@ -186,8 +186,8 @@ printMenu:
 		BL putstring
 		
 		LDR R2, =memAlloc
-		LDR R1, [R2]
-		MOV R2, #12
+		LDR R0, [R2]
+		MOV R1, #12
 		BL intasc32
 		BL putstring
 		
