@@ -14,6 +14,9 @@ NODE = [4 bytes][4 bytes]
 ************************************************/
 .data
 
+memAlloc:	.word 0
+nodeCount:  .word 0
+
 
 szOne : 	.asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : 	.asciz    "Thanks for using my program!! Good Day!\n"
@@ -33,7 +36,7 @@ sz6:		.asciz  "|(2) Add String\n"
 sz7:		.asciz  "|\t(a)From Keyboard\n"
 sz8:		.asciz  "|\t(b)From File\n"
 sz9:		.asciz  "|(3) Delete String\n"
-sz10:       .asciz  "|CHOICE ->"
+sz10:       .asciz  "CHOICE ->"
 
 
 buffer:	.skip	1024
@@ -170,7 +173,25 @@ printMenu:
 		LDR R1, =sz3
 		BL putstring
 		
+		LDR R2, =memAlloc
+		LDR R1, [R2]
+		MOV R2, #12
+		BL intasc32
+		BL putstring
+		
+		LDR R1, =newline
+		BL putstring
+		
 		LDR R1, =sz4
+		BL putstring
+		
+		LDR R2, =memAlloc
+		LDR R1, [R2]
+		MOV R2, #12
+		BL intasc32
+		BL putstring
+		
+		LDR R1, =newline
 		BL putstring
 		
 		LDR R1, =sz2
