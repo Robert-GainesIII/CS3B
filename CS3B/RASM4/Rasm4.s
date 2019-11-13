@@ -208,7 +208,7 @@ printMenu:
 		
 		LDR R1, =memAlloc
 		//LDR R0, [R1]
-		//BL intasc32
+		BL intasc32
 		BL putstring
 		
 		LDR R1, =newline
@@ -219,7 +219,7 @@ printMenu:
 		
 		LDR R1, =nodeCount
 		//LDR R0, [R1]
-		//BL intasc32
+		BL intasc32
 		BL putstring
 		
 		LDR R1, =newline
