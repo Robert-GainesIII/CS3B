@@ -60,7 +60,7 @@ _start:
 Rasm4Loop:		
 		BL printMenu
 		
-		LDR R1, =temp
+		LDR R1, =buffer
 		bl ascint32
 		cmp r0, #-1
 		beq endRasm4
@@ -171,7 +171,7 @@ endTraverse:
 		
 printNewScreen:
 		push {r4-r11, lr}
-		MOV R10, #25
+		MOV R10, #30
 		nsLoop:
 		CMP R10, #0
 		BEQ endNS
