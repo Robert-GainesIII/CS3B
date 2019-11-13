@@ -272,6 +272,7 @@ printMenu:
 		BL getstring
 		
 		pop  {lr}
+		bx lr 
 		
 endRasm4:
 		
