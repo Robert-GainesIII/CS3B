@@ -61,7 +61,6 @@ Rasm4Loop:
 		BL printMenu
 		
 		LDR R1, =temp
-		LDR R1, [R1]
 		bl ascint32
 		cmp r0, #-1
 		beq endRasm4
@@ -184,7 +183,7 @@ printNewScreen:
 		
 printMenu:
 
-		push {r4-r11, lr}
+		push {lr}
 		
 		LDR R1, =sz1
 		BL putstring
@@ -272,7 +271,7 @@ printMenu:
 		MOV R2, #12
 		BL getstring
 		
-		pop  {r4-r11, lr}
+		pop  {lr}
 		
 endRasm4:
 		
