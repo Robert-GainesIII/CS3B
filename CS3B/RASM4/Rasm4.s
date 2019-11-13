@@ -203,7 +203,7 @@ printMenu:
 		LDR R1, =sz2
 		BL putstring
 		
-		LDR R1, =s10
+		LDR R1, =sz10
 		BL putstring
 		
 		LDR R1, =sz1
