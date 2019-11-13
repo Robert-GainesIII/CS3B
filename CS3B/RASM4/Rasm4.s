@@ -61,6 +61,7 @@ Rasm4Loop:
 		BL printMenu
 		
 		LDR R1, =temp
+		LDR R1, [R1]
 		bl ascint32
 		cmp r0, #-1
 		beq endRasm4
