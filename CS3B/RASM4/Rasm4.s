@@ -50,11 +50,11 @@ nodeCount:  .word 0
 		
 _start:
 		LDR R1, =memAlloc
-		MOV R2, #0
+		MOV R2, #1
 		STR R2, [R1]
 		
 		LDR R1, =nodeCount
-		MOV R2, #0
+		MOV R2, #1
 		STR R2, [R1]
 Rasm4Loop:		
 		BL printMenu
