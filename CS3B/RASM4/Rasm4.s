@@ -57,13 +57,21 @@ _start:
 		LDR R1, =nodeCount
 		MOV R2, #0
 		STR R2, [R1]
-		
+Rasm4Loop:		
 		BL printMenu
 		
-		
-		
-		b endLab20
-//~============================================~//		
+		LDR R1, =temp
+		bl ascint32
+		cmp r0, #-1
+		beq endRasm4
+		b Rasm4Loop
+//=================================================
+
+
+			This Makes Code Look Clean.
+
+
+//=================================================		
 insertNode:
 		
 		push {r4-r11, lr}
@@ -160,6 +168,19 @@ endTraverse:
 		pop {r4-r11, lr}
 		BX lr
 		
+printNewScreen:
+		push {r4-r11, lr}
+		MOV R10, #25
+		nsLoop:
+		CMP R10, #0
+		BEQ endNS
+		LDR R1, =newline
+		BL putstring
+		SUB R10, #1
+		b nsLoop
+		endNS:
+		pop {r4-r11, lr}
+		
 printMenu:
 
 		push {r4-r11, lr}
@@ -252,7 +273,7 @@ printMenu:
 		
 		pop  {r4-r11, lr}
 		
-endLab20:
+endRasm4:
 		
 		LDR R1, =newline
 		BL putstring 
