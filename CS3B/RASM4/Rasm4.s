@@ -64,6 +64,7 @@ Rasm4Loop:
 		bl ascint32
 		cmp r0, #-1
 		beq endRasm4
+		bl printNewScreen
 		b Rasm4Loop
 /*/=================================================
 
@@ -267,8 +268,8 @@ printMenu:
 		BL putstring
 		
 		
-		LDR R1, =temp
-		MOV R2, #12
+		LDR R1, =buffer
+		MOV R2, #buffer_size
 		BL getstring
 		
 		pop  {lr}
