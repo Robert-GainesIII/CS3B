@@ -49,6 +49,14 @@ temp:	.word 	0
 		.equ	buffer_size,1024
 		
 _start:
+		LDR R1, =memAlloc
+		MOV R2, #0
+		STR R2, [R1]
+		
+		LDR R1, =nodeCount
+		MOV R2, #0
+		STR R2, [R1]
+		
 		BL printMenu
 		b endLab20
 //~============================================~//		
@@ -185,7 +193,7 @@ printMenu:
 		BL putstring
 		
 		LDR R1, =nodeCount
-		LDR R1, [R1]
+		MOV R2, #12
 		BL intasc32
 		BL putstring
 		
