@@ -64,7 +64,6 @@ Rasm4Loop:
 		bl ascint32
 		cmp r0, #-1
 		beq endRasm4
-		bl printNewScreen
 		b Rasm4Loop
 /*/=================================================
 
@@ -181,6 +180,7 @@ printNewScreen:
 		b nsLoop
 		endNS:
 		pop {r4-r11, lr}
+		bx lr
 		
 printMenu:
 
@@ -263,6 +263,8 @@ printMenu:
 		
 		LDR R1, =newline
 		BL putstring
+		
+		bl printNewScreen
 		
 		LDR R1, =sz10
 		BL putstring
