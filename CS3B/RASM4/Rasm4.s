@@ -23,8 +23,8 @@ szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
 newline:    .asciz    "\n"
-sz0:        .asciz  "\tRASM4 Text Editor"
-sz1:		.asciz	"|===================================================================|\n"
+sz0:        .asciz  "\tRASM4 Text Editor\n"
+sz1:		.asciz	"|===================================================================| \n"
 sz2:		.asciz  "|\n" 
 sz3:		.asciz  "|MEMORY ALLOCATED:"
 sz4:		.asciz  "|NODES CREATED:"
@@ -33,6 +33,7 @@ sz6:		.asciz  "|(2) Add String\n"
 sz7:		.asciz  "|\t(a)From Keyboard\n"
 sz8:		.asciz  "|\t(b)From File\n"
 sz9:		.asciz  "|(3) Delete String\n"
+sz10:       .asciz  "|CHOICE ->"
 
 
 buffer:	.skip	1024
@@ -160,6 +161,12 @@ printMenu:
 		LDR R1, =sz2
 		BL putstring
 		
+		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =sz2
+		BL putstring
+		
 		LDR R1, =sz3
 		BL putstring
 		
@@ -191,6 +198,12 @@ printMenu:
 		BL putstring
 		
 		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =s10
 		BL putstring
 		
 		LDR R1, =sz1
