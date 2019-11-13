@@ -59,8 +59,8 @@ _start:
 		STR R2, [R1]
 		
 		BL printMenu
-		LDR R1, =buffer
-		MOV R2, #buffer_size
+		LDR R1, =temp
+		MOV R2, #12
 		BL getstring
 		
 		
