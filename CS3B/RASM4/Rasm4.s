@@ -173,9 +173,7 @@ printMenu:
 		LDR R1, =sz3
 		BL putstring
 		
-		LDR R2, =memAlloc
-		LDR R0, [R2]
-		MOV R1, #12
+		LDR R1, =memAlloc
 		BL intasc32
 		BL putstring
 		
