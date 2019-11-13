@@ -23,7 +23,7 @@ szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
 newline:    .asciz    "\n"
-sz0:        .asciz  "\tRASM4 Text Editor\n"
+sz0:        .asciz  "|\t\tRASM4 Text Editor\n"
 sz1:		.asciz	"|===================================================================| \n"
 sz2:		.asciz  "|\n" 
 sz3:		.asciz  "|MEMORY ALLOCATED:"
@@ -203,10 +203,13 @@ printMenu:
 		LDR R1, =sz2
 		BL putstring
 		
-		LDR R1, =sz10
+		LDR R1, =sz1
 		BL putstring
 		
-		LDR R1, =sz1
+		LDR R1, =newline
+		BL putstring
+		
+		LDR R1, =sz10
 		BL putstring
 		
 		pop  {r4-r11, lr}
