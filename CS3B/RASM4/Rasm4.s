@@ -44,6 +44,7 @@ first:	.word	0
 last:	.word	0
 temp:	.word 	0
 
+
 .text		
 		.global _start
 		.equ	buffer_size,1024
@@ -58,6 +59,12 @@ _start:
 		STR R2, [R1]
 		
 		BL printMenu
+		LDR R1, =buffer
+		MOV R2, #buffer_size
+		BL getstring
+		
+		
+		
 		b endLab20
 //~============================================~//		
 insertNode:
@@ -194,6 +201,7 @@ printMenu:
 		BL putstring
 		
 		LDR R1, =nodeCount
+		LDR R0, [R1]
 		MOV R2, #12
 		BL intasc32
 		BL putstring
