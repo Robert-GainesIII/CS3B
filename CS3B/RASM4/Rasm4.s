@@ -170,7 +170,7 @@ endTraverse:
 		
 printNewScreen:
 		push {r4-r11, lr}
-		MOV R10, #30
+		MOV R10, #29
 		nsLoop:
 		CMP R10, #0
 		BEQ endNS
