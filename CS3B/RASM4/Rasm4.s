@@ -32,7 +32,11 @@ sz6:		.asciz  "|(2) Add String\n"
 sz7:		.asciz  "|\t(a)From Keyboard\n"
 sz8:		.asciz  "|\t(b)From File\n"
 sz9:		.asciz  "|(3) Delete String\n"
-sz10:       .asciz  "CHOICE ->"
+sz10:		.asciz  "|(4) Edit String\n"
+sz11:		.asciz  "|(5) Search String\n"
+sz12:		.asciz  "|(6) Save to File\n"
+sz13:		.asciz  "|(7) Exit Program\n"
+sz14:       .asciz  "CHOICE ->"
 
 
 buffer:	.skip	1024
@@ -61,8 +65,14 @@ Rasm4Loop:
 		
 		LDR R1, =buffer
 		bl ascint32
-		cmp r0, #-1
+		mov R4, R0
+		cmp r4, #7
 		beq endRasm4
+		cmp r4, #1
+		BL traverseList
+		cmp r4, #2
+		BL createNode
+		cmp r4
 		b Rasm4Loop
 /*/=================================================
 
@@ -169,7 +179,7 @@ endTraverse:
 		
 printNewScreen:
 		push {r4-r11, lr}
-		MOV R10, #29
+		MOV R10, #26
 		nsLoop:
 		CMP R10, #0
 		BEQ endNS
@@ -258,7 +268,25 @@ printMenu:
 		LDR R1, =sz2
 		BL putstring
 		
+		LDR R1, =sz10
+		BL putstring
+		
 		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =sz11
+		BL putstring
+		
+		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =sz12
+		BL putstring
+		
+		LDR R1, =sz2
+		BL putstring
+		
+		LDR R1, =sz13
 		BL putstring
 		
 		LDR R1, =sz1
@@ -269,7 +297,7 @@ printMenu:
 		
 		bl printNewScreen
 		
-		LDR R1, =sz10
+		LDR R1, =sz14
 		BL putstring
 		
 		
