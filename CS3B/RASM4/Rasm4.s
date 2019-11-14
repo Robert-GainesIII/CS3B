@@ -434,7 +434,8 @@ deleteNode:
 		
 		LDR R1, =first
 		LDR R1, [R1]
-		MOV R5, R1
+		MOV R5, R1				//CONTAINS NODE 
+		LDR R1, [R1]
 		
 		CMP R4, #1
 		
@@ -445,9 +446,9 @@ firstNodeDelete:
 		BL String_length
 		MOV R9, R0			//ADD R9 NUMBER OF BYTES IN STRING
 		LDR R7, [R5, #4]   //R7 = first->link
-		LDR R0, [R1]
+		LDR R0, [R5]
 		BL free            //RETURN MALLOCd MEMORY
-		MOV R0, R1
+		MOV R0, R5
 		BL free
 		ADD R9, #8
 		LDR R1, =first
