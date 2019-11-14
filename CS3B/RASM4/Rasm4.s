@@ -72,7 +72,6 @@ Rasm4Loop:
 		BL traverseList
 		cmp r4, #2
 		BL createNode
-		cmp r4
 		b Rasm4Loop
 /*/=================================================
 
