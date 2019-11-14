@@ -25,6 +25,9 @@ szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
 szEight:    .asciz    "Press Enter To Continue..."
+szNine:     .asciz    "Linked List Is Empty."
+szTen:      .asciz    "Choose A String to Delete:"
+szEleven:   .asciz    "Out of bound Size!"
 newline:    .asciz    "\n"
 sz0:        .asciz  "|\t\tRASM4 Text Editor\n"
 sz1:		.asciz	"|===================================================================| \n"
@@ -41,6 +44,7 @@ sz11:		.asciz  "|(5) Search String\n"
 sz12:		.asciz  "|(6) Save to File\n"
 sz13:		.asciz  "|(7) Exit Program\n"
 sz14:       .asciz  "CHOICE ->"
+
 
 
 buffer:	.skip	1024
@@ -61,9 +65,15 @@ _start:
 		LDR R1, =nodeCount
 		MOV R2, #0
 		STR R2, [R1]
+/*/=================================================
+
+
+			Main Program Loop Here
+
+
+   ================================================/*/
 Rasm4Loop:		
 		BL printMenu
-		
 		LDR R1, =buffer
 		bl ascint32
 		mov R4, R0
@@ -73,10 +83,16 @@ Rasm4Loop:
 		BLEQ traverseList
 		cmp r4, #2
 		BLEQ addString
-		LDR R1, =nodeCount
-		LDR R1, [R1]
+		cmp r4, #3
+		BLEQ deleteString
 		b Rasm4Loop
-		
+/*/=================================================
+
+
+			Add string.
+
+
+   ================================================/*/		
 addString:
 
 		push {r4-r11, lr}
@@ -87,14 +103,60 @@ addString:
 		LDR R1, =nodeCount
 		STR R3, [R1]
 		pop {r4-r11, lr}
+		BX lr	
+/*/=================================================
+
+
+			Delete string.
+
+
+   ================================================/*/
+deleteString:
+
+		push {r4-r11, lr}
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		cmp r1, #1
+		BLT noDelete
+		BL traverseList
+		
+		LDR R1, =szTen
+		BL putstring
+		
+		LDR R1, =newline
+		BL putstring 
+		
+		LDR R1, =sz14
+		BL putstring
+		
+		BL getIndex
+		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		CMP R1, R0
+		BEQ noDelete
+		
+		BL deleteNode
+		
+noDeleteE:
+		LDR R1, =szNine
+		BL putstring
+		BL systemPause
+		b noDelete
+noDeleteO:
+		LDR R1, =szEleven
+		BL putstring
+		BL systemPause
+noDelete:	
+		pop {r4-r11, lr}
 		BX lr
 /*/=================================================
 
 
-			This Makes Code Look Clean.
+			Insert Node.
 
 
-   ================================================/*/	
+   ================================================/*/
 insertNode:
 		
 		push {r4-r11, lr}
@@ -128,7 +190,13 @@ insert_last:
 		STR R0, [R2]				//last = newNode
 		pop {lr}
 		BX lr
-		
+/*/=================================================
+
+
+			Create Node.
+
+
+   ================================================/*/		
 createNode:
 		
 		push {r4-r11, lr}
@@ -172,7 +240,13 @@ createNode:
 		
 		pop {r4-r11, lr}
 		BX lr 					// Return
+/*/=================================================
 
+
+			Traverse Linked List.
+
+
+   ================================================/*/
 traverseList:
 
 		push {r4-r11, lr}
@@ -205,14 +279,16 @@ nextNode:
 		
 endTraverse:
 
-		LDR R1, =szEight
-		BL putstring
-		LDR R1, =buffer
-		MOV R2, #buffer_size
-		BL getstring
+		BL systemPause
 		pop {r4-r11, lr}
 		BX lr
-		
+/*/=================================================
+
+
+			Print 22 Blank Lines.
+
+
+   ================================================/*/		
 printNewScreen:
 		push {r4-r11, lr}
 		MOV R10, #22
@@ -226,7 +302,13 @@ printNewScreen:
 		endNS:
 		pop {r4-r11, lr}
 		bx lr
-		
+/*/=================================================
+
+
+			Print Menu.
+
+
+   ================================================/*/		
 printMenu:
 
 		push {r4-r11, lr}
@@ -336,7 +418,102 @@ printMenu:
 		
 		bl printNewScreen
 		
+		BL getIndex
+		
+		pop  {r4-r11, lr}
+		bx lr 
+/*/=================================================
+
+
+			This Makes Code Look Clean.
+
+
+   ================================================/*/
+deleteNode:
+
+		push {r4-r11, lr}
+		MOV R4, R0  //INDEX TO BE DELETED
+		
+		LDR R1, =first
+		LDR R1, [R1]
+		
+		CMP R4, #1
+		
+		BEQ firstNodeDelete
+		B notThatObviously
+		
+firstNodeDelete:
+		BL string_Length
+		MOV R9, R0
+		LDR R7, [R1, #4]
+		MOV R0, R1
+		BL free        //RETURN MALLOCd MEMORY
+		LDR R1, =first
+		STR R7, [R1]  //first = first->link
+	
+		
+notThatObviously:
+		LDR R2, =temp
+		STR R1, [R2]			//temp = first
+		MOV R10, R1            //USE THIS AS PREV
+		MOV R5, #1
+nextNode2:
+		LDR R3, [R2]
+		CMP R4, R5			//IS CURRENT INDEX == TARGET INDEX 
+		BEQ foundNode
+		BNE nextIndex
+foundNode:
+		MOV R1, R3
+		BL string_Length
+		MOV R9, R0
+		LDR R7, [R10, #4] //prev->link
+		LDR R8, [R3, #4]  //temp->link temp is the node to be deleted
+		STR R8, [R7]      //prev->link = temp->link
+		MOV R0, R3
+		BL free 		//Release MALLOC memory
+		B endTraversal
+		
+nextIndex:		
+		LDR R7, [R3, #4]
+		LDR R2, =temp
+		STR R7, [R2]			// temp = temp->link
+		B nextNode2
+		
+		
+endTraversal:
+
+		LDR R1, =memAlloc
+		LDR R1, [R1]
+		sub r2, r1, r9
+		LDR R1, =memAlloc
+		STR R2, [R1]
+		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		sub r2, r1, #1
+		LDR R1, =nodeCount
+		STR R2, [R1]
+		
+		BL systemPause
+		pop {r4-r11, lr}
+		BX lr 
+getIndex:
+		push {lr}
+		
 		LDR R1, =sz14
+		BL putstring
+		
+		LDR R1, =buffer
+		MOV R2, #buffer_size
+		BL getstring
+		BL ascint32
+		
+		pop {lr}
+		BX lr
+systemPause:
+		push {lr}
+		
+		LDR R1, =szEight
 		BL putstring
 		
 		
@@ -344,9 +521,8 @@ printMenu:
 		MOV R2, #buffer_size
 		BL getstring
 		
-		pop  {r4-r11, lr}
-		bx lr 
-		
+		pop {lr}
+		BX lr
 endRasm4:
 		
 		LDR R1, =newline
@@ -357,7 +533,13 @@ endRasm4:
 		BL putstring
 		MOV R7, #1
 		SVC 0
-		
+/*/=================================================
+
+
+			END OF FILE!!!!!
+
+
+   ================================================/*/		
 		
 		
 		
