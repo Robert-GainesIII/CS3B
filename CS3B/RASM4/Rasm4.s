@@ -443,7 +443,7 @@ deleteNode:
 		B notThatObviously
 		
 firstNodeDelete:
-		BL string_Length
+		BL String_length
 		MOV R9, R0
 		LDR R7, [R1, #4]
 		MOV R0, R1
@@ -464,7 +464,7 @@ nextNode2:
 		BNE nextIndex
 foundNode:
 		MOV R1, R3
-		BL string_Length
+		BL String_length
 		MOV R9, R0
 		LDR R7, [R10, #4] //prev->link
 		LDR R8, [R3, #4]  //temp->link temp is the node to be deleted
