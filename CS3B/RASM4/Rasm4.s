@@ -69,9 +69,9 @@ Rasm4Loop:
 		cmp r4, #7
 		beq endRasm4
 		cmp r4, #1
-		BL traverseList
+		BLEQ traverseList
 		cmp r4, #2
-		BL createNode
+		BLEQ createNode
 		b Rasm4Loop
 /*/=================================================
 
