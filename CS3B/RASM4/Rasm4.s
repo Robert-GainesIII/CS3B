@@ -211,6 +211,9 @@ printMenu:
 		BL intasc32
 		BL putstring
 		
+		LDR R2, =memAlloc
+		STR R0, [R2]
+		
 		LDR R1, =newline
 		BL putstring
 		
@@ -221,6 +224,9 @@ printMenu:
 		//LDR R0, [R1]
 		BL intasc32
 		BL putstring
+		
+		LDR R2, =nodeCount
+		STR R0, [R2]
 		
 		LDR R1, =newline
 		BL putstring
