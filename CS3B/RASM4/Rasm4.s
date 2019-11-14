@@ -178,7 +178,7 @@ endTraverse:
 		
 printNewScreen:
 		push {r4-r11, lr}
-		MOV R10, #26
+		MOV R10, #25
 		nsLoop:
 		CMP R10, #0
 		BEQ endNS
@@ -192,7 +192,7 @@ printNewScreen:
 		
 printMenu:
 
-		push {lr}
+		push {r4-r11, lr}
 		
 		LDR R1, =sz1
 		BL putstring
@@ -288,6 +288,9 @@ printMenu:
 		LDR R1, =sz13
 		BL putstring
 		
+		LDR R1, =sz2
+		BL putstring
+		
 		LDR R1, =sz1
 		BL putstring
 		
@@ -304,7 +307,7 @@ printMenu:
 		MOV R2, #buffer_size
 		BL getstring
 		
-		pop  {lr}
+		pop  {r4-r11, lr}
 		bx lr 
 		
 endRasm4:
