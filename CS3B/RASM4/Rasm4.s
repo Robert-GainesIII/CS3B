@@ -73,6 +73,8 @@ Rasm4Loop:
 		BLEQ traverseList
 		cmp r4, #2
 		BLEQ addString
+		LDR R1, =nodeCount
+		LDR R1, [R1]
 		b Rasm4Loop
 		
 addString:
