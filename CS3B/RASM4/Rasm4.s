@@ -267,7 +267,7 @@ printMenu:
 		BL putstring
 		
 		LDR R1, =nodeCount
-		//LDR R0, [R1]
+		LDR R0, [R1]
 		BL intasc32
 		BL putstring
 		
