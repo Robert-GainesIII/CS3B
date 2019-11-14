@@ -179,12 +179,12 @@ nextNode:
 		
 endTraverse:
 
-		pop {r4-r11, lr}
 		LDR R1, =szEight
 		BL putstring
 		LDR R1, =buffer
 		MOV R2, #buffer_size
 		BL getstring
+		pop {r4-r11, lr}
 		BX lr
 		
 printNewScreen:
