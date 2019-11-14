@@ -159,8 +159,8 @@ createNode:
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		add r3, r1, #1
-		LDR R1, =nodeCount
-		STR R3, [R1]
+		LDR R2, =nodeCount
+		STR R3, [R2]
 		
 		pop {r4-r11, lr}
 		BX lr 					// Return
