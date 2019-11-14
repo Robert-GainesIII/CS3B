@@ -72,8 +72,20 @@ Rasm4Loop:
 		cmp r4, #1
 		BLEQ traverseList
 		cmp r4, #2
-		BLEQ createNode
+		BLEQ addString
 		b Rasm4Loop
+		
+addString:
+
+		push {r4-r11, lr}
+		BL createNode
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		add r3, r1, #1
+		LDR R2, =nodeCount
+		STR R3, [R2]
+		pop {r4-r11, lr}
+		BX lr
 /*/=================================================
 
 
@@ -118,12 +130,6 @@ insert_last:
 createNode:
 		
 		push {r4-r11, lr}
-		
-		LDR R1, =nodeCount
-		LDR R1, [R1]
-		add r3, r1, #1
-		LDR R2, =nodeCount
-		STR R3, [R2]
 		
 		LDR R1, =szThree
 		BL putstring
