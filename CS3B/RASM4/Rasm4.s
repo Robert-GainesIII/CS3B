@@ -118,7 +118,6 @@ deleteString:
 		LDR R1, [R1]
 		cmp r1, #1
 		BLT noDeleteE
-		BL traverseList
 		
 		LDR R1, =szTen
 		BL putstring
@@ -126,15 +125,12 @@ deleteString:
 		LDR R1, =newline
 		BL putstring 
 		
-		LDR R1, =sz14
-		BL putstring
-		
 		BL getIndex
 		
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		CMP R1, R0
-		BGT noDeleteO
+		BLT noDeleteO
 		
 		BL deleteNode
 		
