@@ -21,6 +21,7 @@ szFour : 	.asciz    "Creating New Node.. \n"
 szFive : 	.asciz    "Inserting Node.. \n"
 szSix : 	.asciz    "Printing linked List.. \n\n"
 szSeven:    .asciz    "~LINKED LIST~\n"
+szEight:    .asciz    "Press Enter To Continue..."
 newline:    .asciz    "\n"
 sz0:        .asciz  "|\t\tRASM4 Text Editor\n"
 sz1:		.asciz	"|===================================================================| \n"
@@ -149,6 +150,11 @@ createNode:
 traverseList:
 
 		push {r4-r11, lr}
+		LDR R1, =szSix
+		BL putstring
+		LDR R1, =szSeven
+		BL putstring
+		
 		LDR R1, =first
 		LDR R1, [R1]
 		LDR R2, =temp
@@ -174,11 +180,16 @@ nextNode:
 endTraverse:
 
 		pop {r4-r11, lr}
+		LDR R1, =szEight
+		BL putstring
+		LDR R1, =buffer
+		MOV R2, #buffer_size
+		BL getstring
 		BX lr
 		
 printNewScreen:
 		push {r4-r11, lr}
-		MOV R10, #23
+		MOV R10, #22
 		nsLoop:
 		CMP R10, #0
 		BEQ endNS
