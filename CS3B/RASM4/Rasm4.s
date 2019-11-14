@@ -55,11 +55,11 @@ nodeCount:  .word 0
 		
 _start:
 		LDR R1, =memAlloc
-		MOV R2, #1
+		MOV R2, #0
 		STR R2, [R1]
 		
 		LDR R1, =nodeCount
-		MOV R2, #1
+		MOV R2, #0
 		STR R2, [R1]
 Rasm4Loop:		
 		BL printMenu
@@ -130,11 +130,17 @@ createNode:
 		BL String_copy			
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
+		LDR R1, [R10]
+		BL String_length
+		MOV R6, R0				//memAllocated
+		
 		
 		MOV R0, #10				// each Node is 8 bytes
 		BL malloc 			    // Node * N = new Node
 		MOV R3, R0
 		STR R10, [R3]		    // Data = address of string
+		
+		ADD R6, #8				//add 8 bytes for node in memAlloc
 		
 		MOV R1, #0
 		STR R1, [R3, #4]			// Link -> NULL
@@ -143,6 +149,18 @@ createNode:
 		BL putstring
 		
 		BL insertNode
+		
+		LDR R1, =memAlloc
+		LDR R1, [R1]
+		add r2, r6, r1
+		LDR R1, =memAlloc
+		STR R2, [R1]
+		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		add r2, r1, #1
+		LDR R1, =nodeCount
+		STR R2, [R1]
 		
 		pop {r4-r11, lr}
 		BX lr 					// Return
