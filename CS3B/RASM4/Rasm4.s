@@ -130,7 +130,7 @@ createNode:
 		BL String_copy			
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
-		LDR R1, [R10]
+		//LDR R1, [R10]
 		BL String_length
 		MOV R6, R0				//memAllocated
 		
