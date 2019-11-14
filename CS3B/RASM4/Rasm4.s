@@ -117,7 +117,7 @@ deleteString:
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		cmp r1, #1
-		BLT noDelete
+		BLT noDeleteE
 		BL traverseList
 		
 		LDR R1, =szTen
@@ -134,7 +134,7 @@ deleteString:
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		CMP R1, R0
-		BEQ noDelete
+		BGT noDeleteO
 		
 		BL deleteNode
 		
