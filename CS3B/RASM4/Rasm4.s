@@ -14,6 +14,9 @@ NODE = [4 bytes][4 bytes]
 ************************************************/
 .data
 
+memAlloc:	.word 0
+nodeCount:  .word 0
+
 szOne : 	.asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : 	.asciz    "Thanks for using my program!! Good Day!\n"
 szThree : 	.asciz    "Enter a string to store into the new Node: "
@@ -44,9 +47,6 @@ buffer:	.skip	1024
 first:	.word	0
 last:	.word	0
 temp:	.word 	0
-
-memAlloc:	.word 0
-nodeCount:  .word 0
 
 
 .text		
@@ -82,8 +82,8 @@ addString:
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		add r3, r1, #1
-		LDR R2, =nodeCount
-		STR R3, [R2]
+		LDR R1, =nodeCount
+		STR R1, [R2]
 		pop {r4-r11, lr}
 		BX lr
 /*/=================================================
