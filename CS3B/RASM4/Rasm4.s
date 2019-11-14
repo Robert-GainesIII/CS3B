@@ -133,6 +133,8 @@ deleteString:
 		BLT noDeleteO
 		
 		BL deleteNode
+		pop {r4-r11, lr}
+		BX lr
 		
 noDeleteE:
 		LDR R1, =szNine
@@ -432,6 +434,7 @@ deleteNode:
 		
 		LDR R1, =first
 		LDR R1, [R1]
+		MOV R5, R1
 		
 		CMP R4, #1
 		
@@ -440,13 +443,13 @@ deleteNode:
 		
 firstNodeDelete:
 		BL String_length
-		MOV R9, R0
-		LDR R7, [R1, #4]
+		MOV R9, R0			//ADD R9 NUMBER OF BYTES IN STRING
+		LDR R7, [R5, #4]   //R7 = first->link
 		MOV R0, R1
 		BL free        //RETURN MALLOCd MEMORY
 		LDR R1, =first
 		STR R7, [R1]  //first = first->link
-	
+		B endTraversal
 		
 notThatObviously:
 		LDR R2, =temp
