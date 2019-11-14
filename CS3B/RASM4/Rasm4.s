@@ -445,8 +445,11 @@ firstNodeDelete:
 		BL String_length
 		MOV R9, R0			//ADD R9 NUMBER OF BYTES IN STRING
 		LDR R7, [R5, #4]   //R7 = first->link
+		LDR R0, [R1]
+		BL free            //RETURN MALLOCd MEMORY
 		MOV R0, R1
-		BL free        //RETURN MALLOCd MEMORY
+		BL free
+		ADD R9, #8
 		LDR R1, =first
 		STR R7, [R1]  //first = first->link
 		B endTraversal
