@@ -434,9 +434,11 @@ deleteNode:
 		
 		LDR R1, =first
 		LDR R1, [R1]
+		LDR R2, =temp
+		STR R1, [R2]			//TEMP = NODE
 		MOV R5, R1				//CONTAINS NODE 
 		LDR R1, [R1]
-		
+	
 		CMP R4, #1
 		
 		BEQ firstNodeDelete
@@ -457,12 +459,12 @@ firstNodeDelete:
 		
 notThatObviously:
 		LDR R2, =temp
-		STR R1, [R2]			//temp = first
-		MOV R10, R1            //USE THIS AS PREV
-		MOV R5, #1
+		STR R5, [R2]			//temp = first
+		MOV R10, R5            //USE THIS AS PREV
+		MOV R6, #1
 nextNode2:
 		LDR R3, [R2]
-		CMP R4, R5			//IS CURRENT INDEX == TARGET INDEX 
+		CMP R4, R6			//IS CURRENT INDEX == TARGET INDEX 
 		BEQ foundNode
 		BNE nextIndex
 foundNode:
