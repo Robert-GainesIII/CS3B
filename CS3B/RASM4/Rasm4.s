@@ -467,7 +467,7 @@ nextNode2:
 		BEQ foundNode
 		BNE nextIndex
 foundNode:
-		MOV R1, R3
+		LDR R1, [R3]
 		BL String_length
 		MOV R9, R0
 		LDR R7, [R10, #4] //prev->link
