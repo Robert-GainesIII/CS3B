@@ -464,9 +464,7 @@ notThatObviously:
 nextNode2:
 		LDR R3, [R2]
 		CMP R4, R6			//IS CURRENT INDEX == TARGET INDEX 
-		BEQ foundNode
 		BNE nextIndex
-foundNode:
 		LDR R1, [R3]
 		BL String_length
 		MOV R9, R0
@@ -478,9 +476,9 @@ foundNode:
 		B endTraversal
 		
 nextIndex:		
-		add R3, #4
+		LDR R7, [R3, #4]
 		LDR R2, =temp
-		STR R3, [R2]			// temp = temp->link
+		STR R7, [R2]			// temp = temp->link
 		add R6, #1
 		B nextNode2
 		
