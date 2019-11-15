@@ -481,6 +481,7 @@ nextIndex:
 		LDR R7, [R3, #4]
 		LDR R2, =temp
 		STR R7, [R2]			// temp = temp->link
+		add R6, #1
 		B nextNode2
 		
 		
