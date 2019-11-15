@@ -459,7 +459,6 @@ firstNodeDelete:
 		
 notThatObviously:
 		LDR R2, =temp
-		STR R5, [R2]			//temp = first
 		MOV R10, R5            //USE THIS AS PREV
 		MOV R6, #1
 nextNode2:
