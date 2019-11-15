@@ -478,10 +478,9 @@ foundNode:
 		B endTraversal
 		
 nextIndex:		
-		LDR R1, =temp
-		LDR R7, [R1, #4]
+		add R3, #4
 		LDR R2, =temp
-		STR R7, [R2]			// temp = temp->link
+		STR R3, [R2]			// temp = temp->link
 		add R6, #1
 		B nextNode2
 		
