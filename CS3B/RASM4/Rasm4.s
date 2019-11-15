@@ -468,7 +468,7 @@ nextNode2:
 		LDR R1, [R3]
 		BL String_length
 		MOV R9, R0
-		LDR R7, [R10, #4] //prev->link
+		ADD R7, R10, #4 //prev->link
 		MOV R0, R3
 		LDR R8, [R3, #4]  //temp->link temp is the node to be deleted
 		STR R8, [R7]      //prev->link = temp->link
