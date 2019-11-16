@@ -475,11 +475,13 @@ nextNode2:
 		BL free 		//Release MALLOC memory
 		B endTraversal
 		
-nextIndex:		
+nextIndex:	
+		MOV R10, R3
 		LDR R7, [R3, #4]
 		LDR R2, =temp
 		STR R7, [R2]			// temp = temp->link
 		add R6, #1
+		
 		B nextNode2
 		
 		
