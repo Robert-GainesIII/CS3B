@@ -473,8 +473,19 @@ nextNode2:
 		LDR R8, [R3, #4]  //temp->link temp is the node to be deleted
 		STR R8, [R7]      //prev->link = temp->link
 		BL free 		//Release MALLOC memory
+		ADD R9, #8      //ADD INTO R9 FOR SUBTRACTION FROM LABEL COUNT
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		CMP R1, R4
+		BLEQ lastNodeDelete
 		B endTraversal
 		
+lastNodeDelete:
+	    push {lr}
+		LDR R1, =last
+		STR R10, [R1]    //last = prev of last node or should be...
+		pop {lr}
+		BX lr
 nextIndex:	
 		MOV R10, R3
 		LDR R7, [R3, #4]
