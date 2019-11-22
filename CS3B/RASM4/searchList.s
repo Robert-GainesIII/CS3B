@@ -35,9 +35,9 @@ nextNode:
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endSearchList
-		LDR R1, [R3]
-		MOV R5, R1
+		MOV R1, R3
 		BL String_toUpperCase
+		LDR R5,[R3]
 		MOV R2, R8
 		BL String_indexOf_3
 		CMP R0, #-1
