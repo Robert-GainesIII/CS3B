@@ -12,7 +12,7 @@
 
 String_indexOf_3:
 
-	push {r1-r2, lr}		@Preserve registers 1 and 2, and link register
+	push {r1-r11, lr}		@Preserve registers 1 and 2, and link register
 	mov r4, r1				@copy string one to register four
 	mov r5, r2				@copy string two to register five
 	LDR R1, [R4]			@Dereference pointer to string one
@@ -64,6 +64,6 @@ indexOf_3Found:
 	mov r0, r6			@Load in return register the index found 
 	
 end_indexof_3: 
-	pop {r1-r2, lr}
+	pop {r1-r11, lr}
 	
 	bx lr
