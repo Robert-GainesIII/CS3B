@@ -28,6 +28,7 @@ szEight:    .asciz    "Press Enter To Continue..."
 szNine:     .asciz    "Linked List Is Empty."
 szTen:      .asciz    "Choose A String to Delete:"
 szEleven:   .asciz    "Out of bound Size!"
+szTwelve:   .asciz    "Enter A String to Search For:"
 newline:    .asciz    "\n"
 sz0:        .asciz  "|\t\tRASM4 Text Editor\n"
 sz1:		.asciz	"|===================================================================| \n"
@@ -86,6 +87,33 @@ Rasm4Loop:
 		cmp r4, #3
 		BLEQ deleteString
 		b Rasm4Loop
+		
+/*/=================================================
+
+
+			Search String
+
+
+   ================================================/*/
+   
+searchString:
+		
+		push {r4-r11, lr}
+		
+		LDR R1, =szTwelve
+		Bl putstring 
+		
+		LDR R1, =buffer
+		MOV R2, #buffer_size
+		BL getstring
+		
+		LDR R1, =buffer
+		LDR R2, =first
+		BL searchList
+   
+		pop {r4-r11, lr}
+		bx lr
+   
 /*/=================================================
 
 
@@ -207,6 +235,7 @@ createNode:
 		BL getstring
 		
 		LDR R1, =buffer
+		
 		BL String_copy			
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
