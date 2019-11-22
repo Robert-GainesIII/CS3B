@@ -20,7 +20,7 @@ newline:   .asciz "\n"
 searchList:
 
 		push {r4- r11, lr}
-		BL String_toUpperCase
+		BL toUpper
 		MOV R8, R1				//Store toUpperd search string in R8
 		
 
@@ -36,7 +36,7 @@ nextNode:
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endSearchList
 		MOV R1, R3
-		BL String_toUpperCase
+		BL toUpper
 		LDR R5,[R3]
 		MOV R2, R8
 		BL String_indexOf_3
