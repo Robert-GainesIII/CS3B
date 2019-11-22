@@ -20,7 +20,8 @@ newline:   .asciz "\n"
 searchList:
 
 		push {r4- r11, lr}
-		BL toUpper
+		LDR R1, [R1]
+		BL String_toUpper
 		MOV R8, R1				//Store toUpperd search string in R8
 		
 
@@ -35,9 +36,8 @@ nextNode:
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endSearchList
-		MOV R1, R3
-		BL toUpper
-		LDR R5,[R3]
+		LDR R1, [R3]
+		BL String_toUpper
 		MOV R2, R8
 		BL String_indexOf_3
 		CMP R0, #-1
@@ -50,7 +50,7 @@ nextNode:
 		LDR R1, =semiColon
 		BL putstring
 		
-		MOV R1, R5
+		LDR R1, R3
 		BL putstring		// PRINT TEMP
 		
 		LDR R1, =newline
