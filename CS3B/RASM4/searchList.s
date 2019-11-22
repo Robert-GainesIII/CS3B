@@ -37,7 +37,7 @@ nextNode:
 		LDR R1, [R3]
 		MOV R5, R1
 		BL String_toUpper
-		MOV R2, R18
+		MOV R2, R8
 		BL String_indexOf_3
 		CMP R0, #-1
 		BE notThisOne
