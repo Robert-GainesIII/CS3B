@@ -109,8 +109,10 @@ searchString:
 		LDR R1, =buffer
 		MOV R2, #buffer_size
 		BL getstring
-		
 		LDR R1, =buffer
+		
+		BL String_copy	
+		MOV R1, R0
 		LDR R2, =first
 		BL searchList
    
