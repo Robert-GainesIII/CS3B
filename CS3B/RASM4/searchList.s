@@ -40,7 +40,7 @@ nextNode:
 		MOV R2, R8
 		BL String_indexOf_3
 		CMP R0, #-1
-		BE notThisOne
+		BEQ notThisOne
 		
 		MOV R0, R10
 		BL intasc32
