@@ -12,7 +12,7 @@
 .global String_lastIndexOf_2
 
 String_lastIndexOf_2:
-	push {r1-r2, lr}
+	push {r1-r11, lr}
 
 	mov r5, r2
 	mov r6, r3
@@ -34,6 +34,6 @@ lastIndexFound2:
 lastIndexNotFound2:
 	mov r0, #-1
 end_lastIndexof_2: 
-	pop {r1-r2, lr}
+	pop {r1-r11, lr}
 	
 	bx lr
