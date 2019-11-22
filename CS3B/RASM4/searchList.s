@@ -50,7 +50,7 @@ nextNode:
 		LDR R1, =semiColon
 		BL putstring
 		
-		LDR R1, R3
+		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
 		
 		LDR R1, =newline
