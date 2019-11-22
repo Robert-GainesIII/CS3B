@@ -114,7 +114,7 @@ searchString:
 		
 		BL String_copy
 		LDR R1, =tempString
-		STR R0, R1
+		STR R0, [R1]
 		LDR R2, =first
 		BL searchList
    
