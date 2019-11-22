@@ -16,6 +16,7 @@ NODE = [4 bytes][4 bytes]
 
 memAlloc:	.word 0
 nodeCount:  .word 0
+tempString: .word 0
 
 szOne : 	.asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : 	.asciz    "Thanks for using my program!! Good Day!\n"
@@ -111,8 +112,9 @@ searchString:
 		BL getstring
 		LDR R1, =buffer
 		
-		BL String_copy	
-		MOV R1, R0
+		BL String_copy
+		LDR R1, =tempString
+		STR R0, R1
 		LDR R2, =first
 		BL searchList
    
