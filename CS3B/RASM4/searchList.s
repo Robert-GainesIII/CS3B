@@ -55,7 +55,9 @@ nextNode:
 		LDR R1, =newline
 		BL putstring
 
-notThisOne:		
+notThisOne:	
+		LDR R2, =temp
+		LDR R3, [R2]
 		LDR R7, [R3, #4]
 		//LDR R3, [R2, #4]		// LOAD R3 with temp->link
 		LDR R2, =temp

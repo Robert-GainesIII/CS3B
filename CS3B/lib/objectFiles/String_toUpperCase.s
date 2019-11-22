@@ -34,6 +34,6 @@ nextChar:
 
 
 endUpper:
-	pop {r1, r3, r8, lr}
+	pop {r1, r3, r8, lr]}
 	bx lr
 @===============================@
