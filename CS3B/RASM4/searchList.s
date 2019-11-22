@@ -10,6 +10,7 @@
 .data
 semiColon: .asciz ": "
 temp:      .word 0
+newline:   .asciz "\n"
    
    
 .text 
@@ -19,7 +20,7 @@ temp:      .word 0
 searchList:
 
 		push {r4- r11, lr}
-		BL String_toUpper
+		BL String_toUpperCase
 		MOV R8, R1				//Store toUpperd search string in R8
 		
 
@@ -33,10 +34,10 @@ nextNode:
 		
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
-		BEQ endTraverse
+		BEQ endSearchList
 		LDR R1, [R3]
 		MOV R5, R1
-		BL String_toUpper
+		BL String_toUpperCase
 		MOV R2, R8
 		BL String_indexOf_3
 		CMP R0, #-1
