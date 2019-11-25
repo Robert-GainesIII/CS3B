@@ -8,7 +8,7 @@
 
 .text
 
-.global String_length
+	.global String_length
 
 String_length:
 	push {r1-r11, lr}
@@ -17,7 +17,7 @@ String_length:
 
 nextChar: 
 	ldrb r2, [r1], #1
-	subs r2,#0
+	cmp r2,#0
 	beq returnChar 
 
 	add r0, #1
