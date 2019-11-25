@@ -31,8 +31,7 @@ searchList:
 		MOV R10, #1
 		
 nextNode:
-		LDR r1, =temp
-		push {r2}
+		
 		
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
@@ -44,10 +43,11 @@ nextNode:
 		CMP R0, #-1
 		BEQ notThisOne
 		
+		push {r1-r11}
 		MOV R0, R10
 		BL intasc32
 		BL putstring
-		
+		pop {r1-r11}
 		LDR R1, =semiColon
 		BL putstring
 		
