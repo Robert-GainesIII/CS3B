@@ -39,12 +39,12 @@ nextNode:
 		BEQ endSearchList
 		LDR R1, [R3]
 		BL String_copy
-		MOV R1, R0
+		LDR R7, =upperCasedWord
+		STR R0, [R7]
+		MOV R1, R7
 		BL String_toUpperCase
 		//STORE R1 which is copied temp into a label for indexOf_3
 		
-		LDR R7, =upperCasedWord
-		STR R1, [R7]
 		MOV R1, R7
 		LDR R2, [R8]
 		BL String_indexOf_3
