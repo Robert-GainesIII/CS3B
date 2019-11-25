@@ -11,7 +11,7 @@
 semiColon: .asciz ": "
 temp:      .word 0
 newline:   .asciz "\n"
-memAlloc:	.word 0
+memAlloc:  .skip  12
    
 .text 
    
