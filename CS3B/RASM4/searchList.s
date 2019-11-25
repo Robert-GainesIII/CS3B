@@ -37,7 +37,7 @@ nextNode:
 		BEQ endSearchList
 		MOV R1, R3
 		BL String_toUpperCase
-		MOV R2, [R8]
+		LDR R2, [R8]
 		BL String_indexOf_3
 		CMP R0, #-1
 		BEQ notThisOne
