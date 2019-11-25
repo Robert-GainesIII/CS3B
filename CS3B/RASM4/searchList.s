@@ -31,6 +31,8 @@ searchList:
 		MOV R10, #1
 		
 nextNode:
+		LDR r1, =temp
+		push {r2}
 		
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
@@ -49,7 +51,9 @@ nextNode:
 		LDR R1, =semiColon
 		BL putstring
 		
+		pop {r2}
 		LDR R1, =temp
+		STR R2, [R1]
 		LDR R3, [R1]
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
