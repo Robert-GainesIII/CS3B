@@ -49,6 +49,8 @@ nextNode:
 		LDR R1, =semiColon
 		BL putstring
 		
+		LDR R1, =temp
+		LDR R3, [R1]
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
 		
