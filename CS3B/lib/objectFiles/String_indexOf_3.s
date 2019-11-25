@@ -18,6 +18,11 @@ String_indexOf_3:
 	LDR R1, [R4]			@Dereference pointer to string one
 	bl String_length		@call string length for string one	
 	mov r8, r0				@Length of String one
+	LDR R2, [R4]
+	MOV R3, R5
+	BL String_equals
+	CMP R0, #1
+	BEQ indexOf_3Equal
 	MOV R1, R5				@move string two into r1
 	bl String_length		@call string length for string two
 	mov r9, r0				@Length of String two
@@ -58,6 +63,10 @@ substringSearch:
 
 indexOf_3NotFound:
 	mov r0, #-1
+	b end_indexof_3
+	
+indexOf_3Equal:
+	MOV R0, #0
 	b end_indexof_3
 	
 indexOf_3Found:
