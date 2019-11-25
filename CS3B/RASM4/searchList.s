@@ -12,6 +12,7 @@ semiColon: .asciz ": "
 temp:      .word 0
 newline:   .asciz "\n"
 memAlloc:  .skip  12
+upperCasedWord: .word 0
    
 .text 
    
@@ -36,8 +37,16 @@ nextNode:
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endSearchList
-		MOV R1, R3
+		LDR R1, R3
+		LDR R1,[R1]
+		BL String_copy
+		MOV R1, R0
 		BL String_toUpperCase
+		//STORE R1 which is copied temp into a label for indexOf_3
+		
+		LDR R7, =upperCasedWord
+		STR R1, [R7]
+		MOV R1, R7
 		LDR R2, [R8]
 		BL String_indexOf_3
 		CMP R0, #-1
