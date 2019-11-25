@@ -11,7 +11,7 @@
 semiColon: .asciz ": "
 temp:      .word 0
 newline:   .asciz "\n"
-   
+memAlloc:	.word 0
    
 .text 
    
@@ -43,17 +43,18 @@ nextNode:
 		CMP R0, #-1
 		BEQ notThisOne
 		
-		push {r1-r11}
+		//push {r1-r11}
 		MOV R0, R10
+		LDR R1, =memAlloc
 		BL intasc32
 		BL putstring
-		pop {r1-r11}
+		//pop {r1-r11}
+		
 		LDR R1, =semiColon
 		BL putstring
 		
-		pop {r2}
+
 		LDR R1, =temp
-		STR R2, [R1]
 		LDR R3, [R1]
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
