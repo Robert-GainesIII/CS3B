@@ -834,3 +834,42 @@ closeFileOut:
 /*/=================================================
 			END OF FILE!!!!!
    ================================================/*/		
+getline1:
+		@file open
+		@r0 contains filehandle
+		@r1 contains kbuf
+	push {r4-r11, lr}
+getlineLoop:
+	bl getch1
+	cmp r0, #0
+	beq finishGetLine
+	ldrb r3, [r1]
+	cmp r3, #13
+	beq	nextLine
+	cmp r3, #10
+	beq nextLine
+	b getlineLoop
+	
+
+nextLine:
+	mov r1, #1
+	pop {r4-r11, lr}
+	bx lr
+
+finishGetLine:	
+	pop {r4-r11, lr}
+	bx lr
+
+	
+getch1:
+	push {r4-r11, lr}
+	mov r0, r4			@filehandle
+	mov r7, #3			@to read
+	mov r2, #1			@read 1 byte
+	add r1, #1
+	svc 0
+	
+	
+
+	pop {r4-r11,lr}
+	bx lr
