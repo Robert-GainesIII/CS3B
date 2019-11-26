@@ -278,13 +278,9 @@ addString:
 
 		push {r4-r11, lr}
 		
-		LDR R1, =nodeCount
-		LDR R1, [R1]
-		add r3, r1, #1
-		LDR R1, =nodeCount
-		STR R3, [R1]
-		
 		BL createNode
+		
+		BL traverseList
 		
 		pop {r4-r11, lr}
 		BX lr	
@@ -428,11 +424,14 @@ traverseList:
 		LDR R1, [R1]
 		LDR R2, =temp
 		STR R1, [R2]			//temp = first
+		
+		MOV R8, #0
 nextNode:
 		
 		LDR R3, [R2]			// Dereference Address stored in temp
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ endTraverse
+		ADD R8, #1
 		LDR R1, [R3]
 		BL putstring		// PRINT TEMP
 		
@@ -447,7 +446,8 @@ nextNode:
 		
 		
 endTraverse:
-
+		LDR R1, =nodeCount
+		STR R8, [R1]
 		BL systemPause
 		pop {r4-r11, lr}
 		BX lr
