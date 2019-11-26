@@ -83,8 +83,6 @@ Rasm4Loop:
 		BLEQ traverseList
 		cmp r4, #2		
 		BLEQ add
-		cmp r4, #2 
-		BLEQ add
 		cmp r4, #3
 		BLEQ deleteString
 		cmp r4, #4
