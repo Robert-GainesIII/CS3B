@@ -81,9 +81,9 @@ Rasm4Loop:
 		beq endRasm4
 		cmp r4, #1
 		BLEQ traverseList
-		cmp r4, #24882 		
+		cmp r4, #6132		
 		BLEQ addString
-		cmp r4, #25138 
+		cmp r4, #6232 
 		BLEQ openAndread
 		cmp r4, #3
 		BLEQ deleteString
