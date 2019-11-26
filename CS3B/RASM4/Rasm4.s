@@ -4,10 +4,8 @@
 	Programmer: Robert Gaines
 	Class: CS 3B Assembly Language
 	Date:  Nov. 14th 2019
-
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
 RASM4 SHOW SUPREME SUPREMECY OVER MEMORY AND POINTERS
-
 NODE = [4 bytes][4 bytes] 
 		 DATA	  LINK
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
@@ -48,7 +46,8 @@ sz11:		.asciz  "|(5) Search String\n"
 sz12:		.asciz  "|(6) Save to File\n"
 sz13:		.asciz  "|(7) Exit Program\n"
 sz14:       .asciz  "CHOICE ->"
-
+filename:	.asciz 	"input.txt"
+outFile:	.asciz  "output.txt"
 
 
 buffer:	.skip	1024
@@ -70,11 +69,7 @@ _start:
 		MOV R2, #0
 		STR R2, [R1]
 /*/=================================================
-
-
 			Main Program Loop Here
-
-
    ================================================/*/
 Rasm4Loop:		
 		BL printMenu
@@ -85,23 +80,23 @@ Rasm4Loop:
 		beq endRasm4
 		cmp r4, #1
 		BLEQ traverseList
-		cmp r4, #2
+		cmp r4, #2a 		#fix
 		BLEQ addString
+		cmp r4, #2b 		#fix
+		BLEQ openAndread
 		cmp r4, #3
 		BLEQ deleteString
 		cmp r4, #4
 		BLEQ editString
 		cmp r4, #5
 		BLEQ searchString
+		cmp r4, #6
+		BLEQ openWriteSave
 		b Rasm4Loop
 		
 		
 /*/=================================================
-
-
 			Edit String
-
-
    ================================================/*/
 	
 editString:
@@ -215,11 +210,7 @@ endEdit:
 		bx lr
 		
 /*/=================================================
-
-
 			Search String
-
-
    ================================================/*/
    
 searchString:
@@ -259,29 +250,21 @@ noSearchEmpty:
 		pop {r4-r11, lr}
 		bx lr
 /*/=================================================
-
-
 			Add string.
-
-
    ================================================/*/		
 addString:
 
 		push {r4-r11, lr}
 		BL createNode
 		LDR R1, =nodeCount
-		LDR R2, [R1]
-		add r3, r2, #1
+		LDR R1, [R1]
+		add r3, r1, #1
 		LDR R1, =nodeCount
 		STR R3, [R1]
 		pop {r4-r11, lr}
 		BX lr	
 /*/=================================================
-
-
 			Delete string.
-
-
    ================================================/*/
 deleteString:
 
@@ -323,11 +306,7 @@ noDelete:
 		pop {r4-r11, lr}
 		BX lr
 /*/=================================================
-
-
 			Insert Node.
-
-
    ================================================/*/
 insertNode:
 		
@@ -363,11 +342,7 @@ insert_last:
 		pop {lr}
 		BX lr
 /*/=================================================
-
-
 			Create Node.
-
-
    ================================================/*/		
 createNode:
 		
@@ -387,7 +362,7 @@ createNode:
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
 		MOV R1, R10
 		BL String_length
-		MOV R6, R0				//memAllocated
+		ADD R6, R0, #1				//memAllocated
 		
 		
 		MOV R0, #10				// each Node is 8 bytes
@@ -414,11 +389,7 @@ createNode:
 		pop {r4-r11, lr}
 		BX lr 					// Return
 /*/=================================================
-
-
 			Traverse Linked List.
-
-
    ================================================/*/
 traverseList:
 
@@ -456,11 +427,7 @@ endTraverse:
 		pop {r4-r11, lr}
 		BX lr
 /*/=================================================
-
-
 			Print 22 Blank Lines.
-
-
    ================================================/*/		
 printNewScreen:
 		push {r4-r11, lr}
@@ -476,11 +443,7 @@ printNewScreen:
 		pop {r4-r11, lr}
 		bx lr
 /*/=================================================
-
-
 			Print Menu.
-
-
    ================================================/*/		
 printMenu:
 
@@ -596,11 +559,7 @@ printMenu:
 		pop  {r4-r11, lr}
 		bx lr 
 /*/=================================================
-
-
 			This Makes Code Look Clean.
-
-
    ================================================/*/
 deleteNode:
 
@@ -728,13 +687,137 @@ endRasm4:
 		BL putstring
 		MOV R7, #1
 		SVC 0
+		
 /*/=================================================
-
-
-			END OF FILE!!!!!
-
-
+			Open, Read, and Add to LL
    ================================================/*/		
 		
+openAndread:
+	push {r4-r11, lr}
+					@open
+	ldr r0, =filename	@contains input.txt
+	mov r7, #5			@to open
+	mov r1, #00			@read only
+	ldr r2, =0644
+	svc 0
+	mov r4, r0			@hold filehandle
+beginRead:						@r0 has filehandle
+	mov r0, r4	
+	mov r7, #3			@to read
+	mov r2, #1			@read 1 byte
+	
+	ldr r1, =szKbuf
+	svc 0
+	cmp r0, #0
+	beq closeFile			@	noInput
+	bl getline
+							@read string is now in KBuf
+	mov r11, r1
+	ldr r1, =szKbuf
+	push {r0, r2-r11}
+	bl string_length
+	sub r0, #1
+	mov r2, #0
+	ldr r1, =szKbuf
+	strb r2, [r1, r0]!
+	pop {r0, r2-r11}
+createNodeRead:
+		ldr r1, =szKbuf
+		BL String_copy			
+		
+		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
+		MOV R1, R10
+		BL String_length
+		ADD R6, R0, #1			//memAllocated
 		
 		
+		MOV R0, #10				// each Node is 8 bytes
+		BL malloc 			    // Node * N = new Node
+		MOV R3, R0
+		STR R10, [R3]		    // Data = address of string
+		
+		ADD R6, #8				//add 8 bytes for node in memAlloc
+		
+		MOV R1, #0
+		STR R1, [R3, #4]			// Link -> NULL
+		
+		BL insertNode
+		
+		LDR R1, =memAlloc
+		LDR R1, [R1]
+		add r2, r6, r1
+		LDR R1, =memAlloc
+		STR R2, [R1]
+		ldr r1, =nodeCount
+		ldr r1, [r1]
+		mov r3, r1
+		add r3, r1, #1
+		ldr r1, =nodeCount
+		str r3, [r1]	
+	cmp r11, #1
+	beq beginRead
+	cmp r0, #0
+	b closeFile
+	
+closeFile:
+	mov r3, r0
+	mov r7, #6
+	svc 0
+	BL systemPause
+	pop {r4-r11, lr}
+	bx lr
+	
+/*/=================================================
+			Open, Write, and save to output.txt
+   ================================================/*/
+	
+openWriteSave:
+	push {r4-r11, lr}
+	ldr r0, =outFile
+	mov r1, #0100
+	mov r2, #0644
+	mov r7, #5
+	svc 0
+	mov r4, r0	@holds filehandle
+	
+traverseListWrite:
+		LDR R1, =first
+		LDR R1, [R1]
+		LDR R2, =temp
+		STR R1, [R2]			//temp = first
+nextNodeWrite:		
+		LDR R3, [R2]			// Dereference Address stored in temp
+		CMP R3, #0			    // LIST IS EMPTY IF == 0
+		BEQ closeFileOut
+		LDR R1, [R3]
+		push {r1}
+		bl string_length
+		mov r2, r0
+		pop {r1}
+		mov r0, r4
+		mov r7, #4
+		svc 0
+		mov r0, r4
+		ldr r1, =cCR
+		mov r2, #1
+		mov r7, #4
+		svc 0
+		
+		
+		LDR R7, [R3, #4]
+		LDR R2, =temp
+		STR R7, [R2]			// temp = temp->link
+		B nextNodeWrite
+	
+	
+closeFileOut:
+	mov r0, r4
+	mov r7, #6
+	svc 0
+	
+	BL systemPause
+	pop {r4-r11, lr}
+	BX lr
+/*/=================================================
+			END OF FILE!!!!!
+   ================================================/*/		
