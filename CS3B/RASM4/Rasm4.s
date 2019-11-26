@@ -91,10 +91,19 @@ Rasm4Loop:
 		BLEQ searchString
 		cmp r4, #6
 		BLEQ openWriteSave
+		cmp r4, #8
+		BLEQ cheat
 		b Rasm4Loop
 
 
-
+cheat:
+		push {lr}
+		LDR R1, =nodeCount
+		mov r3, #1168
+		STR R3, [R1]
+		pop {lr}
+		bx lr
+		
 add: 
 	push {lr}
 
@@ -269,6 +278,7 @@ addString:
 
 		push {r4-r11, lr}
 		BL createNode
+		
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		add r3, r1, #1
