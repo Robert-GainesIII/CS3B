@@ -514,7 +514,7 @@ printMenu:
 		BL putstring
 		
 		LDR R2, =nodeCount
-		STR R10 [R2]
+		STR R10, [R2]
 		
 		LDR R1, =newline
 		BL putstring
