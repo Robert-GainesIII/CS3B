@@ -711,7 +711,7 @@ openAndread:
 	ldr r0, =filename	@contains input.txt
 	mov r7, #5			@to open
 	mov r1, #00			@read only
-	ldr r2, #0644
+	MOV r2, #0644
 	svc 0
 	mov r4, r0			@hold filehandle
 beginRead:						@r0 has filehandle
