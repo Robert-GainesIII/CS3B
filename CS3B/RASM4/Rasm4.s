@@ -81,10 +81,10 @@ Rasm4Loop:
 		beq endRasm4
 		cmp r4, #1
 		BLEQ traverseList
-		cmp r4, #6132		
-		BLEQ addString
-		cmp r4, #6232 
-		BLEQ openAndread
+		cmp r4, #2		
+		BLEQ add
+		cmp r4, #2 
+		BLEQ add
 		cmp r4, #3
 		BLEQ deleteString
 		cmp r4, #4
@@ -94,7 +94,20 @@ Rasm4Loop:
 		cmp r4, #6
 		BLEQ openWriteSave
 		b Rasm4Loop
-		
+
+
+
+add: 
+	push {lr}
+
+    BL getIndex
+	
+	cmp R0, #97
+	BEQ addString
+	cmp R0, #98
+	BEQ openAndread
+	
+	BX {lr} 
 		
 /*/=================================================
 			Edit String
