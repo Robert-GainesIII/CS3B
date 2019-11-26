@@ -38,8 +38,8 @@ sz3:		.asciz  "|MEMORY ALLOCATED:"
 sz4:		.asciz  "|NODES CREATED:"
 sz5:		.asciz  "|(1) View All Strings\n"
 sz6:		.asciz  "|(2) Add String\n"
-sz7:		.asciz  "|\t(a)From Keyboard\n"
-sz8:		.asciz  "|\t(b)From File\n"
+sz7:		.asciz  "|\t(1)From Keyboard\n"
+sz8:		.asciz  "|\t(2)From File\n"
 sz9:		.asciz  "|(3) Delete String\n"
 sz10:		.asciz  "|(4) Edit String\n"
 sz11:		.asciz  "|(5) Search String\n"
@@ -102,9 +102,9 @@ add:
 
     BL getIndex
 	
-	cmp R0, #97
+	cmp R0, #1
 	BEQ addString
-	cmp R0, #98
+	cmp R0, #2
 	BEQ openAndread
 	
 	pop {lr} 
