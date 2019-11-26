@@ -649,6 +649,7 @@ endTraversal:
 		LDR R1, =memAlloc
 		LDR R1, [R1]
 		sub r2, r1, r9
+		sub r2, #1
 		LDR R1, =memAlloc
 		STR R2, [R1]
 		
