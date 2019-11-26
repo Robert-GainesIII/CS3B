@@ -30,6 +30,8 @@ szNine:     .asciz    "Linked List Is Empty."
 szTen:      .asciz    "Choose A String to Delete:"
 szEleven:   .asciz    "Out of bound Size!"
 szTwelve:   .asciz    "Enter A String to Search For:"
+szThirteen: .asciz    "Enter index of String to edit: "
+szFourteen: .asciz    "Enter a new String: "
 newline:    .asciz    "\n"
 sz0:        .asciz  "|\t\tRASM4 Text Editor\n"
 sz1:		.asciz	"|===================================================================| \n"
@@ -92,6 +94,122 @@ Rasm4Loop:
 		BLEQ searchString
 		b Rasm4Loop
 		
+		
+/*/=================================================
+
+
+			Edit String
+
+
+   ================================================/*/
+	
+editString:
+
+		push {r4-r11, lr}
+		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		MOV R9, R1	//STORES CURRENT NODE COUNT INTO R9
+		cmp r1, #1
+		BLT noEditEmpty
+		
+		BL searchString
+editGetIndex:		
+		LDR R1, =szThirteen
+		BL putstring
+		
+		BL getIndex
+		
+		MOV R10, R0 //STORES USER INDEX INTO R10
+		
+		CMP R10, #-1
+		BEQ endEdit
+		BLT noEditIndexOutOfBounds
+		
+		 
+		CMP R10, R9
+		
+		BGT noEditIndexOutOfBounds
+				
+				
+		traverseListEdit:
+				
+				LDR R1, =first
+				LDR R1, [R1]
+				LDR R2, =temp
+				STR R1, [R2]			//temp = first
+				
+				MOV R3, #1 //initilize count = 0
+		nextNodeEdit:
+				
+				LDR R3, [R2]			// Dereference Address stored in temp
+				CMP R3, #0			    // LIST IS EMPTY IF == 0
+				BEQ endEdit
+				CMP R3, R10
+				BNE getNext
+				
+				
+				LDR R1, [R3] 
+				BL String_length
+				LDR R1, =memAlloc
+				LDR R1, [R1]
+				sub r2, r1, r0
+				LDR R1, =memAlloc
+				STR R2, [R1]
+				LDR R0, [R3]
+				BL free 				//DEAllocated prev string and update memallocated variable
+				
+				LDR R1, =szFourteen
+				BL putstring
+				
+				LDR R1, =buffer
+				MOV R2, #buffer_size
+				BL getstring
+				
+				LDR R1, =buffer
+				
+				BL String_copy
+				MOV R5, R0			//STORE NEW STRING IN R5
+				MOV R1, R0
+				BL String_length
+				LDR R1, =memAlloc
+				LDR R1, [R1]
+				add r2, r1, r0
+				LDR R1, =memAlloc
+				STR R2, [R1]
+				
+				LDR R1, [R3]    //FIRST 4 BYTES OF NODE
+				STR R5, [R1]    //STORE NEW STRING INTO THE DATA SECTION OF THE NODE
+				
+				b endEdit
+				
+				
+		getNext:	
+				LDR R7, [R3, #4]
+				MOV R8, R7			//R8 contains prev link
+				LDR R2, =temp
+				STR R7, [R2]			// temp = temp->link
+				ADD R3, #1
+				B nextNode
+				
+
+noEditIndexOutOfBounds:
+
+		LDR R1, =szEleven
+		BL putstring
+		B editGetIndex
+   
+noEditEmpty:
+
+		LDR R1, =szNine
+		BL putstring
+		BL systemPause
+		
+endEdit:
+		
+		pop {r4-r11, lr}
+		bx lr
+		
 /*/=================================================
 
 
@@ -103,6 +221,11 @@ Rasm4Loop:
 searchString:
 		
 		push {r4-r11, lr}
+		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		cmp r1, #1
+		BLT noSearchEmpty
 		
 		LDR R1, =szTwelve
 		Bl putstring 
@@ -117,10 +240,20 @@ searchString:
 		STR R0, [R1]
 		LDR R2, =first
 		BL searchList
+		
+		BL systemPause
    
 		pop {r4-r11, lr}
 		bx lr
-   
+		
+noSearchEmpty:
+
+		LDR R1, =szNine
+		BL putstring
+		BL systemPause
+		
+		pop {r4-r11, lr}
+		bx lr
 /*/=================================================
 
 
@@ -149,6 +282,8 @@ addString:
 deleteString:
 
 		push {r4-r11, lr}
+		
+		
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		cmp r1, #1
@@ -498,6 +633,7 @@ notThatObviously:
 		MOV R10, R5            //USE THIS AS PREV
 		MOV R6, #1
 nextNode2:
+//NEED TO DELETE ACTUAL STRING FIRST
 		LDR R3, [R2]
 		CMP R4, R6			//IS CURRENT INDEX == TARGET INDEX 
 		BNE nextIndex
@@ -550,6 +686,7 @@ endTraversal:
 		pop {r4-r11, lr}
 		BX lr 
 getIndex:
+
 		push {lr}
 		
 		LDR R1, =sz14
@@ -562,6 +699,7 @@ getIndex:
 		
 		pop {lr}
 		BX lr
+		
 systemPause:
 		push {lr}
 		
@@ -575,6 +713,7 @@ systemPause:
 		
 		pop {lr}
 		BX lr
+
 endRasm4:
 		
 		LDR R1, =newline
