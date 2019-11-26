@@ -54,6 +54,7 @@ buffer:	.skip	1024
 first:	.word	0
 last:	.word	0
 temp:	.word 	0
+cCR:    .byte 10
 
 
 .text		
@@ -706,23 +707,23 @@ beginRead:						@r0 has filehandle
 	mov r7, #3			@to read
 	mov r2, #1			@read 1 byte
 	
-	ldr r1, =szKbuf
+	ldr r1, =buffer
 	svc 0
 	cmp r0, #0
 	beq closeFile			@	noInput
 	bl getline
 							@read string is now in KBuf
 	mov r11, r1
-	ldr r1, =szKbuf
+	ldr r1, =buffer
 	push {r0, r2-r11}
-	bl string_length
+	bl String_length
 	sub r0, #1
 	mov r2, #0
-	ldr r1, =szKbuf
+	ldr r1, =buffer
 	strb r2, [r1, r0]!
 	pop {r0, r2-r11}
 createNodeRead:
-		ldr r1, =szKbuf
+		ldr r1, =buffer
 		BL String_copy			
 		
 		MOV R10, R0				// NOW R10 CONTAINS DYNAMIC ALLOCATED ADDRESS WHEN DEREFERENCED WILL CONTAIN OUR STRING
@@ -791,7 +792,7 @@ nextNodeWrite:
 		BEQ closeFileOut
 		LDR R1, [R3]
 		push {r1}
-		bl string_length
+		bl String_length
 		mov r2, r0
 		pop {r1}
 		mov r0, r4
