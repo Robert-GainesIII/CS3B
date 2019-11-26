@@ -180,6 +180,8 @@ editGetIndex:
 				LDR R1, =memAlloc
 				STR R2, [R1]
 				
+				LDR R2, =temp
+				LDR R3, [R2]
 				LDR R1, [R3]    //FIRST 4 BYTES OF NODE
 				STR R5, [R1]    //STORE NEW STRING INTO THE DATA SECTION OF THE NODE
 				
@@ -192,7 +194,7 @@ editGetIndex:
 				LDR R2, =temp
 				STR R7, [R2]			// temp = temp->link
 				ADD R6, #1
-				B nextNode
+				B nextNodeEdit
 				
 
 noEditIndexOutOfBounds:
