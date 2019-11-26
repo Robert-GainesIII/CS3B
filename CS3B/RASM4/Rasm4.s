@@ -93,11 +93,11 @@ Rasm4Loop:
 		cmp r4, #6
 		BLEQ openWriteSave
 		cmp r4, #8
-		BLEQ cheat
+		BLEQ cheating
 		b Rasm4Loop
 
 
-cheat:
+cheating:
 		push {lr}
 		LDR R1, =cheat
 		mov r3, #1168
