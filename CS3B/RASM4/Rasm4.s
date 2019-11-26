@@ -115,6 +115,7 @@ editString:
 		BLT noEditEmpty
 		
 		BL searchString
+		
 editGetIndex:		
 		LDR R1, =szThirteen
 		BL putstring
@@ -140,13 +141,13 @@ editGetIndex:
 				LDR R2, =temp
 				STR R1, [R2]			//temp = first
 				
-				MOV R3, #1 //initilize count = 0
+				MOV R6, #1 //initilize count = 0
 		nextNodeEdit:
 				
 				LDR R3, [R2]			// Dereference Address stored in temp
 				CMP R3, #0			    // LIST IS EMPTY IF == 0
 				BEQ endEdit
-				CMP R3, R10
+				CMP R6, R10
 				BNE getNext
 				
 				
@@ -190,7 +191,7 @@ editGetIndex:
 				MOV R8, R7			//R8 contains prev link
 				LDR R2, =temp
 				STR R7, [R2]			// temp = temp->link
-				ADD R3, #1
+				ADD R6, #1
 				B nextNode
 				
 
