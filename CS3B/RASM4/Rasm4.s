@@ -271,9 +271,8 @@ addString:
 		push {r4-r11, lr}
 		BL createNode
 		LDR R1, =nodeCount
-		LDR R1, [R1]
-		add r3, r1, #1
-		LDR R1, =nodeCount
+		LDR R2, [R1]
+		add r3, r2, #1
 		STR R3, [R1]
 		pop {r4-r11, lr}
 		BX lr	
