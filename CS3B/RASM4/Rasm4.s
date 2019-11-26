@@ -727,13 +727,13 @@ beginRead:						@r0 has filehandle
 							@read string is now in KBuf
 	mov r11, r1
 	ldr r1, =buffer
-	push {r0, r2-r11}
+	//push {r0, r2-r11}
 	bl String_length
 	sub r0, #1
 	mov r2, #0
 	ldr r1, =buffer
 	strb r2, [r1, r0]!
-	pop {r0, r2-r11}
+	//pop {r0, r2-r11}
 createNodeRead:
 		ldr r1, =buffer
 		BL String_copy			
