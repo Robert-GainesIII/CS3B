@@ -274,7 +274,7 @@ addString:
 		LDR R2, [R1]
 		add r3, r2, #1
 		LDR R1, =nodeCount
-		STR R2, [R1]
+		STR R3, [R1]
 		pop {r4-r11, lr}
 		BX lr	
 /*/=================================================
