@@ -107,7 +107,8 @@ add:
 	cmp R0, #98
 	BEQ openAndread
 	
-	BX {lr} 
+	pop {lr} 
+	bx lr
 		
 /*/=================================================
 			Edit String
