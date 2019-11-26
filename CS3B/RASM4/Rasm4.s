@@ -278,12 +278,6 @@ addString:
 
 		push {r4-r11, lr}
 		BL createNode
-		
-		LDR R1, =nodeCount
-		LDR R1, [R1]
-		add r3, r1, #1
-		LDR R1, =nodeCount
-		STR R3, [R1]
 		pop {r4-r11, lr}
 		BX lr	
 /*/=================================================
@@ -403,11 +397,18 @@ createNode:
 		
 		BL insertNode
 		
+		LDR R1, =nodeCount
+		LDR R1, [R1]
+		add r3, r1, #1
+		LDR R1, =nodeCount
+		STR R3, [R1]
+		
 		LDR R1, =memAlloc
 		LDR R1, [R1]
 		add r2, r6, r1
 		LDR R1, =memAlloc
 		STR R2, [R1]
+		
 		
 		pop {r4-r11, lr}
 		BX lr 					// Return
