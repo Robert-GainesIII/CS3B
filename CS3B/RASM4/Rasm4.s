@@ -12,10 +12,6 @@ NODE = [4 bytes][4 bytes]
 ************************************************/
 .data
 
-memAlloc:	.word 0
-nodeCount:  .skip 1024
-tempString: .word 0
-
 szOne : 	.asciz    "Name: Robert Gaines\nProgram: Lab20.s\nClass: CS3B\nDate: November 14, 2019\n\n"
 szTwo : 	.asciz    "Thanks for using my program!! Good Day!\n"
 szThree : 	.asciz    "Enter a string to store into the new Node: "
@@ -55,6 +51,10 @@ first:	.word	0
 last:	.word	0
 temp:	.word 	0
 cCR:    .byte 10
+
+memAlloc:	.word 0
+nodeCount:  .word 0
+tempString: .word 0
 
 
 .text		
