@@ -180,11 +180,12 @@ editGetIndex:
 				LDR R1, =memAlloc
 				STR R2, [R1]
 				
+				/*
 				LDR R2, =temp
 				LDR R3, [R2]
 				LDR R1, [R3]    //FIRST 4 BYTES OF NODE
 				STR R5, [R1]    //STORE NEW STRING INTO THE DATA SECTION OF THE NODE
-				
+				*/
 				b endEdit
 				
 				
