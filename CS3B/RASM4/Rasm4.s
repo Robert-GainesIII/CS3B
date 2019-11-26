@@ -277,13 +277,14 @@ noSearchEmpty:
 addString:
 
 		push {r4-r11, lr}
-		BL createNode
 		
 		LDR R1, =nodeCount
 		LDR R1, [R1]
 		add r3, r1, #1
 		LDR R1, =nodeCount
 		STR R3, [R1]
+		
+		BL createNode
 		
 		pop {r4-r11, lr}
 		BX lr	
