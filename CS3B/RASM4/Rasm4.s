@@ -852,7 +852,7 @@ getlineLoop:
 	
 
 nextLine:
-	mov r1, #0
+	mov r1, #1
 	pop {r4-r11, lr}
 	bx lr
 
