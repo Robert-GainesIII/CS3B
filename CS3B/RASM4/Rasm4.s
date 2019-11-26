@@ -89,7 +89,8 @@ Rasm4Loop:
 		BLEQ addString
 		cmp r4, #3
 		BLEQ deleteString
-		
+		cmp r4, #4
+		BLEQ editString
 		cmp r4, #5
 		BLEQ searchString
 		b Rasm4Loop
