@@ -723,7 +723,7 @@ beginRead:						@r0 has filehandle
 	svc 0
 	cmp r0, #0
 	beq closeFile			@	noInput
-	bl getline
+	bl getline1
 							@read string is now in KBuf
 	mov r11, r1
 	ldr r1, =buffer
