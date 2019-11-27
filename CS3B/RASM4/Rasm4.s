@@ -117,6 +117,9 @@ add:
 	
 	bl traverseListU
 	
+	LDR R1, =nodeCount
+    STR R0, [R1]
+	
 	pop {lr} 
 	bx lr
 		
