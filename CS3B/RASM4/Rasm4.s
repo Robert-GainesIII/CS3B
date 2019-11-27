@@ -783,7 +783,7 @@ createNodeRead:
 		ldr r1, =nodeCount
 		ldr r1, [r1]
 		mov r3, r1
-		add r3, r1, #1
+		add r3, #1
 		ldr r1, =nodeCount
 		str r3, [r1]	
 	cmp r11, #1
