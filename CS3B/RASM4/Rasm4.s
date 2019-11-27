@@ -500,6 +500,7 @@ printMenu:
 		
 		LDR R1, =memAlloc
 		LDR R0, [R1]
+		LDR R1, =buff
 		BL intasc32
 		BL putstring
 		
@@ -519,8 +520,8 @@ printMenu:
 		BL intasc32
 		BL putstring
 		
-		//LDR R2, =nodeCount
-		//STR R10, [R2]
+		LDR R2, =nodeCount
+		STR R10, [R2]
 		
 		LDR R1, =newline
 		BL putstring
