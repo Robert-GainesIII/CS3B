@@ -55,7 +55,7 @@ cCR:    .byte 10
 memAlloc:	.word 0
 nodeCount:  .word 0
 tempString: .word 0
-nodeCount:      .word 0
+cheat:      .word 0
 buff:       .skip 12
 
 
