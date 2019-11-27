@@ -515,14 +515,10 @@ printMenu:
 		LDR R1, =sz4
 		BL putstring
 		
-		LDR R1, =nodeCount
-		LDR R0, [R1]
-		MOV R10, R0
+		bl traverseListU
 		BL intasc32
 		BL putstring
-		
-		LDR R2, =nodeCount
-		STR R10, [R2]
+
 		
 		LDR R1, =newline
 		BL putstring
