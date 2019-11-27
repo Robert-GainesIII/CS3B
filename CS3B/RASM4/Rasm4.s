@@ -115,6 +115,8 @@ add:
 	cmp R0, #2
 	BEQ openAndread
 	
+	bl traverseListU
+	
 	pop {lr} 
 	bx lr
 		
@@ -890,3 +892,34 @@ getch1:
 
 	pop {r4-r11,lr}
 	bx lr
+	
+	
+traverseListU:
+
+		push {r4-r11, lr}
+	
+		LDR R1, =first
+		LDR R1, [R1]
+		LDR R2, =temp
+		STR R1, [R2]			//temp = first
+		
+		MOV R0, #0
+nextNodeU:
+		
+		LDR R3, [R2]			// Dereference Address stored in temp
+		CMP R3, #0			    // LIST IS EMPTY IF == 0
+		BEQ endTraverseU
+		add R0, #1
+		
+		LDR R7, [R3, #4]
+		//LDR R3, [R2, #4]		// LOAD R3 with temp->link
+		LDR R2, =temp
+		STR R7, [R2]			// temp = temp->link
+		B nextNodeU
+		
+		
+endTraverseU:
+
+		BL systemPause
+		pop {r4-r11, lr}
+		BX lr
