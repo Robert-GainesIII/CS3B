@@ -822,10 +822,10 @@ nextNodeWrite:
 		CMP R3, #0			    // LIST IS EMPTY IF == 0
 		BEQ closeFileOut
 		LDR R1, [R3]
-		push {r1}
+		//push {r1}
 		bl String_length
 		mov r2, r0
-		pop {r1}
+		//pop {r1}
 		mov r0, r4
 		mov r7, #4
 		svc 0
