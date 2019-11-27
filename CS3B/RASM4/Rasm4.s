@@ -918,7 +918,5 @@ nextNodeU:
 		
 		
 endTraverseU:
-
-		BL systemPause
 		pop {r4-r11, lr}
 		BX lr
