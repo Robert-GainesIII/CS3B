@@ -56,6 +56,7 @@ memAlloc:	.word 0
 nodeCount:  .word 0
 tempString: .word 0
 cheat:      .word 0
+buff:       .skip 12
 
 
 .text		
@@ -115,10 +116,6 @@ add:
 	cmp R0, #2
 	BEQ openAndread
 	
-	bl traverseListU
-	
-	LDR R1, =nodeCount
-    STR R0, [R1]
 	
 	pop {lr} 
 	bx lr
@@ -515,10 +512,15 @@ printMenu:
 		LDR R1, =sz4
 		BL putstring
 		
-		bl traverseListU
+		LDR R1, =nodeCount
+		LDR R0, [R1]
+		LDR R1, =buff
+		MOV R10, R0
 		BL intasc32
 		BL putstring
-
+		
+		//LDR R2, =nodeCount
+		//STR R10, [R2]
 		
 		LDR R1, =newline
 		BL putstring
@@ -918,5 +920,7 @@ nextNodeU:
 		
 		
 endTraverseU:
+
+		BL systemPause
 		pop {r4-r11, lr}
 		BX lr
