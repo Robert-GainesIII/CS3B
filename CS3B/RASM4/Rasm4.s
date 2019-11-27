@@ -55,7 +55,7 @@ cCR:    .byte 10
 memAlloc:	.word 0
 nodeCount:  .word 0
 tempString: .word 0
-cheat:      .word 0
+nodeCount:      .word 0
 buff:       .skip 12
 
 
@@ -94,13 +94,13 @@ Rasm4Loop:
 		cmp r4, #6
 		BLEQ openWriteSave
 		cmp r4, #8
-		BLEQ cheating
+		BLEQ nodeCounting
 		b Rasm4Loop
 
 
-cheating:
+nodeCounting:
 		push {lr}
-		LDR R1, =cheat
+		LDR R1, =nodeCount
 		mov r3, #1168
 		STR R3, [R1]
 		pop {lr}
@@ -128,7 +128,7 @@ editString:
 
 		push {r4-r11, lr}
 		
-		LDR R1, =cheat
+		LDR R1, =nodeCount
 		LDR R1, [R1]
 		MOV R9, R1	//STORES CURRENT NODE COUNT INTO R9
 		cmp r1, #1
@@ -242,7 +242,7 @@ searchString:
 		
 		push {r4-r11, lr}
 		
-		LDR R1, =cheat
+		LDR R1, =nodeCount
 		LDR R1, [R1]
 		cmp r1, #1
 		BLT noSearchEmpty
@@ -299,7 +299,7 @@ deleteString:
 		push {r4-r11, lr}
 		
 		
-		LDR R1, =cheat
+		LDR R1, =nodeCount
 		LDR R1, [R1]
 		cmp r1, #1
 		BLT noDeleteE
@@ -312,7 +312,7 @@ deleteString:
 		
 		BL getIndex
 		
-		LDR R1, =cheat
+		LDR R1, =nodeCount
 		LDR R1, [R1]
 		CMP R1, R0
 		BLT noDeleteO
