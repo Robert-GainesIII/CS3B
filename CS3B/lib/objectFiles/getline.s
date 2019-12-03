@@ -1,10 +1,8 @@
 /* Matthew Deol */	
-	.data
 
 .text
 
-				.global getline
-	.equ BUF, 1024
+			.global getline
 getline:
 		@file open
 		@r0 contains filehandle
