@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-  extern int myadd(int a, char []);
+  extern int String_length(int a, char []);
   
   int main()
   {
