@@ -11,17 +11,17 @@
 	   while(choice != 4){
 		   
 		   
-		   printf("\t\tRASM5 C Vs Assembly");
-		   printf("\t\tFile Element Count: %d", elementCount);
-		   printf("------------------------------------------------");
-		   printf("C)\t BubbleSort Time: %d", cTime);
-		   printf("Assembly) BubbleSort Time: %d", aTime);
-		   printf("------------------------------------------------");
-		   printf("<1> Load input file (integers)");
-		   printf("<2> Sort using C BubbleSort algorithm");
-		   printf("<3> Sort using Assembly BubbleSort algorithm");
-		   printf("<4> Quit");
-		   printf("Choice -> ");
+		   printf("\t\tRASM5 C Vs Assembly\n");
+		   printf("\t\tFile Element Count: %d\n", elementCount);
+		   printf("------------------------------------------------\n");
+		   printf("C)\t BubbleSort Time: %d\n", cTime);
+		   printf("Assembly) BubbleSort Time: %d\n", aTime);
+		   printf("------------------------------------------------\n");
+		   printf("<1> Load input file (integers)\n");
+		   printf("<2> Sort using C BubbleSort algorithm\n");
+		   printf("<3> Sort using Assembly BubbleSort algorithm\n");
+		   printf("<4> Quit\n");
+		   printf("Choice -> \n");
 		   scanf("%d", &choice);
 	   }
 	   return 0;
