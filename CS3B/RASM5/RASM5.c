@@ -22,7 +22,7 @@
 		   printf("<3> Sort using Assembly BubbleSort algorithm");
 		   printf("<4> Quit");
 		   printf("Choice -> ");
-		   scanf(%d, &choice);
+		   scanf("%d", &choice);
 	   }
 	   return 0;
   }
