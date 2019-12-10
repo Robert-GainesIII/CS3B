@@ -23,15 +23,14 @@
 		   printf("<3> Sort using Assembly BubbleSort algorithm\n");
 		   printf("<4> Quit\n");
 		   printf("Choice -> \n");
-		   while(temp == 0){
-			   if(scanf("%d", &temp) == 0){
-				   getchar();
-				   printf("Invalid Input! Please only enter numbers.");
-				   printf("Choice -> \n");
-			   }else{
-				   choice = temp;
-			   }
+		 
+		   if(scanf("%d", &temp) == -1){
+			   getchar();
+			   printf("Invalid Input! Please only enter numbers.");
+		   }else{
+			   choice = temp;
 		   }
+		   
 	   }
 	   return 0;
   }
