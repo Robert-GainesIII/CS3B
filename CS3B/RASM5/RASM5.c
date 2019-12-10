@@ -8,6 +8,7 @@
 	   int elementCount = 0;
 	   int aTime, cTime = 0;
 	   int choice = 0;
+	   int temp =0;
 	   while(choice != 4){
 		   
 		   
@@ -22,7 +23,15 @@
 		   printf("<3> Sort using Assembly BubbleSort algorithm\n");
 		   printf("<4> Quit\n");
 		   printf("Choice -> \n");
-		   scanf("%d", &choice);
+		   while(temp == 0){
+			   if(scanf("%d", &temp) == 0){
+				   getchar();
+				   printf("Invalid Input! Please only enter numbers.");
+				   printf("Choice -> \n");
+			   }else{
+				   choice = temp;
+			   }
+		   }
 	   }
 	   return 0;
   }
