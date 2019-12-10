@@ -24,7 +24,7 @@
 		   printf("<4> Quit\n");
 		   printf("Choice -> \n");
 		 
-		   if(scanf("%d", &temp) == 1){
+		   if(scanf("%d", &temp) != 1){
 			   getchar();
 			   printf("Invalid Input! Please only enter numbers.");
 		   }else{
