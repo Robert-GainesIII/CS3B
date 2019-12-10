@@ -6,7 +6,7 @@
   int main()
   {
 	   int elementCount = 0;
-	   int aTime, cTime = 0;
+	   int aTime = 0, cTime = 0;
 	   int choice = 0;
 	   int temp =0;
 	   while(choice != 4){
