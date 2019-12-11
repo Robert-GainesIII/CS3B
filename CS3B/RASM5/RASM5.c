@@ -8,6 +8,7 @@
   {
 	   int dataSetA[200000] = {0};
 	   int dataSetC[200000] = {0};
+	   const int SIZE = 200000;
 	   int elementCount = 0;
 	   int aTime = 0, cTime = 0;
 	   int choice = 0;
@@ -35,8 +36,26 @@
 		   }
 		   
 		   
-		   if(choice == 1){
-			  elementCount = loadFile(&dataSetA, &dataSetC); 
+		   switch(choice){
+			   case 1:
+					FILE* file = fopen ("input.txt", "r");
+					int x = 0;
+					if(!file)return -1;
+					for(int i = 0; i < SIZE; i++){
+						fscanf (file, "%d", &x); 
+						dataSetA[i] = x;
+						dataSetC[i] = x;
+					}
+					elementCount =SIZE;
+			   break;
+			   case 2:
+			   
+			   break;
+			   case 3:
+			   
+			   break;
+			   default:
+			   break;
 		   }
 		   
 	   }
@@ -47,9 +66,8 @@
 	  
 	  /* Pointer to the file */
   
-	  FILE* file = fopen ("C:/Users/bobby/CS3B/CS3B/RASM5/input.txt", "r");
+	  FILE* file = fopen ("input.txt", "r");
 	  int i = 0;
-      int count = 0;
 	  fscanf (file, "%d", &i);    
 	  while (!feof (file))
 		{  
