@@ -53,10 +53,10 @@
 	  fscanf (file, "%d", &i);    
 	  while (!feof (file))
 		{  
-		  *a = i;
-		  *c = i;
-		  a++;
-		  c++;
+		  *a[count] = i;
+		  *c[count] = i;
+		  //a++;
+		  //c++;
 	      count ++;
 		  fscanf (file, "%d", &i);      
 		}
