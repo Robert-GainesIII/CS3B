@@ -47,7 +47,7 @@
 	  
 	  /* Pointer to the file */
   
-	  FILE* file = fopen ("input.txt", "r");
+	  FILE* file = fopen ("C:\Users\bobby\CS3B\CS3B\RASM5\input.txt", "r");
 	  int i = 0;
       int count = 0;
 	  fscanf (file, "%d", &i);    
