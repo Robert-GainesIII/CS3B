@@ -2,7 +2,7 @@
 
   extern int iSortA(int *);
   extern int iSortC(int *);
-  int loadFile(int [], int []);
+  int loadFile(int *, int *);
   
   int main()
   {
@@ -43,7 +43,7 @@
 	   return 0;
   }
   
-  int loadFile(int a[], int c[]){
+  int loadFile(int *a, int *c){
 	  
 	  /* Pointer to the file */
   
@@ -53,8 +53,10 @@
 	  fscanf (file, "%d", &i);    
 	  while (!feof (file))
 		{  
-		  a[count] = i;
-		  c[count] = i;
+		  *a = i;
+		  *c = i;
+		  a++;
+		  c++;
 	      count ++;
 		  fscanf (file, "%d", &i);      
 		}
