@@ -2,7 +2,7 @@
 
   extern int iSortA(int *);
   extern int iSortC(int *);
-  int loadFile(int *[200000], int *[200000]);
+  int loadFile(int (*)[200000], int (*)[200000]);
   
   int main()
   {
