@@ -36,7 +36,7 @@
 		   
 		   
 		   if(choice == 1){
-			  elementCount = loadFile(dataSetA, dataSetC); 
+			  elementCount = loadFile(&dataSetA, &dataSetC); 
 		   }
 		   
 	   }
