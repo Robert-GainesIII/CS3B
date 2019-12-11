@@ -13,6 +13,8 @@
 	   int aTime = 0, cTime = 0;
 	   int choice = 0;
 	   int temp =0;
+	   int x = 0;
+	   FILE* file;
 	   while(choice != 4){
 		   
 		   
@@ -38,8 +40,7 @@
 		   
 		   switch(choice){
 			   case 1:
-					FILE* file = fopen ("input.txt", "r");
-					int x = 0;
+					file = fopen ("input.txt", "r");
 					if(!file)return -1;
 					for(int i = 0; i < SIZE; i++){
 						fscanf (file, "%d", &x); 
