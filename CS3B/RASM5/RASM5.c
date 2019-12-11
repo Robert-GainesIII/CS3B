@@ -43,7 +43,7 @@
 	   return 0;
   }
   
-  int loadFile(int (*)a[200000], int (*)c[200000]){
+  int loadFile(int (*a)[200000], int (*c)[200000]){
 	  
 	  /* Pointer to the file */
   
