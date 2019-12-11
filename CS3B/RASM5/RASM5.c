@@ -2,7 +2,6 @@
 
   extern int iSortA(int *);
   extern int iSortC(int *);
-  int loadFile(int (*)[200000], int (*)[200000]);
   
   int main()
   {
@@ -61,24 +60,4 @@
 		   
 	   }
 	   return 0;
-  }
-  
-  int loadFile(int (*a)[200000], int (*c)[200000]){
-	  
-	  /* Pointer to the file */
-  
-	  FILE* file = fopen ("input.txt", "r");
-	  int i = 0;
-	  fscanf (file, "%d", &i);    
-	  while (!feof (file))
-		{  
-		  *a[count] = i;
-		  *c[count] = i;
-		  //a++;
-		  //c++;
-	      count ++;
-		  fscanf (file, "%d", &i);      
-		}
-	  fclose (file);        
-	  return count;
   }
