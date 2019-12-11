@@ -2,7 +2,7 @@
 
   extern int iSortA(int *);
   extern int iSortC(int *);
-  int loadFile(int (*)[200000], int (*)[200000]);
+  int loadFile(int [], int []);
   
   int main()
   {
@@ -36,14 +36,14 @@
 		   
 		   
 		   if(choice == 1){
-			  elementCount = loadFile(&dataSetA, &dataSetC); 
+			  elementCount = loadFile(dataSetA, dataSetC); 
 		   }
 		   
 	   }
 	   return 0;
   }
   
-  int loadFile(int (*a)[200000], int (*c)[200000]){
+  int loadFile(int a[], int c[]){
 	  
 	  /* Pointer to the file */
   
@@ -53,8 +53,8 @@
 	  fscanf (file, "%d", &i);    
 	  while (!feof (file))
 		{  
-		  (*a)[count] = i;
-		  (*c)[count] = i;
+		  a[count] = i;
+		  c[count] = i;
 	      count ++;
 		  fscanf (file, "%d", &i);      
 		}
