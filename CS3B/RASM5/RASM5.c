@@ -1,10 +1,13 @@
 #include <stdio.h>
 
-  extern int iSortA(int [200000]);
-  extern int iSortC(int [200000]);
+  extern int iSortA(int *);
+  extern int iSortC(int *);
+  int loadFile(int *, int *);
   
   int main()
   {
+	   int dataSetA[200000];
+	   int dataSetC[200000];
 	   int elementCount = 0;
 	   int aTime = 0, cTime = 0;
 	   int choice = 0;
@@ -31,6 +34,30 @@
 			   choice = temp;
 		   }
 		   
+		   
+		   if(choice == 1){
+			  elementCount = loadFile(dataSetA, dataSetC); 
+		   }
+		   
 	   }
 	   return 0;
+  }
+  
+  int loadFile(int *a, int *c){
+	  
+	  /* Pointer to the file */
+  
+	  FILE* file = fopen ("input.txt", "r");
+	  int i = 0;
+      int count = 0;
+	  fscanf (file, "%d", &i);    
+	  while (!feof (file))
+		{  
+		  a[count] = i;
+		  c[count] = i;
+	      count ++;
+		  fscanf (file, "%d", &i);      
+		}
+	  fclose (file);        
+	  return count;
   }
