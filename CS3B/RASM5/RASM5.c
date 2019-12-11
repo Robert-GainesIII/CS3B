@@ -2,7 +2,7 @@
 
   extern int iSortA(int *);
   extern int iSortC(int *);
-  int loadFile(int *, int *);
+  int loadFile(int (*)[200000], int (*)[200000]);
   
   int main()
   {
@@ -43,7 +43,7 @@
 	   return 0;
   }
   
-  int loadFile(int *a, int *c){
+  int loadFile(int (*a)[200000], int (*c)[200000]){
 	  
 	  /* Pointer to the file */
   
