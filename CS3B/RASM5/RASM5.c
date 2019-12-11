@@ -6,8 +6,8 @@
   
   int main()
   {
-	   int dataSetA[200000];
-	   int dataSetC[200000];
+	   int dataSetA[200000] = {0};
+	   int dataSetC[200000] = {0};
 	   int elementCount = 0;
 	   int aTime = 0, cTime = 0;
 	   int choice = 0;
