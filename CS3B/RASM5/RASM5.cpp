@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "iSortC.h"
 
-  extern int iSortA(int [], int size);
+  extern "C" int iSortA(int [], int size);
   using namespace std;
   
   int main()
