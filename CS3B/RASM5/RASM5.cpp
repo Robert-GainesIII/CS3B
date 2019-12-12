@@ -32,7 +32,7 @@
 		   printf("<4> Quit\n");
 		   printf("Choice -> \n");
 		 
-		   cin >> char;
+		   cin >> c;
 		   
 		   choice = atoi(c);
 		   
