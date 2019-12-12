@@ -65,7 +65,7 @@
 					{
 						elementCount = 0;
 						for(int i = 0; i < 200000; i++){
-							getline(x, input);
+							getline(input, x);
 							//printf("value at line %d: %d", i, x);
 							dataSetA[elementCount] = x;
 							dataSetC[elementCount] = x;
