@@ -57,6 +57,10 @@
 		   printf("<5> Sort using Assembly Insertion Sort algorithm\n");
 		   printf("<6> Save arrays\n");
 		   printf("<7> Quit\n");
+		   
+		    for(int i = 0; i < 20; i++){
+				cout << endl;
+			}
 		   printf("Choice -> \n");
 		 
 		   cin >> c;
@@ -165,9 +169,6 @@
 			   cout << "Enter a valid Selection!" << endl;
 			   break;
 		   }
-		  for(int i = 0; i < 20; i++){
-				cout << endl;
-		  }
 	   }
 	   return 0;
   }
