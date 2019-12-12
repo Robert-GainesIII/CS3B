@@ -66,7 +66,7 @@
 					
 						for(int i =0; i< 200000; i++)
 						{
-							input.getline(str, 20, '\n');
+							getline(input, str, '\n');
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							//dataSetA[i] = x;
