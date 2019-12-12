@@ -13,7 +13,6 @@
 	   int elementCount = 0;
 	   int aTime = 0, cTime = 0;
 	   int choice = 0;
-	   int temp =0;
 	   int x = 0;
 	   char c;
 	   string temp;
