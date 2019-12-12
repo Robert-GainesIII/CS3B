@@ -67,6 +67,7 @@
 						for(int i =0; i< 200000; i++)
 						{
 							getline(input, str, '\n');
+							if(!input)break;
 							x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
