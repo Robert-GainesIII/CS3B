@@ -133,7 +133,7 @@
 				printf("C++ BubbleSort first 100\n==================================\n");
 				for(int i = 0; i < 100; i++){
 					printf("%d: %d\n" ,i ,dataSetC);
-					dataSetC ++;
+					dataSetC += 1;
 				}
 				
 				printf("A Insertion Sort first 100\n==================================\n");
