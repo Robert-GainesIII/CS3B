@@ -39,7 +39,7 @@
 		   
 		   switch(choice){
 			   case 1:
-					file = fopen ("RASM5/input.txt", "r");
+					file = fopen ("~/CS3B/CS3B/RASM5/input.txt", "r");
 					if(!file){
 						printf("File was not opened!");
 						break;
