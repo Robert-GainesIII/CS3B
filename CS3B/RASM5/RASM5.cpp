@@ -59,7 +59,7 @@
 		   switch(choice){
 			   case 1:
 					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt"
-					readFile(dataSetA, dataSetC);
+					readFile(input, dataSetA, dataSetC);
 			   break;
 			   case 2:
 					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
@@ -133,7 +133,7 @@
 	   return 0;
   }
   
-  void readFile(int a[], int c[]){
+  void readFile(istream & input, int a[], int c[]){
 	  
 	  int x;
 	  input.open("input.txt");
@@ -148,7 +148,7 @@
 				input.ignore(10, '\n');
 				//printf("value at line %d: %d", i, x);
 				a[i] = x;
-				c[it] = x;
+				c[i] = x;
 				cout << x <<  endl;
 				//dataSetA2[i] = x;
 				//dataSetC2[i] = x;
