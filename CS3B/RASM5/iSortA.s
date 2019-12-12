@@ -9,7 +9,7 @@ Output: Void
 .data
 
 iArray: .skip 800000
-number  .word 0
+number:  .word 0
 
 
 
