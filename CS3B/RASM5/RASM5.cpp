@@ -129,7 +129,7 @@
 			   case 4:
 					if(elementCount > 0){
 						printf("Executing C++ Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
-						cTime2 = iSortC(dataSetC2, 200000);
+						cTime2 = insertionSort(dataSetC2, 200000);
 						printf("Finished Sorting Data!\n");
 					}else cout << "No data is Loaded Yet!\n";
 		       break;

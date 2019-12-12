@@ -4,7 +4,7 @@
 #include <ctime>
 
  double iSortC(int a[], int length){
-	 
+	 //BUBBLE SORT
 	time_t timeBefore;
 	time_t timeAfter;
 	timeBefore = time(NULL);
