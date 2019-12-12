@@ -65,13 +65,14 @@
 					if(input.is_open()){
 					
 						while(!input.eof()){
+							cout <<str <<  endl;
 							getline(input, str, '\n');
-							x = stoi(str);
+							 x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							 dataSetA[elementCount] = x;
 							 dataSetC[elementCount] = x;
-							 cout <<str <<  endl;
+					
 							 dataSetA2[elementCount] = x;
 							 dataSetC2[elementCount] = x;
 							 elementCount++;
