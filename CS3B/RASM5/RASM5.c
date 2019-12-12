@@ -41,8 +41,8 @@
 			   case 1:
 					file = fopen ("input.txt", "r");
 					if(!file){
-						return -1;
 						printf("File was not opened!");
+						break;
 					}
 					for(int i = 0; i < SIZE; i++){
 						fscanf (file, "%d\n", &x); 
