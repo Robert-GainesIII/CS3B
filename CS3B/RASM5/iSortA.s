@@ -27,7 +27,7 @@ iSortA:
 	str r0, [r4]
 	
 	add r0, r4, r6, LSL #2 	// r0 <- &array[4*count] 
-	str r1, [r0] 			// array[4*count] <- number 
+	//str r1, [r0] 			// array[4*count] <- number 
 	add r6, r6, #1 			// count = count + 1
 	
 	MOV R0, R4
