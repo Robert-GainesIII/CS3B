@@ -56,7 +56,7 @@
 		   
 		   switch(choice){
 			   case 1:
-					input.open("/input.txt");
+					input.open("/home/pi/CS3B/CS3B/RASM5/input.txt");
 					if(!input){
 						printf("File was not opened!");
 						break;
