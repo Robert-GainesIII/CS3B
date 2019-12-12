@@ -58,7 +58,7 @@
 		   printf("<6> Save arrays\n");
 		   printf("<7> Quit\n");
 		   
-		    for(int i = 0; i < 17; i++){
+		    for(int i = 0; i < 18; i++){
 				cout << endl;
 			}
 		   printf("Choice -> ");
@@ -114,7 +114,7 @@
 						printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
 						cTime = iSortC(dataSetC, 200000);
 						printf("Finished Sorting Data!\n");
-					}else cout << "No data is Loaded Yet!";
+					}else cout << "No data is Loaded Yet!\n";
 			   break;
 			   case 3:
 					if(elementCount > 0){
@@ -124,14 +124,14 @@
 						timeAfter = time(NULL);
 						aTime = timeAfter - timeBefore;
 						printf("Finished Sorting Data!\n");
-					}else cout << "No data is Loaded Yet!";
+					}else cout << "No data is Loaded Yet!\n";
 			   break;
 			   case 4:
 					if(elementCount > 0){
 						printf("Executing C++ Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
 						cTime2 = iSortC(dataSetC2, 200000);
 						printf("Finished Sorting Data!\n");
-					}else cout << "No data is Loaded Yet!";
+					}else cout << "No data is Loaded Yet!\n";
 		       break;
 			   
 			   case 5: 
@@ -142,7 +142,7 @@
 						timeAfter = time(NULL);
 						aTime2 = timeAfter - timeBefore;
 						printf("Finished Sorting Data!\n");
-					}else cout << "No data is Loaded Yet!";
+					}else cout << "No data is Loaded Yet!\n";
 			   
 			   break;
 			   
