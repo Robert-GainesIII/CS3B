@@ -38,15 +38,13 @@ iloop: 						// for-loop as while loop
 	cmp r2, r1 				// i - n 
 	bge iloopend 			// i >= n => loopend
 
-	add r10, r0, r2, LSL #2 // temp = &array[4*i] 
-	ldr r10, [r10] 
+	LDR r10, [ r0, r2, LSL #2] // temp = &array[4*i] 
 	sub r3, r2, #1
 	
 jloop:  
 	cmp r3, #0 
 	blt jloopend 
-	add r9, r0, r3, LSL #2 	// r9 <- &array[4*j] 
-	ldr r9, [r9] 			// r9 <- array[4*j] 
+	ldr r9, [r0, r3, LSL #2]	// r9 <- &array[4*j]  		
 	cmp r10, r9 			// temp < array[4*j] ? 
 	bge jloopend 
 	add r8, r0, r3, LSL #2 
