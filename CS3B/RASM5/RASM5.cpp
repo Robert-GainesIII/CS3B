@@ -71,7 +71,7 @@
 							//printf("value at line %d: %d", i, x);
 							 dataSetA[elementCount] = x;
 							 dataSetC[elementCount] = x;
-							 //cout <<str <<  endl;
+							 cout <<str <<  endl;
 							 dataSetA2[elementCount] = x;
 							 dataSetC2[elementCount] = x;
 							 elementCount++;
