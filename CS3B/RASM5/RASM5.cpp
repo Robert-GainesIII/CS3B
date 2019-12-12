@@ -63,17 +63,18 @@
 					}
 					else
 					{
+						elementCount = 0
 						while(!input.eof()){
 							input >> x;
 							//printf("value at line %d: %d", i, x);
-							dataSetA[i] = x;
-							dataSetC[i] = x;
+							dataSetA[elementCount] = x;
+							dataSetC[elementCount] = x;
 							cout << x <<  endl;
+							elementCount++;
 							//dataSetA2[i] = x;
 							//dataSetC2[i] = x;
 						}
 						printf("File was sucsessfully loaded.");
-						elementCount =SIZE;
 						input.close();
 					}
 			   break;
