@@ -128,7 +128,7 @@
 				
 			  case 8:
 			  
-				printf(dataSetC);
+				printf("%d" ,dataSetC);
 				
 				printf("C++ BubbleSort first 100\n==================================\n");
 				for(int i = 0; i < 100; i++){
