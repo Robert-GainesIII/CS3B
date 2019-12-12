@@ -18,7 +18,7 @@
 	   int aTime = 0, cTime = 0;
 	   int aTime2 = 0, cTime2 = 0;
 	   int choice = 0;
-	   int x = 0;
+	   int x;
 	   char c;
 	   string temp;
 	   ifstream input;
