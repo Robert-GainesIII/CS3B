@@ -120,7 +120,7 @@
 					if(elementCount > 0){
 						printf("Executing Arm Assembly Bubble Sort.\nPlease Wait for Completion do NOT exit program!\n");
 						timeBefore = time(NULL);
-						iSortA(dataSetA2, 200000);
+						bSortA(dataSetA2, 200000);
 						timeAfter = time(NULL);
 						aTime = timeAfter - timeBefore;
 						printf("Finished Sorting Data!\n");
