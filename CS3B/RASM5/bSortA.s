@@ -35,7 +35,7 @@ LoopStart:
 
 	mov	r6, #1				@ set keep_going flag
 	sub	r4, r4, #4		@ reset pointer to first element
-	mov r8, r4			@ exchange value in r8 and address in r4
+	LDREX R8, R8, R4			@ exchange value in r8 and address in r4
 	str	r8, [r4, #4]!	@ store new r8 to incremented address
 NoSwap:
 	subs	r5, r5, #1			@ decrement counter
