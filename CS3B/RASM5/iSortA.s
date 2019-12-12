@@ -9,6 +9,7 @@ Output: Void
 .data
 
 iArray: .skip 800000
+number  .word 0
 
 
 
@@ -20,8 +21,17 @@ iSortA:
 
 	push {r0, r1, lr}
 	
-	LDR r0, [R0] 
-	MOV R6, R1
+	
+	mov r6, #0 				// keep count in r6 
+	ldr r4, =iArray
+	str r0, [r4]
+	
+	add r0, r4, r6, LSL #2 	// r0 <- &array[4*count] 
+	str r1, [r0] 			// array[4*count] <- number 
+	add r6, r6, #1 			// count = count + 1
+	
+	MOV R0, R4
+	MOV R1, R6
 
 	mov r2, #1 				// i = 1 
 iloop: 						// for-loop as while loop 
