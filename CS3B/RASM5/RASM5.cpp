@@ -129,9 +129,10 @@
 			  case 8:
 			  
 				
+				
 				printf("C++ BubbleSort first 100\n==================================\n");
 				for(int i = 0; i < 100; i++){
-					cout << i << ":" << dataSetC[i] << endl;
+					printf("%d: %d\n" ,i ,dataSetC++);
 				}
 				
 				printf("A Insertion Sort first 100\n==================================\n");
