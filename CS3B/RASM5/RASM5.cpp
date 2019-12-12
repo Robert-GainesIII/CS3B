@@ -3,6 +3,7 @@
 #include <istream>
 #include <stdio.h>
 #include "iSortC.h"
+#include <ctime>
 
   extern "C" int iSortA(int [], int size);
   extern "C" int bSortA(int [], int size);
@@ -28,15 +29,25 @@
 	   ofstream output2;
 	   ofstream output3;
 	   ofstream output4;
+	    time_t now = time(0);
+  
+
+
 	   while(choice != 7){
+		   // convert now to string form
+			char* dt = ctime(&now);
+
+			
 		   temp = "";
 		   
 		   printf("\t\tRASM5 C Vs Assembly\n");
+		   printf("Author: Robert Gaines\n");
+		   cout << "The local date and time is: " << dt << endl;
 		   printf("\t\tFile Element Count: %d\n", elementCount);
 		   printf("------------------------------------------------\n");
-		   printf("C)\t BubbleSort Time: %dsecs\n", cTime);
+		   printf("C)\t  BubbleSort Time: %dsecs\n", cTime);
 		   printf("Assembly) BubbleSort Time: %dsecs\n", aTime);
-		   printf("C)\t Insertion Sort Time: %dsecs\n", cTime2);
+		   printf("C)\t  Insertion Sort Time: %dsecs\n", cTime2);
 		   printf("Assembly) Insertion Sort Time: %dsecs\n", aTime2);
 		   printf("------------------------------------------------\n");
 		   printf("<1> Load input file (integers)\n");
@@ -150,19 +161,6 @@
 				
 				break;
 				
-			  case 8:
-			  
-				
-				
-				printf("C++ BubbleSort first 100\n==================================\n");
-				for(int i = 0; i < 100; i++){
-					printf("%d: %d\n" ,i ,dataSetC[i]);
-				}
-				
-				printf("A Insertion Sort first 100\n==================================\n");
-				for(int i = 0; i < 100; i++){
-					printf("%d: %d\n" ,i ,dataSetA[i]);
-				}
 			   default:
 			   cout << "Enter a valid Selection!" << endl;
 			   break;
