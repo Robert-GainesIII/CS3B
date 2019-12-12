@@ -61,6 +61,9 @@
 			   case 3:
 			   
 			   break;
+			   case 4:
+				cout << "Thnak you for using my program!" << endl;
+		       break;
 			   case 5: 
 			   for(int i = 0; i< 200000; i++)
 				printf("%d ", dataSetA[i]);
