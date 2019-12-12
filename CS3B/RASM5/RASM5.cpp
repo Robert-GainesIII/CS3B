@@ -75,7 +75,7 @@
 						
 						while(!input.eof()){
 							getline(input, str, '\n');
-							if(str.length > 1){
+							if(str.length() > 1){
 							cout << str <<  endl;
 							x = stoi(str);
 							//input.ignore(10, '\n');
