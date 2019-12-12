@@ -63,7 +63,7 @@
 					input.open("input.txt");
 					if(!input){
 						printf("File was not opened!");
-						return;
+						break;
 					}
 					else
 					{
