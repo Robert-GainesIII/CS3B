@@ -127,6 +127,8 @@
 				break;
 				
 			  case 8:
+			  
+				cout << dataSetC;
 				
 				printf("C++ BubbleSort first 100\n==================================\n");
 				for(int i = 0; i < 100; i++){
