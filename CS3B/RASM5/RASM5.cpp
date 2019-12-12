@@ -68,6 +68,7 @@
 							//printf("value at line %d: %d", i, x);
 							dataSetA[i] = x;
 							dataSetC[i] = x;
+							cout << x << "-> " << dataSetC[i] << endl;
 							//dataSetA2[i] = x;
 							//dataSetC2[i] = x;
 						}
@@ -132,8 +133,7 @@
 				
 				printf("C++ BubbleSort first 100\n==================================\n");
 				for(int i = 0; i < 100; i++){
-					printf("%d: %d\n" ,i ,dataSetC);
-					dataSetC += 1;
+					printf("%d: %d\n" ,i ,dataSetC[i]);
 				}
 				
 				printf("A Insertion Sort first 100\n==================================\n");
