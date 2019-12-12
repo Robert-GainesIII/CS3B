@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-
+#include <stdio.h>
   int iSortA(int *);
   int iSortC(int *);
   using namespace std;
@@ -18,7 +18,7 @@
 	   string temp;
 	   ifstream input;
 	   while(choice != 4){
-		   
+		   temp = "";
 		   
 		   printf("\t\tRASM5 C Vs Assembly\n");
 		   printf("\t\tFile Element Count: %d\n", elementCount);
@@ -32,7 +32,7 @@
 		   printf("<4> Quit\n");
 		   printf("Choice -> \n");
 		 
-		   getchar(c);
+		   cin >> c;
 		   temp += c;
 		   choice = atoi(temp.c_str());
 		   
