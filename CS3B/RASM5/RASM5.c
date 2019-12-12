@@ -42,7 +42,7 @@
 					file = fopen ("input.txt", "r");
 					if(!file)return -1;
 					for(int i = 0; i < SIZE; i++){
-						fscanf (file, "%d", &x); 
+						fscanf (file, "%d\n", &x); 
 						dataSetA[i] = x;
 						dataSetC[i] = x;
 					}
