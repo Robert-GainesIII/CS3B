@@ -44,7 +44,7 @@
 						printf("File was not opened!");
 						break;
 					}
-					for(int i = 0; i < SIZE; i++){
+					for(int i = 0; i < 200000; i++){
 						fscanf (file, "%d\n", &x); 
 						dataSetA[i] = x;
 						dataSetC[i] = x;
