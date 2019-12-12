@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-#include <ifstream>
+#include <istream>
 #include <stdio.h>
 #include "iSortC.h"
 
