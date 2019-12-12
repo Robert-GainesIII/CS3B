@@ -75,6 +75,7 @@
 						
 						while(!input.eof()){
 							getline(input, str, '\n');
+							if(str.length > 1){
 							cout << str <<  endl;
 							x = stoi(str);
 							//input.ignore(10, '\n');
@@ -85,6 +86,7 @@
 							dataSetA2[elementCount] = x;
 						    dataSetC2[elementCount] = x;
 							elementCount++;
+							}
 						}
 						printf("File was sucsessfully loaded.");	
 					}
