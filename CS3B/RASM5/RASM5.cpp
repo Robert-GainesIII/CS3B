@@ -53,6 +53,7 @@
 		   time_t timeBefore;
 		   time_t timeAfter;
 		
+		string str;
 		   
 		   switch(choice){
 			   case 1:
@@ -64,8 +65,8 @@
 					else
 					{
 						elementCount = 0;
-						for(int i = 0; i < 200000; i++){
-							getline(input, x);
+						for(int i = 0; i < 200; i++){
+							input >> x;
 							//printf("value at line %d: %d", i, x);
 							dataSetA[elementCount] = x;
 							dataSetC[elementCount] = x;
