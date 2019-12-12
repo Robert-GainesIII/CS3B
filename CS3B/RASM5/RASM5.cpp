@@ -39,10 +39,10 @@
 
 			
 		   temp = "";
-		   
+		   printf("------------------------------------------------\n");
 		   printf("\t\tRASM5 C Vs Assembly\n");
 		   printf("Author: Robert Gaines\n");
-		   cout << "The local date and time is: " << dt << endl;
+		   cout << "Date: " << dt << endl;
 		   printf("\t\tFile Element Count: %d\n", elementCount);
 		   printf("------------------------------------------------\n");
 		   printf("C)\t  BubbleSort Time: %dsecs\n", cTime);
@@ -165,7 +165,9 @@
 			   cout << "Enter a valid Selection!" << endl;
 			   break;
 		   }
-		   
+		  for(int i = 0; i < 20; i++){
+				cout << endl;
+		  }
 	   }
 	   return 0;
   }
