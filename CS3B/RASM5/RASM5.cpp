@@ -61,13 +61,9 @@
 					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt"
 					int x;
 					input.open("/home/pi/CS3B/CS3B/RASM5/input.txt");
-					if(!input){
-						printf("File was not opened!");
-						break;
-					}
-					else
-					{
-						for(int i =0; i< 200; i++)
+					if(input.is_open()){
+					
+						for(int i =0; i< 200000; i++)
 						{
 							input >> x;
 							//input.ignore(10, '\n');
@@ -77,10 +73,10 @@
 							cout << x <<  endl;
 							//dataSetA2[i] = x;
 							//dataSetC2[i] = x;
-							printf("File was sucsessfully loaded.");
-							input.close();	
 						}
+						printf("File was sucsessfully loaded.");	
 					}
+					input.close();
 			   break;
 			   case 2:
 					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
