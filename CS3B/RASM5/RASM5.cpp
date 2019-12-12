@@ -21,7 +21,7 @@
 	   int x;
 	   char c;
 	   string temp;
-	   ifstream input ( "/home/pi/CS3B/CS3B/RASM5/input.txt", ios::in );
+	   ifstream input;
 	   ofstream output1;
 	   ofstream output2;
 	   ofstream output3;
@@ -57,7 +57,7 @@
 		   
 		   switch(choice){
 			   case 1:
-					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt");
+					input.open("/home/pi/CS3B/CS3B/RASM5/input.txt", ios::in);
 					if(!input){
 						printf("File was not opened!");
 						break;
@@ -66,7 +66,6 @@
 					{
 						elementCount = 0;
 						while(input >> x){
-							input >> x;
 							input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							dataSetA[elementCount] = x;
