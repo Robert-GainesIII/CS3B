@@ -67,7 +67,7 @@
 					}
 					else
 					{
-						for(int i =0; i< 200000; i++)
+						for(int i =0; i< 200; i++)
 						{
 							input >> x;
 							input.ignore(10, '\n');
