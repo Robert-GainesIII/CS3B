@@ -5,7 +5,6 @@
 #include "iSortC.h"
 
   extern "C" int iSortA(int [], int size);
-  void readFile(fstream &, int *, int *);
   using namespace std;
   
   int main()
@@ -60,7 +59,29 @@
 		   switch(choice){
 			   case 1:
 					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt"
-					readFile(input, dataSetA, dataSetC);
+					int x;
+					input.open("input.txt");
+					if(!input){
+						printf("File was not opened!");
+						return;
+					}
+					else
+					{
+						for(int i =0; i< 200000; i++)
+						{
+							input >> x;
+							input.ignore(10, '\n');
+							//printf("value at line %d: %d", i, x);
+							dataSetA[i] = x;
+							dataSetC[i] = x;
+							cout << x <<  endl;
+							//dataSetA2[i] = x;
+							//dataSetC2[i] = x;
+							printf("File was sucsessfully loaded.");
+							input.close();	
+						}
+					}
+		}
 			   break;
 			   case 2:
 					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
@@ -132,29 +153,4 @@
 		   
 	   }
 	   return 0;
-  }
-  
-  void readFile(fstream & input, int *a, int *c){
-	  
-	  int x;
-	  input.open("input.txt");
-		if(!input){
-			printf("File was not opened!");
-			return;
-		}
-		else
-		{
-			for(int i =0; i< 200000; i++){
-				input >> x;
-				input.ignore(10, '\n');
-				//printf("value at line %d: %d", i, x);
-				a[i] = x;
-				c[i] = x;
-				cout << x <<  endl;
-				//dataSetA2[i] = x;
-				//dataSetC2[i] = x;
-			}
-			printf("File was sucsessfully loaded.");
-			input.close();
-		}
   }
