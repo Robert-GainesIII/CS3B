@@ -44,9 +44,9 @@
 						printf("File was not opened!");
 						break;
 					}
-					for(int i = 0; i < 200000; i++){
+					for(int i = 0; i < 200; i++){
 						fscanf (file, "%d\n", &x); 
-						printf("value at line 1: %d", x);
+						printf("value at line %d: %d", i, x);
 						dataSetA[i] = x;
 						dataSetC[i] = x;
 					}
@@ -60,7 +60,7 @@
 			   
 			   break;
 			   case 5: 
-			   for(int i = 0; i< 200000; i++)
+			   for(int i = 0; i< 200; i++)
 				printf("%d ", dataSetA[i]);
 			   break;
 			   
