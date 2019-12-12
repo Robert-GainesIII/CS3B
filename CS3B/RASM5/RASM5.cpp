@@ -65,9 +65,9 @@
 					if(input.is_open()){
 					
 						while(!input.eof()){
-							getline(input, str, '\n');
+							getline(input, str);
 							cout << str <<  endl;
-							 //x = stoi(str);
+							 x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							 //dataSetA[elementCount] = x;
