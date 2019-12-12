@@ -15,7 +15,8 @@
 	   int choice = 0;
 	   int temp =0;
 	   int x = 0;
-	   const char * c;
+	   char c;
+	   string temp;
 	   ifstream input;
 	   while(choice != 4){
 		   
@@ -33,9 +34,8 @@
 		   printf("Choice -> \n");
 		 
 		   cin >> c;
-		   
-		   choice = atoi(c);
-		   
+		   temp += c;
+		   choice = atoi(temp.c_str());
 		   
 		   switch(choice){
 			   case 1:
