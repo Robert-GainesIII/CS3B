@@ -64,18 +64,17 @@
 					input.open("/home/pi/CS3B/CS3B/RASM5/input.txt");
 					if(input.is_open()){
 					
-						for(int i =0; i< 200000; i++)
-						{
+						while(!input.eof()){
 							getline(input, str, '\n');
-							if(!input)break;
 							x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
-							 dataSetA[i] = x;
-							 dataSetC[i] = x;
+							 dataSetA[elementCount] = x;
+							 dataSetC[elementCount] = x;
 							 //cout <<str <<  endl;
-							 dataSetA2[i] = x;
-							 dataSetC2[i] = x;
+							 dataSetA2[elementCount] = x;
+							 dataSetC2[elementCount] = x;
+							 elementCount++;
 						}
 						printf("File was sucsessfully loaded.");	
 					}
