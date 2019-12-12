@@ -135,7 +135,7 @@
   
   void readFile(int a[], int c[]){
 	  
-	  
+	  int x;
 	  input.open("input.txt");
 		if(!input){
 			printf("File was not opened!");
@@ -143,15 +143,13 @@
 		}
 		else
 		{
-			elementCount = 0;
 			for(int i =0; i< 200000; i++){
 				input >> x;
 				input.ignore(10, '\n');
 				//printf("value at line %d: %d", i, x);
-				a[elementCount] = x;
-				c[elementCount] = x;
+				a[i] = x;
+				c[it] = x;
 				cout << x <<  endl;
-				elementCount++;
 				//dataSetA2[i] = x;
 				//dataSetC2[i] = x;
 			}
