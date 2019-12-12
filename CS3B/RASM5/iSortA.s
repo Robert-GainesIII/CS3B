@@ -54,7 +54,7 @@ jloop:
     b jloop 				// end jloop 
 jloopend: 
 	add r3, r3, #1  		// j <- j+1 
-	add r8, r0, r3, LSL #2  // r8 <- &array[4*(j+1)] 
+	ldr r8, [r0, r3, LSL #2]  // r8 <- &array[4*(j+1)] 
 	str r10, [r8]			// a[j+1] <- temp 
 	add r2, r2, #1  		//i++ 
 	b iloop
