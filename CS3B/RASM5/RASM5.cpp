@@ -61,7 +61,7 @@
 		    for(int i = 0; i < 17; i++){
 				cout << endl;
 			}
-		   printf("Choice -> \n");
+		   printf("Choice -> ");
 		 
 		   cin >> c;
 		   temp += c;
@@ -110,33 +110,39 @@
 			   break;
 			   }
 			   case 2:
-					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
-					cTime = iSortC(dataSetC, 200000);
-					printf("Finished Sorting Data!");
+					if(elementCount > 0){
+						printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
+						cTime = iSortC(dataSetC, 200000);
+						printf("Finished Sorting Data!\n");
+					}else cout << "No data is Loaded Yet!";
 			   break;
 			   case 3:
-					printf("Executing Arm Assembly Bubble Sort.\nPlease Wait for Completion do NOT exit program!\n");
-					timeBefore = time(NULL);
-					iSortA(dataSetA2, 200000);
-					timeAfter = time(NULL);
-					aTime = timeAfter - timeBefore;
-					printf("Finished Sorting Data!");
-					
+					if(elementCount > 0){
+						printf("Executing Arm Assembly Bubble Sort.\nPlease Wait for Completion do NOT exit program!\n");
+						timeBefore = time(NULL);
+						iSortA(dataSetA2, 200000);
+						timeAfter = time(NULL);
+						aTime = timeAfter - timeBefore;
+						printf("Finished Sorting Data!\n");
+					}else cout << "No data is Loaded Yet!";
 			   break;
 			   case 4:
-					printf("Executing C++ Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
-					cTime2 = iSortC(dataSetC2, 200000);
-					printf("Finished Sorting Data!");
+					if(elementCount > 0){
+						printf("Executing C++ Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
+						cTime2 = iSortC(dataSetC2, 200000);
+						printf("Finished Sorting Data!\n");
+					}else cout << "No data is Loaded Yet!";
 		       break;
 			   
 			   case 5: 
-					
-					printf("Executing Arm Assembly Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
-					timeBefore = time(NULL);
-					iSortA(dataSetA, 200000);
-					timeAfter = time(NULL);
-					aTime2 = timeAfter - timeBefore;
-					printf("Finished Sorting Data!");
+					if(elementCount > 0){
+						printf("Executing Arm Assembly Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
+						timeBefore = time(NULL);
+						iSortA(dataSetA, 200000);
+						timeAfter = time(NULL);
+						aTime2 = timeAfter - timeBefore;
+						printf("Finished Sorting Data!\n");
+					}else cout << "No data is Loaded Yet!";
 			   
 			   break;
 			   
