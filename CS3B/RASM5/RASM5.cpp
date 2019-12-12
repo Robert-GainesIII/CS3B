@@ -15,7 +15,7 @@
 	   int choice = 0;
 	   int temp =0;
 	   int x = 0;
-	   char c;
+	   const char * c;
 	   ifstream input;
 	   while(choice != 4){
 		   
