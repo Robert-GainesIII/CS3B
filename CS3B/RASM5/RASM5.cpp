@@ -103,7 +103,7 @@
 			   break;
 			   case 4:
 					printf("Executing C++ Insertion Sort.\nPlease Wait for Completion do NOT exit program!\n");
-					cTime = iSortC(dataSetC2, 200000);
+					cTime2 = iSortC(dataSetC2, 200000);
 					printf("Finished Sorting Data!");
 		       break;
 			   
