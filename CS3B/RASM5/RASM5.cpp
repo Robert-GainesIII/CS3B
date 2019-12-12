@@ -70,7 +70,7 @@
 						for(int i =0; i< 200; i++)
 						{
 							input >> x;
-							input.ignore(10, '\n');
+							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							dataSetA[i] = x;
 							dataSetC[i] = x;
