@@ -46,6 +46,7 @@
 					}
 					for(int i = 0; i < 200000; i++){
 						fscanf (file, "%d\n", &x); 
+						printf("value at line 1: %d", x);
 						dataSetA[i] = x;
 						dataSetC[i] = x;
 					}
