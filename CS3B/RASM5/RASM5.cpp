@@ -4,7 +4,7 @@
 #include "iSortC.h"
 
   extern "C" int iSortA(int [], int size);
-  void readFile(istream &, int *, int *);
+  void readFile(ifstream &, int *, int *);
   using namespace std;
   
   int main()
