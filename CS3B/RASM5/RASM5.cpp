@@ -21,7 +21,7 @@
 	   int x;
 	   char c;
 	   string temp;
-	   ifstream input ( "input.txt", ios::in );
+	   ifstream input ( "/home/pi/CS3B/CS3B/RASM5/input.txt", ios::in );
 	   ofstream output1;
 	   ofstream output2;
 	   ofstream output3;
