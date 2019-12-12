@@ -68,8 +68,8 @@
 							//printf("value at line %d: %d", i, x);
 							dataSetA[i] = x;
 							dataSetC[i] = x;
-							dataSetA2[i] = x;
-							dataSetC2[i] = x;
+							//dataSetA2[i] = x;
+							//dataSetC2[i] = x;
 						}
 						printf("File was sucsessfully loaded.");
 						elementCount =SIZE;
