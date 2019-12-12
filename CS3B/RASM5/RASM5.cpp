@@ -5,6 +5,7 @@
 #include "iSortC.h"
 
   extern "C" int iSortA(int [], int size);
+  extern "C" int bSortA(int [], int size);
   using namespace std;
   
   int main()
@@ -99,6 +100,12 @@
 					printf("Finished Sorting Data!");
 			   break;
 			   case 3:
+					printf("Executing Arm Assembly Bubble Sort.\nPlease Wait for Completion do NOT exit program!\n");
+					timeBefore = time(NULL);
+					iSortA(dataSetA2, 200000);
+					timeAfter = time(NULL);
+					aTime = timeAfter - timeBefore;
+					printf("Finished Sorting Data!");
 					
 			   break;
 			   case 4:
@@ -127,8 +134,8 @@
 					for(int i = 0; i < 200000; i++){
 						output1 << dataSetC2[i] << endl;
 						output2 << dataSetC[i] << endl;
-						output3 << dataSetA2[i] << endl;
-						output4 << dataSetA[i] << endl;
+						output3 << dataSetA[i] << endl;
+						output4 << dataSetA2[i] << endl;
 					}
 					
 					output1.close();
