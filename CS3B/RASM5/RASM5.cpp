@@ -58,7 +58,7 @@
 		   printf("<6> Save arrays\n");
 		   printf("<7> Quit\n");
 		   
-		    for(int i = 0; i < 20; i++){
+		    for(int i = 0; i < 17; i++){
 				cout << endl;
 			}
 		   printf("Choice -> \n");
