@@ -54,6 +54,10 @@
 			   case 3:
 			   
 			   break;
+			   case 5: 
+			   printf(dataSetA);
+			   break;
+			   
 			   default:
 			   break;
 		   }
