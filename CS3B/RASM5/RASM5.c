@@ -40,12 +40,16 @@
 		   switch(choice){
 			   case 1:
 					file = fopen ("input.txt", "r");
-					if(!file)return -1;
+					if(!file){
+						return -1;
+						printf("File was not opened!");
+					}
 					for(int i = 0; i < SIZE; i++){
 						fscanf (file, "%d\n", &x); 
 						dataSetA[i] = x;
 						dataSetC[i] = x;
 					}
+					printf("File was sucsessfully loaded.");
 					elementCount =SIZE;
 			   break;
 			   case 2:
