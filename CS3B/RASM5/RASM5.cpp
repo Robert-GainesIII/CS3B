@@ -56,7 +56,7 @@
 		   
 		   switch(choice){
 			   case 1:
-					input.open("input.txt");
+					input.open("/input.txt");
 					if(!input){
 						printf("File was not opened!");
 						break;
@@ -64,7 +64,7 @@
 					else
 					{
 						elementCount = 0;
-						while(!input.eof()){
+						for(int i = 0; i < 200000; i++){
 							input >> x;
 							//printf("value at line %d: %d", i, x);
 							dataSetA[elementCount] = x;
