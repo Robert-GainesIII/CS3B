@@ -5,7 +5,7 @@
 #include "iSortC.h"
 
   extern "C" int iSortA(int [], int size);
-  void readFile(ifstream &, int *, int *);
+  void readFile(fstream &, int *, int *);
   using namespace std;
   
   int main()
@@ -134,7 +134,7 @@
 	   return 0;
   }
   
-  void readFile(ifstream & input, int *a, int *c){
+  void readFile(fstream & input, int *a, int *c){
 	  
 	  int x;
 	  input.open("input.txt");
