@@ -20,8 +20,8 @@ iSortA:
 
 	push {r0, r1, lr}
 	
-	mov r0, r4 
-	mov r1, r6
+	LDR r0, [R0] 
+	MOV R6, R1
 
 	mov r2, #1 				// i = 1 
 iloop: 						// for-loop as while loop 

@@ -35,16 +35,18 @@ double insertionSort(int array[], int size) {
 	timeBefore = time(NULL);
 	
     int key, j;
-    for(int i = 1; i<size; i++) {
-	   key = array[i];//take value
-	   j = i;
-	   while(j > 0 && array[j-1]>key) {
-		  array[j] = array[j-1];
-		  j--;
-	   }
-	   array[j] = key;   //insert in right place
-    }
-    
+    for(int k=1; k<size; k++)  
+    { 
+        int temp = array[k]; 
+        j= k-1; 
+        while(j>=0 && temp <= array[j]) 
+        { 
+            array[j+1] = array[j];  
+            j = j-1; 
+        } 
+        array[j+1] = temp; 
+    } 
+
 	timeAfter = time(NULL);
 	return timeAfter - timeBefore;
 }
