@@ -75,7 +75,7 @@
 						
 						while(!input.eof()){
 							getline(input, str, '\n');
-							//cout << str <<  endl;
+							cout << str <<  endl;
 							x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
