@@ -63,7 +63,7 @@
 					}
 					else
 					{
-						elementCount = 0
+						elementCount = 0;
 						while(!input.eof()){
 							input >> x;
 							//printf("value at line %d: %d", i, x);
