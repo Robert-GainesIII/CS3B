@@ -81,7 +81,6 @@
 							input.close();	
 						}
 					}
-		}
 			   break;
 			   case 2:
 					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
