@@ -26,7 +26,7 @@
 	   ofstream output2;
 	   ofstream output3;
 	   ofstream output4;
-	   while(choice != 4){
+	   while(choice != 7){
 		   temp = "";
 		   
 		   printf("\t\tRASM5 C Vs Assembly\n");
@@ -120,6 +120,23 @@
 					output4.close();
 			   break;
 			   
+			   case 7:
+			   
+				printf("Thank you for using my Program!\n");
+				
+				break;
+				
+			  case 8:
+				
+				printf("C++ BubbleSort first 100\n==================================\n");
+				for(int i = 0; i < 100; i++){
+					printf("%d: %d\n" ,i ,dataSetC[i]);
+				}
+				
+				printf("A Insertion Sort first 100\n==================================\n");
+				for(int i = 0; i < 100; i++){
+					printf("%d: %d\n" ,i ,dataSetA[i]);
+				}
 			   default:
 			   cout << "Enter a valid Selection!" << endl;
 			   break;
