@@ -63,12 +63,12 @@
 					}
 					else
 					{
-						for(int i = 0; i < 200000; i++){
+						while(!input.eof()){
 							input >> x;
 							//printf("value at line %d: %d", i, x);
 							dataSetA[i] = x;
 							dataSetC[i] = x;
-							cout << x << "-> " << dataSetC[i] << endl;
+							cout << x <<  endl;
 							//dataSetA2[i] = x;
 							//dataSetC2[i] = x;
 						}
