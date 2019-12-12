@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <stdio.h>
-  int iSortA(int *);
+#include "iSortC.h"
+
   int iSortC(int *);
   using namespace std;
   
@@ -47,7 +48,7 @@
 					{
 						for(int i = 0; i < 200000; i++){
 							input >> x;
-							printf("value at line %d: %d", i, x);
+							//printf("value at line %d: %d", i, x);
 							dataSetA[i] = x;
 							dataSetC[i] = x;
 						}
@@ -56,17 +57,20 @@
 					}
 			   break;
 			   case 2:
-			   
+					printf("Executing C++ bubblesort.\nPlease Wait for Completion do NOT exit program!\n");
+					cTime = iSortC(dataSetC, 200000);
 			   break;
 			   case 3:
 			   
 			   break;
 			   case 4:
-				cout << "Thnak you for using my program!" << endl;
+				cout << "Thank you for using my program!" << endl;
 		       break;
+			   //PRINT OUT ARRAY
+			   
 			   case 5: 
 			   for(int i = 0; i< 200000; i++)
-				printf("%d ", dataSetA[i]);
+				printf("%d:%d \n", i, dataSetC[i]);
 			   break;
 			   
 			   default:
