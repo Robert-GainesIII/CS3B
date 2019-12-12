@@ -67,13 +67,14 @@
 						for(int i =0; i< 200000; i++)
 						{
 							getline(input, str, '\n');
+							x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
-							//dataSetA[i] = x;
-							//dataSetC[i] = x;
-							cout <<str <<  endl;
-							//dataSetA2[i] = x;
-							//dataSetC2[i] = x;
+							 dataSetA[i] = x;
+							 dataSetC[i] = x;
+							 //cout <<str <<  endl;
+							 dataSetA2[i] = x;
+							 dataSetC2[i] = x;
 						}
 						printf("File was sucsessfully loaded.");	
 					}
