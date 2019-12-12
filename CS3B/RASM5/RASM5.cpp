@@ -65,8 +65,9 @@
 					else
 					{
 						elementCount = 0;
-						for(int i = 0; i < 200000; i++){
+						while(input >> x){
 							input >> x;
+							input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							dataSetA[elementCount] = x;
 							dataSetC[elementCount] = x;
