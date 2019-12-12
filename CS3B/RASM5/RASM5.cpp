@@ -21,7 +21,7 @@
 	   int x;
 	   char c;
 	   string temp;
-	   ifstream input("input.txt");
+	   ifstream input;
 	   ofstream output1;
 	   ofstream output2;
 	   ofstream output3;
@@ -57,7 +57,8 @@
 		   
 		   switch(choice){
 			   case 1:
-					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt", ios::in);
+					//input.open("/home/pi/CS3B/CS3B/RASM5/input.txt"
+					input.open("input.txt");
 					if(!input){
 						printf("File was not opened!");
 						break;
