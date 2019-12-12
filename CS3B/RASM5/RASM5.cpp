@@ -67,15 +67,15 @@
 						while(!input.eof()){
 							getline(input, str, '\n');
 							cout << str <<  endl;
-							 x = stoi(str);
+							 //x = stoi(str);
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
-							 dataSetA[elementCount] = x;
-							 dataSetC[elementCount] = x;
+							 //dataSetA[elementCount] = x;
+							// dataSetC[elementCount] = x;
 					
-							 dataSetA2[elementCount] = x;
-							 dataSetC2[elementCount] = x;
-							 elementCount++;
+							// dataSetA2[elementCount] = x;
+							// dataSetC2[elementCount] = x;
+							 //elementCount++;
 						}
 						printf("File was sucsessfully loaded.");	
 					}
