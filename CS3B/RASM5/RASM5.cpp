@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <ifstream>
 #include <stdio.h>
 #include "iSortC.h"
 
@@ -133,13 +134,13 @@
 	   return 0;
   }
   
-  void readFile(istream & input, int a[], int c[]){
+  void readFile(ifstream & input, int *a, int *c){
 	  
 	  int x;
 	  input.open("input.txt");
 		if(!input){
 			printf("File was not opened!");
-			break;
+			return;
 		}
 		else
 		{
