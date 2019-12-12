@@ -21,14 +21,14 @@ iSortA:
 
 	push {r0, r1, lr}
 	
+	mov r4, r0
+	mov r6, r1 				// keep count in r6 
+	//ldr r4, =iArray
+	//str r0, [r4]
 	
-	mov r6, #0 				// keep count in r6 
-	ldr r4, =iArray
-	str r0, [r4]
-	
-	add r0, r4, r6, LSL #2 	// r0 <- &array[4*count] 
+	//add r0, r4, r6, LSL #2 	// r0 <- &array[4*count] 
 	//str r1, [r0] 			// array[4*count] <- number 
-	add r6, r6, #1 			// count = count + 1
+	//add r6, r6, #1 			// count = count + 1
 	
 	MOV R0, R4
 	MOV R1, R6
