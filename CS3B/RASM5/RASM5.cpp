@@ -63,7 +63,9 @@
 					int x;
 					input.open("/home/pi/CS3B/CS3B/RASM5/input.txt");
 					if(input.is_open()){
-					
+						getline(input, str);
+						str = str.substr(1);
+						cout << str << endl;
 						while(!input.eof()){
 							getline(input, str);
 							cout << str <<  endl;
