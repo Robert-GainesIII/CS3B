@@ -19,7 +19,7 @@
 	   int aTime = 0, cTime = 0;
 	   int aTime2 = 0, cTime2 = 0;
 	   int choice = 0;
-	   double x;
+	   int x;
 	   char c;
 	   string temp;
 	   ifstream input;
@@ -66,12 +66,12 @@
 					
 						for(int i =0; i< 200000; i++)
 						{
-							input >> x;
+							input.getline(str, 20, '\n');
 							//input.ignore(10, '\n');
 							//printf("value at line %d: %d", i, x);
 							//dataSetA[i] = x;
 							//dataSetC[i] = x;
-							cout << x <<  endl;
+							cout <<str <<  endl;
 							//dataSetA2[i] = x;
 							//dataSetC2[i] = x;
 						}
